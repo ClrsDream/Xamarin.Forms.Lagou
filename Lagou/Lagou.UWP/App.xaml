@@ -6,4 +6,13 @@
     xmlns:cm="using:Caliburn.Micro"
     RequestedTheme="Dark">
 
+
+    <cm:CaliburnApplication.Resources>
+        <ResourceDictionary Source="Xamarin.xaml">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Pivot.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </cm:CaliburnApplication.Resources>
+
 </cm:CaliburnApplication>    
