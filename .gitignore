@@ -39,7 +39,6 @@ TestResult.xml
 dlldata.c
 
 # DNX
-project.lock.json
 artifacts/
 
 *_i.c
@@ -169,7 +168,6 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
-*.pfx
 *.publishsettings
 node_modules/
 orleans.codegen.cs
