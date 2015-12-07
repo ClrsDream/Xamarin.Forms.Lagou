@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lagou.Views.MDIView"
+              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
+              Title="Lagou"
+              local:MasterDetailLocator.Master="{Binding Master}"
+              local:MasterDetailLocator.Detail="{Binding Detail}"
+                  >
+  
+</MasterDetailPage>

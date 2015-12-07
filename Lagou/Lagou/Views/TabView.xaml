@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lagou.Views.TabView"
+            xmlns:local="clr-namespace:Lagou;assembly=Lagou"
+            ItemsSource="{Binding Datas}"            
+            >
+
+  <TabbedPage.ItemTemplate>
+    <DataTemplate>
+      <local:ViewLocatorPage Title="{Binding DisplayName}" VM="{Binding}" />
+    </DataTemplate>
+  </TabbedPage.ItemTemplate>  
+  
+</TabbedPage>

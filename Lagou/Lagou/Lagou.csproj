@@ -36,7 +36,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="BaseVM.cs" />
+    <Compile Include="MasterDetailLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewLocatorPage.cs" />
+    <Compile Include="ViewModels\IndexViewModel.cs" />
+    <Compile Include="ViewModels\MDIViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="ViewModels\TabViewModel.cs" />
+    <Compile Include="Views\IndexView.xaml.cs">
+      <DependentUpon>IndexView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MDIView.xaml.cs">
+      <DependentUpon>MDIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabView.xaml.cs">
+      <DependentUpon>TabView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -71,6 +94,36 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.0.0.6490\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Design\Xamarin.Forms.Xaml.Design.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MDIView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TabView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SettingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\IndexView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SearchView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
