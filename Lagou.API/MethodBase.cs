@@ -81,7 +81,7 @@ namespace Lagou.API {
 
         internal async Task<TResult> Execute(ApiClient client) {
             var result = await this.GetResult(client);
-            this.ParseMessage(result);
+            //this.ParseMessage(result);
             return this.Execute(result);
         }
 

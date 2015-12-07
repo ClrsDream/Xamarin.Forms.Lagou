@@ -30,6 +30,12 @@ namespace Lagou.API.Entities {
         [JsonProperty("companyLogo")]
         public string CompanyLogo { get; set; }
 
+        public string CompanyLogoUri {
+            get {
+                return this.CompanyLogo.FixUrl("http://www.lagou.com");
+            }
+        }
+
         [JsonProperty("companyName")]
         public string CompanyName { get; set; }
 

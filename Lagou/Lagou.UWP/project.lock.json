@@ -1623,6 +1623,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3336,6 +3349,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -5020,6 +5046,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
         }
       }
     },
@@ -6739,6 +6778,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8423,6 +8475,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
         }
       }
     },
@@ -10142,6 +10207,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -11826,6 +11904,19 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "XamlSpy/3.0.0-alpha1": {
+        "dependencies": {
+          "XamlSpyLibs": "[3.0.0-alpha1, )"
+        }
+      },
+      "XamlSpyLibs/3.0.0-alpha1": {
+        "compile": {
+          "lib/uap10.0/XamlSpy.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XamlSpy.dll": {}
         }
       }
     }
@@ -15440,6 +15531,39 @@
         "tools/Xamarin.Forms.Xaml.Design.dll",
         "Xamarin.Forms.nuspec"
       ]
+    },
+    "XamlSpy/3.0.0-alpha1": {
+      "sha512": "1btkjwoiCK4Jn1Du2tVdLfje2M2JwoWmMA9S8DmqjRZahPyLDXK7eGNljN6/dTuLAdfSYamnf1r+qxmkJgWmsQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "build/monoandroid50/XamlSpy.targets",
+        "build/uap10.0/XamlSpy.targets",
+        "build/xamarin.ios10/XamlSpy.targets",
+        "build/XamlSpy.targets",
+        "package/services/metadata/core-properties/e69e12f9fa02441e86b9d98f00ead0b2.psmdcp",
+        "XamlSpy.nuspec"
+      ]
+    },
+    "XamlSpyLibs/3.0.0-alpha1": {
+      "sha512": "No+BjxH86r4e/l7OhwOJYPrkaWQbSQz80g0aPca9ZgpfBQuMfIf9yrP+2Em/kNbuMyK2NyMz8TWKeUCbG2p2Aw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/monoandroid50/XamlSpy.dll",
+        "lib/net4/XamlSpy.dll",
+        "lib/net46/XamlSpy.dll",
+        "lib/sl5/XamlSpy.dll",
+        "lib/uap10.0/XamlSpy.dll",
+        "lib/win81/XamlSpy.dll",
+        "lib/wp81/XamlSpy.dll",
+        "lib/wpa81/XamlSpy.dll",
+        "lib/xamarin.ios10/XamlSpy.dll",
+        "package/services/metadata/core-properties/20fcf7eb98d7473e96c0f2d6171f223c.psmdcp",
+        "XamlSpyLibs.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -15450,7 +15574,9 @@
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "Xamarin.Forms >= 2.0.0.6490"
+      "Xamarin.Forms >= 2.0.0.6490",
+      "XamlSpy >= 3.0.0-alpha1",
+      "XamlSpyLibs >= 3.0.0-alpha1"
     ],
     "UAP,Version=v10.0": []
   }

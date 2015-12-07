@@ -25,6 +25,8 @@ namespace Lagou {
                 .Singleton<MDIViewModel>()
                 .Singleton<IndexViewModel>()
                 .Singleton<SearchViewModel>()
+
+                .PerRequest<SearchedItemViewModel>()
                 ;
 
             this.DisplayRootView<MDIView>();
