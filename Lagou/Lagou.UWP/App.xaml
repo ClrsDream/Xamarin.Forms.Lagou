@@ -12,6 +12,17 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Pivot.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </cm:CaliburnApplication.Resources>
 

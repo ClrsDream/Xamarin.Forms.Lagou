@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lagou.Views.SearchedItemView"
+             x:Class="Lagou.Views.SearchedItem.Windows"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              >
 
-  <Frame Style="{StaticResource SearchedItemContainer}">
+  <ctrls:Border CornerRadius="5" Stroke="Gray" StrokeThickness="1" BackgroundColor="White" Padding="5">
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
@@ -13,9 +13,9 @@
         <ColumnDefinition Width="70" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
-        <RowDefinition Height="auto" />
-        <RowDefinition />
-        <RowDefinition Height="auto" />
+        <RowDefinition Height="30" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="20" />
       </Grid.RowDefinitions>
 
       <ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
@@ -34,7 +34,6 @@
         <Label Text="{Binding Data.City}" Style="{StaticResource City}" HorizontalOptions="End" />
       </StackLayout>
     </Grid>
-  </Frame>
-
+  </ctrls:Border>
 
 </ContentView>

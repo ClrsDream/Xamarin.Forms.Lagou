@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.IndexView"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             BackgroundColor="#333333"
   >
 
   <ListView
@@ -14,7 +15,7 @@
       <DataTemplate>
         <ViewCell>
           <ViewCell.View>
-            <ContentView Padding="5,2" cal:View.Model="{Binding}" />
+            <ContentView Padding="4" cal:View.Model="{Binding}" />
           </ViewCell.View>
         </ViewCell>
       </DataTemplate>

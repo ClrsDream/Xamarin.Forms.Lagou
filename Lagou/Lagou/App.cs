@@ -15,7 +15,7 @@ namespace Lagou {
         private SimpleContainer Container = null;
 
         public App(SimpleContainer container) {
-            //this.InitializeComponent();
+            this.InitializeComponent();
 
             this.Container = container;
 
@@ -28,6 +28,11 @@ namespace Lagou {
 
                 .PerRequest<SearchedItemViewModel>()
                 ;
+
+            var f = ViewLocator.LocateTypeForModelType;
+            ViewLocator.LocateTypeForModelType = (type, bindable, context) => {
+                return f(type, bindable, context ?? Device.OS) ?? f(type, bindable, context);
+            };
 
             this.DisplayRootView<MDIView>();
 
