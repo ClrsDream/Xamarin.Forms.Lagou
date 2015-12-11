@@ -6,7 +6,7 @@
              >
 
   
-  <ctrls:Border CornerRadius="5" Stroke="Gray" StrokeThickness="1" BackgroundColor="White" Padding="5">
+  <ctrls:Border CornerRadius="5,5,5,5" Stroke="Gray" StrokeThickness="1" BackgroundColor="White" Padding="5">
   <!--<Frame Style="{StaticResource SearchedItemContainer}">-->
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
       <Label Text="{Binding Data.PositionName}" Style="{StaticResource PositionName}" Grid.Row="1" Grid.Column="1" />
       <Label Text="{Binding Data.CreateTime}" Style="{StaticResource CreateTime}" Grid.Row="2" Grid.Column="1" />
 
-      <ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
+      <!--<ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
                     Style="{StaticResource SalaryCityBox}">
         <StackLayout>
           <Grid Style="{StaticResource SalaryBox}">
@@ -40,7 +40,17 @@
             <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
           </Grid>
         </StackLayout>
-      </ctrls:Border>
+      </ctrls:Border>-->
+
+      <StackLayout Grid.RowSpan="3" Grid.Row="0" Grid.Column="2">
+        <ctrls:Border CornerRadius="5,5,0,0" BackgroundColor="White">
+          <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
+        </ctrls:Border>
+        <ctrls:Border CornerRadius="0,0,5,5" BackgroundColor="Green">
+          <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
+        </ctrls:Border>
+      </StackLayout>
+      
     </Grid>
   <!--</Frame>-->
   </ctrls:Border>

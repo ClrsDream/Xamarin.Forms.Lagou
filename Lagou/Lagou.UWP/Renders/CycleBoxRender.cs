@@ -51,7 +51,7 @@ namespace Lagou.UWP.Renders {
                 return;
 
             var wh = this.Element.Radius * 2;
-            this.Control.CornerRadius = new CornerRadius(this.Element.Radius);
+            this.Control.CornerRadius = new Windows.UI.Xaml.CornerRadius(this.Element.Radius) ;// new WX.CornerRadius(this.Element.Radius);
 
             this.Element.WidthRequest = wh;
             this.Element.HeightRequest = wh;

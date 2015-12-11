@@ -17,11 +17,11 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 
 [assembly: ExportRendererAttribute(typeof(Lagou.Controls.Border), typeof(BorderRender))]
 namespace Lagou.UWP.Renders {
-    public class BorderRender : ViewRenderer<Border, ClipBorder> {
+    public class BorderRender : ViewRenderer<Border, WC.Border> {
 
         protected override void OnElementChanged(ElementChangedEventArgs<Border> e) {
             base.OnElementChanged(e);
-            SetNativeControl(new ClipBorder());
+            SetNativeControl(new WC.Border());
             UpdateControl();
         }
 
@@ -52,12 +52,13 @@ namespace Lagou.UWP.Renders {
                 Platform.SetRenderer(Element.Content, Platform.GetRenderer(Element.Content));
             }
             var render = Platform.GetRenderer(Element.Content) as WX.UIElement;
-            Control.Content = render;
+            Control.Child = render;
         }
 
         private void UpdateControl() {
             var border = this.Control;
-            border.CornerRadius = new WX.CornerRadius(Element.CornerRadius);
+            var c = this.Element.CornerRadius;
+            border.CornerRadius = new WX.CornerRadius(c.TopLeft, c.TopRight, c.BottomRight, c.BottomLeft);
             border.BorderBrush = Element.Stroke.ToBrush();
             border.BorderThickness = Element.StrokeThickness.ToWinPhone();
             border.Padding = Element.Padding.ToWinPhone();
