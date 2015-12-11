@@ -12,7 +12,7 @@ namespace Lagou.Controls {
         public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create<Border, double>(p => p.CornerRadius, 0);
         public static readonly BindableProperty StrokeProperty = BindableProperty.Create<Border, Color>(p => p.Stroke, Color.Transparent);
         public static readonly BindableProperty StrokeThicknessProperty = BindableProperty.Create<Border, Thickness>(p => p.StrokeThickness, default(Thickness));
-        public static readonly BindableProperty IsClippedToBorderProperty = BindableProperty.Create<Border, bool>(p => p.IsClippedToBorder, default(bool));
+        public static readonly BindableProperty IsClippedToBorderProperty = BindableProperty.Create<Border, bool>(p => p.IsClippedToBorder, true);
 
         public double CornerRadius {
             get {

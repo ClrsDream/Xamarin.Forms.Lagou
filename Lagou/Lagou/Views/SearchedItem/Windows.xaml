@@ -5,7 +5,9 @@
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              >
 
+  
   <ctrls:Border CornerRadius="5" Stroke="Gray" StrokeThickness="1" BackgroundColor="White" Padding="5">
+  <!--<Frame Style="{StaticResource SearchedItemContainer}">-->
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
@@ -20,7 +22,7 @@
 
       <ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
         <Image Source="{Binding Data.CompanyLogoUri}"
-               WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
+                     WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
              />
       </ctrls:CycleBox>
 
@@ -28,12 +30,19 @@
       <Label Text="{Binding Data.PositionName}" Style="{StaticResource PositionName}" Grid.Row="1" Grid.Column="1" />
       <Label Text="{Binding Data.CreateTime}" Style="{StaticResource CreateTime}" Grid.Row="2" Grid.Column="1" />
 
-      <StackLayout Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" HorizontalOptions="End">
-        <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
-        <BoxView HeightRequest="0.5" Color="Gray"/>
-        <Label Text="{Binding Data.City}" Style="{StaticResource City}" HorizontalOptions="End" />
-      </StackLayout>
+      <ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
+                    Style="{StaticResource SalaryCityBox}">
+        <StackLayout>
+          <Grid Style="{StaticResource SalaryBox}">
+            <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
+          </Grid>
+          <Grid Style="{StaticResource CityBox}">
+            <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
+          </Grid>
+        </StackLayout>
+      </ctrls:Border>
     </Grid>
+  <!--</Frame>-->
   </ctrls:Border>
 
 </ContentView>

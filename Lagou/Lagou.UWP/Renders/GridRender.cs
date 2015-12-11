@@ -32,6 +32,16 @@ namespace Lagou.UWP.Renders {
                 }
 
                 this.SetNativeControl(g);
+
+                foreach(var c in this.Element.Children) {
+                    var render = Platform.GetRenderer(c);
+                    if(render != null) {
+                        render.ContainerElement.SetValue(WC.Grid.RowProperty, c.GetValue(Grid.RowProperty));
+                        render.ContainerElement.SetValue(WC.Grid.ColumnProperty, c.GetValue(Grid.ColumnProperty));
+                        render.ContainerElement.SetValue(WC.Grid.RowSpanProperty, c.GetValue(Grid.RowSpanProperty));
+                        render.ContainerElement.SetValue(WC.Grid.ColumnSpanProperty, c.GetValue(Grid.ColumnSpanProperty));
+                    }
+                }
             }
         }
 

@@ -13,14 +13,15 @@ using WC = Windows.UI.Xaml.Controls;
 using WX = Windows.UI.Xaml;
 using WM = Windows.UI.Xaml.Media;
 using Windows.Foundation;
+using Microsoft.Graphics.Canvas.UI.Xaml;
 
 [assembly: ExportRendererAttribute(typeof(Lagou.Controls.Border), typeof(BorderRender))]
 namespace Lagou.UWP.Renders {
-    public class BorderRender : ViewRenderer<Border, WC.Border> {
+    public class BorderRender : ViewRenderer<Border, ClipBorder> {
 
         protected override void OnElementChanged(ElementChangedEventArgs<Border> e) {
             base.OnElementChanged(e);
-            SetNativeControl(new WC.Border());
+            SetNativeControl(new ClipBorder());
             UpdateControl();
         }
 
@@ -38,8 +39,8 @@ namespace Lagou.UWP.Renders {
 
         // the base class is setting the background to the renderer when Control is null
         protected override void UpdateBackgroundColor() {
-            if (Control != null) {
-                Control.Background = (this.Element.BackgroundColor != Xamarin.Forms.Color.Default ? this.Element.BackgroundColor.ToBrush() : base.Background);
+            if (this.Control != null) {
+                this.Control.Background = (this.Element.BackgroundColor != Xamarin.Forms.Color.Default ? this.Element.BackgroundColor.ToBrush() : base.Background);
             }
         }
 
@@ -51,21 +52,15 @@ namespace Lagou.UWP.Renders {
                 Platform.SetRenderer(Element.Content, Platform.GetRenderer(Element.Content));
             }
             var render = Platform.GetRenderer(Element.Content) as WX.UIElement;
-            Control.Child = render;
+            Control.Content = render;
         }
 
         private void UpdateControl() {
-            Control.CornerRadius = new WX.CornerRadius(Element.CornerRadius);
-            Control.BorderBrush = Element.Stroke.ToBrush();
-            Control.BorderThickness = Element.StrokeThickness.ToWinPhone();
-            Control.Padding = Element.Padding.ToWinPhone();
-
-            if (Element.IsClippedToBorder) {
-                // var size = Control.Child.RenderSize;
-                Control.Child.Clip = new WM.RectangleGeometry() {
-                    Rect = new Rect(0, 0, 400, 400), // just testing with some values for now
-                };
-            }
+            var border = this.Control;
+            border.CornerRadius = new WX.CornerRadius(Element.CornerRadius);
+            border.BorderBrush = Element.Stroke.ToBrush();
+            border.BorderThickness = Element.StrokeThickness.ToWinPhone();
+            border.Padding = Element.Padding.ToWinPhone();
         }
     }
 }

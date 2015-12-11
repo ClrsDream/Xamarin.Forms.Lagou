@@ -7,7 +7,7 @@
 
 
     <xm:ViewToRendererConverter x:Key="renderConverter" />
-
+    
     <ControlTemplate x:Key="SplitViewTogglePaneButtonTemplate"
                          TargetType="ToggleButton">
         <Grid x:Name="RootGrid"

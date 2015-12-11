@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
     x:Class="Lagou.App"
+    xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
     >
   <Application.Resources>
     <ResourceDictionary>
@@ -22,14 +23,33 @@
         <Setter Property="TextColor" Value="#999999" />
       </Style>
 
+
+      <Style x:Key="SalaryCityBox" TargetType="ctrls:Border">
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stroke" Value="Green" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+      </Style>
+
+      <Style x:Key="SalaryBox" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="White" />
+      </Style>
+
+      <Style x:Key="CityBox" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="Green" />
+      </Style>      
+      
       <Style x:Key="Salary" TargetType="Label">
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="TextColor" Value="Red" />
+        <Setter Property="TextColor" Value="Green" />
+        <Setter Property="HorizontalOptions" Value="Center" />
       </Style>
 
       <Style x:Key="City" TargetType="Label">
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="TextColor" Value="Green" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="HorizontalOptions" Value="Center" />
       </Style>      
       
       <Style x:Key="SearchedItemContainer" TargetType="Frame">

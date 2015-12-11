@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lagou.Views.SettingView">
+             x:Class="Lagou.Views.SettingView"
+             xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             >
+
+  <ctrls:CycleBox Radius="30" BackgroundColor="Green">
+    <Image Source="http://pic.cnblogs.com/face/344381/20151203203539.png"
+           WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
+             />
+  </ctrls:CycleBox>
   
 </ContentPage>
