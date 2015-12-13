@@ -3,11 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.SearchedItem.Windows"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             Padding="1"
              >
 
-  
-  <ctrls:Border CornerRadius="5,5,5,5" Stroke="Gray" StrokeThickness="1" BackgroundColor="White" Padding="5">
-  <!--<Frame Style="{StaticResource SearchedItemContainer}">-->
+  <ContentView.GestureRecognizers>
+    <TapGestureRecognizer Command="{Binding TapCmd}" />
+  </ContentView.GestureRecognizers>
+
+
+  <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
@@ -30,29 +34,23 @@
       <Label Text="{Binding Data.PositionName}" Style="{StaticResource PositionName}" Grid.Row="1" Grid.Column="1" />
       <Label Text="{Binding Data.CreateTime}" Style="{StaticResource CreateTime}" Grid.Row="2" Grid.Column="1" />
 
-      <!--<ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
-                    Style="{StaticResource SalaryCityBox}">
-        <StackLayout>
-          <Grid Style="{StaticResource SalaryBox}">
-            <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
-          </Grid>
-          <Grid Style="{StaticResource CityBox}">
-            <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
-          </Grid>
-        </StackLayout>
-      </ctrls:Border>-->
+      <ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
+                    Stroke="Green" StrokeThickness="1" CornerRadius="5"
+                    VerticalOptions="Center">
 
-      <StackLayout Grid.RowSpan="3" Grid.Row="0" Grid.Column="2">
-        <ctrls:Border CornerRadius="5,5,0,0" BackgroundColor="White">
-          <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
-        </ctrls:Border>
-        <ctrls:Border CornerRadius="0,0,5,5" BackgroundColor="Green">
-          <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
-        </ctrls:Border>
-      </StackLayout>
-      
+        <StackLayout>
+
+          <ctrls:Border CornerRadius="5,5,0,0" BackgroundColor="White">
+            <Label Text="{Binding Data.Salary}" Style="{StaticResource Salary}" />
+          </ctrls:Border>
+          <ctrls:Border CornerRadius="0,0,5,5" BackgroundColor="Green">
+            <Label Text="{Binding Data.City}" Style="{StaticResource City}" />
+          </ctrls:Border>
+
+        </StackLayout>
+      </ctrls:Border>
+
     </Grid>
-  <!--</Frame>-->
   </ctrls:Border>
 
 </ContentView>

@@ -15,7 +15,7 @@
       <DataTemplate>
         <ViewCell>
           <ViewCell.View>
-            <ContentView Padding="4" cal:View.Model="{Binding}" />
+            <ContentView cal:View.Model="{Binding}" />
           </ViewCell.View>
         </ViewCell>
       </DataTemplate>

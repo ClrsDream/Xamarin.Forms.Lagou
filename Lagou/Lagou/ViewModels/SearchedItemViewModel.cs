@@ -1,9 +1,12 @@
-﻿using Lagou.API.Entities;
+﻿using Caliburn.Micro.Xamarin.Forms;
+using Lagou.API.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
     public class SearchedItemViewModel : BaseVM {
@@ -17,8 +20,18 @@ namespace Lagou.ViewModels {
             get; set;
         }
 
-        public SearchedItemViewModel(SearchedItem data) {
+        public ICommand TapCmd { get; set; }
+
+        private INavigationService NS;
+
+        public SearchedItemViewModel(SearchedItem data, INavigationService ns) {
             this.Data = data;
+            this.TapCmd = new Command(() => ShowDetail());
+            this.NS = ns;
+        }
+
+        private void ShowDetail() {
+            NS.NavigateToViewModelAsync<JobDetailViewModel>();
         }
     }
 }

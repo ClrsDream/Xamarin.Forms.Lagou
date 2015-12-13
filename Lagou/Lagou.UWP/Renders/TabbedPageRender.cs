@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly:ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
+//[assembly:ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Lagou.UWP.Renders {
     public class TabbedPageRender : TabbedPageRenderer {
 

@@ -19,20 +19,18 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
         <Setter Property="Padding" Value="{ThemeResource PivotHeaderItemMargin}" />
-        <Setter Property="Height" Value="48" />
+        <Setter Property="Height" Value="40" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PivotHeaderItem">
-                    <Grid
-            x:Name="Grid"
-            Background="{TemplateBinding Background}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
                         <Grid.Resources>
                             <Style x:Key="BaseContentPresenterStyle" TargetType="ContentPresenter">
                                 <Setter Property="FontFamily" Value="Segoe UI"/>
                                 <Setter Property="FontWeight" Value="SemiBold"/>
-                                <Setter Property="FontSize" Value="15"/>
+                                <Setter Property="FontSize" Value="12"/>
                                 <Setter Property="TextWrapping" Value="Wrap"/>
                                 <Setter Property="LineStackingStrategy" Value="MaxHeight"/>
                                 <Setter Property="TextLineBounds" Value="Full"/>
@@ -44,6 +42,10 @@
                                 <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}"/>
                             </Style>
                         </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualStateGroup.Transitions>
@@ -80,8 +82,8 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Line"
-                                                                       Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDDDDD" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -138,21 +140,21 @@
 
                         <StackPanel Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
                             <ContentPresenter
-              x:Name="ContentPresenter"
-              Content="{TemplateBinding Content}"
-              ContentTemplate="{TemplateBinding ContentTemplate}"
-              FontSize="{TemplateBinding FontSize}"
-              FontFamily="{TemplateBinding FontFamily}"
-              FontWeight="{TemplateBinding FontWeight}"
-              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-              VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                              x:Name="ContentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              FontSize="{TemplateBinding FontSize}"
+                              FontFamily="{TemplateBinding FontFamily}"
+                              FontWeight="{TemplateBinding FontWeight}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <ContentPresenter.RenderTransform>
                                     <TranslateTransform x:Name="ContentPresenterTranslateTransform" />
                                 </ContentPresenter.RenderTransform>
                             </ContentPresenter>
-                            <Rectangle x:Name="Line" Height="2" Fill="White" Visibility="Collapsed" />
                         </StackPanel>
 
+                        <Rectangle x:Name="Line" Height="1" Fill="#999999" Visibility="Visible" Grid.Row="1" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -160,7 +162,7 @@
     </Style>
 
 
-    <Style TargetType="Pivot">
+    <!--<Style TargetType="Pivot">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -414,7 +416,7 @@
                                         Grid.Column="1"
                                         Template="{StaticResource PreviousTemplate}"
                                         Width="20"
-                                        Height="36"
+                                        Height="30"
                                         UseSystemFocusVisuals="False"
                                         Margin="{ThemeResource PivotNavButtonMargin}"
                                         IsTabStop="False"
@@ -428,7 +430,7 @@
                                         Grid.Column="1"
                                         Template="{StaticResource NextTemplate}"
                                         Width="20"
-                                        Height="36"
+                                        Height="30"
                                         UseSystemFocusVisuals="False"
                                         Margin="{ThemeResource PivotNavButtonMargin}"
                                         IsTabStop="False"
@@ -460,13 +462,13 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 
 
 
 
-    <!--<Style x:Key="TabbedPageStyle1" TargetType="Pivot">
+    <Style x:Key="TabbedPageStyle1" TargetType="Pivot">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -769,6 +771,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
+    </Style>
 
 </ResourceDictionary>

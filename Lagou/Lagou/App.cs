@@ -26,6 +26,7 @@ namespace Lagou {
                 .Singleton<IndexViewModel>()
                 .Singleton<SearchViewModel>()
 
+                .PerRequest<JobDetailViewModel>()
                 .PerRequest<SearchedItemViewModel>()
                 ;
 

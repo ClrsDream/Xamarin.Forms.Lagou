@@ -4,6 +4,7 @@
              x:Class="Lagou.Views.TabView"
             xmlns:local="clr-namespace:Lagou;assembly=Lagou"
             ItemsSource="{Binding Datas}"            
+                              BackgroundColor="#444444"
             >
 
   <TabbedPage.ItemTemplate>

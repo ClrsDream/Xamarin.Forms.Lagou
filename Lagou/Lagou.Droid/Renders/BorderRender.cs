@@ -60,7 +60,7 @@ namespace Lagou.Droid.Renders {
                 // choose thickest margin
                 // the content is padded so it will look like the margin is with the given thickness
                 strokeDrawable.SetStroke((int)context.ToPixels(strokeThickness.ThickestSide()), border.Stroke.ToAndroid());
-                strokeDrawable.SetCornerRadius((float)border.CornerRadius);
+                strokeDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
             }
 
             // create background drawable
@@ -68,7 +68,7 @@ namespace Lagou.Droid.Renders {
 
             // set background drawable color based on Border's background color
             backgroundDrawable.SetColor(border.BackgroundColor.ToAndroid());
-            backgroundDrawable.SetCornerRadius((float)border.CornerRadius);
+            backgroundDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
 
             if (strokeDrawable != null) {
                 // if stroke drawable exists, create a layer drawable containing both stroke and background drawables
@@ -101,7 +101,7 @@ namespace Lagou.Droid.Renders {
         public static void SetClipPath(this BorderRender br, Canvas canvas) {
             var clipPath = new Path();
             //float padding = br;// radius / 2;
-            float radius = (float)br.Element.CornerRadius - br.Context.ToPixels((float)br.Element.Padding.ThickestSide());// - padding / 2; // + MaxStrokeThickness());
+            float radius = (float)br.Element.CornerRadius.TopLeft - br.Context.ToPixels((float)br.Element.Padding.ThickestSide());// - padding / 2; // + MaxStrokeThickness());
 
             int w = (int)br.Width;
             int h = (int)br.Height;

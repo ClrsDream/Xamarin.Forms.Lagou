@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.SearchedItemView"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             Padding="4"
              >
 
+  <ContentView.GestureRecognizers>
+    <TapGestureRecognizer Command="{Binding TapCmd}" />
+  </ContentView.GestureRecognizers>
+  
   <Frame Style="{StaticResource SearchedItemContainer}">
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
