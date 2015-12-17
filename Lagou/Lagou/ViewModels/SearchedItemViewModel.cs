@@ -31,7 +31,10 @@ namespace Lagou.ViewModels {
         }
 
         private void ShowDetail() {
-            NS.NavigateToViewModelAsync<JobDetailViewModel>();
+            this.NS
+                .For<JobDetailViewModel>()
+                .WithParam(p => p.ID, this.Data.PositionId)
+                .Navigate();
         }
     }
 }

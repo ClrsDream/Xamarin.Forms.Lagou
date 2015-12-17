@@ -4,7 +4,49 @@
              x:Class="Lagou.Views.JobDetailView"
              Title="{Binding DisplayName}"
              >
-  
-  
-  
+
+  <StackLayout>
+    <Frame Style="{StaticResource SearchedItemContainer}">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="auto" />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image Source="{Binding Data.CompanyLogo}" WidthRequest="80" HeightRequest="80" />
+        <StackLayout Grid.Column="1">
+          <Label Text="{Binding Data.CompanyName}" />
+          <Label Text="{Binding Data.CompanyDesc}" />
+        </StackLayout>
+      </Grid>
+    </Frame>
+
+    <Frame Style="{StaticResource SearchedItemContainer}">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="{Binding Data.JobTitle}" Grid.ColumnSpan="3" />
+
+        <Label Text="{Binding Data.Salary}" Grid.Row="1" Grid.Column="0" />
+        <Label Text="{Binding Data.WorkAddress}" Grid.Row="1" Grid.Column="1" />
+        <Label Text="{Binding Data.JobNature}" Grid.Row="1" Grid.Column="2" />
+
+        <Label Text="{Binding Data.WorkYear}" Grid.Row="2" Grid.Column="0" />
+        <Label Text="{Binding Data.Education}" Grid.Row="2" Grid.Column="1" />
+
+        <Label Text="{Binding Data.Temptation}" Grid.Row="3" Grid.ColumnSpan="3" />
+      </Grid>
+    </Frame>
+
+  </StackLayout>
+
 </ContentPage>
