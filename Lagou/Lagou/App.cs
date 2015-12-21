@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -34,7 +35,29 @@ namespace Lagou {
             ViewLocator.LocateTypeForModelType = (type, bindable, context) => {
                 return f(type, bindable, context ?? Device.OS) ?? f(type, bindable, context);
             };
-            
+
+            //ViewModelLocator.AddSubNamespaceMapping("*.Views.*", "{0}", "");
+
+            var names = Enum.GetNames(typeof(TargetPlatform))
+                .Select(p => string.Format(@"\.{0}", p));
+            var ps = string.Format("({0})$", string.Join("|", names));
+            var rx = new Regex(ps);
+            var f2 = ViewModelLocator.LocateTypeForViewType;
+
+            ViewModelLocator.LocateTypeForViewType = (viewType, searchForInterface) => {
+
+                var typeName = viewType.FullName;
+                var viewModelTypeList = ViewModelLocator.TransformName(typeName, searchForInterface).ToList();
+
+                if (rx.IsMatch(typeName)) {
+                    typeName = rx.Replace(typeName, "ViewModel");
+                    return null;
+                } else {
+                    //var viewModelTypeList = ViewModelLocator.TransformName(typeName, searchForInterface).ToList();
+                    return f2(viewType, searchForInterface);
+                }
+            };
+
             this.DisplayRootView<MDIView>();
 
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
