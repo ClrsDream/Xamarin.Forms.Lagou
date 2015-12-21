@@ -34,7 +34,7 @@ namespace Lagou {
             ViewLocator.LocateTypeForModelType = (type, bindable, context) => {
                 return f(type, bindable, context ?? Device.OS) ?? f(type, bindable, context);
             };
-
+            
             this.DisplayRootView<MDIView>();
 
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;

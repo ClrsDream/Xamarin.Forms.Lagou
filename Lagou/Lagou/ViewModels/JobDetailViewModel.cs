@@ -18,6 +18,11 @@ namespace Lagou.ViewModels {
 
         public int ID { get; set; }
 
+
+        public JobDetailViewModel() {
+
+        }
+
         protected async override void OnActivate() {
             base.OnActivate();
 

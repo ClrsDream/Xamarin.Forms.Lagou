@@ -21,8 +21,10 @@ namespace Lagou.UWP.Renders {
 
         protected override void OnElementChanged(ElementChangedEventArgs<Border> e) {
             base.OnElementChanged(e);
-            SetNativeControl(new WC.Border());
-            UpdateControl();
+            if (e.NewElement != null) {
+                SetNativeControl(new WC.Border());
+                UpdateControl();
+            }
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e) {
