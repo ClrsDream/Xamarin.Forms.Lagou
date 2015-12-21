@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro.Xamarin.Forms;
+﻿using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
 using Lagou.API.Entities;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace Lagou.ViewModels {
                 .For<JobDetailViewModel>()
                 .WithParam(p => p.ID, this.Data.PositionId)
                 .Navigate();
+
         }
     }
 }

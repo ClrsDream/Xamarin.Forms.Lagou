@@ -36,32 +36,29 @@ namespace Lagou {
                 return f(type, bindable, context ?? Device.OS) ?? f(type, bindable, context);
             };
 
-            //ViewModelLocator.AddSubNamespaceMapping("*.Views.*", "{0}", "");
-
-            var names = Enum.GetNames(typeof(TargetPlatform))
-                .Select(p => string.Format(@"\.{0}", p));
-            var ps = string.Format("({0})$", string.Join("|", names));
-            var rx = new Regex(ps);
-            var f2 = ViewModelLocator.LocateTypeForViewType;
-
-            ViewModelLocator.LocateTypeForViewType = (viewType, searchForInterface) => {
-
-                var typeName = viewType.FullName;
-                var viewModelTypeList = ViewModelLocator.TransformName(typeName, searchForInterface).ToList();
-
-                if (rx.IsMatch(typeName)) {
-                    typeName = rx.Replace(typeName, "ViewModel");
-                    return null;
-                } else {
-                    //var viewModelTypeList = ViewModelLocator.TransformName(typeName, searchForInterface).ToList();
-                    return f2(viewType, searchForInterface);
+            var ps = string.Join("|", Enum.GetNames(typeof(TargetPlatform)).Select(p => string.Format(@"\.{0}", p)));
+            var rx = new Regex(string.Format("({0})$", ps));
+            var f2 = ViewModelLocator.LocateForViewType;
+            ViewModelLocator.LocateForViewType = viewType => {
+                var vm = f2(viewType);
+                if (vm == null) {
+                    if (viewType.FullName.EndsWith(".Windows")) {
+                        var vmTypeName = rx.Replace(viewType.FullName, "ViewModel")
+                                        .Replace(".Views.", ".ViewModels.");
+                        var vmType = Type.GetType(vmTypeName);
+                        if (vmType != null) {
+                            return container.GetInstance(vmType, null);
+                        }
+                    }
                 }
+                return vm;
             };
 
             this.DisplayRootView<MDIView>();
 
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
+
 
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
             //防止因线程取消等错误把程挂掉

@@ -4,7 +4,10 @@
              x:Class="Lagou.Views.JobDetail.Windows"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              Title="{Binding DisplayName}"
+             BackgroundColor="#444444"
+             Padding="2"
              >
+
 
   <StackLayout>
     <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
@@ -15,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <Image Source="{Binding Data.CompanyLogo}" WidthRequest="80" HeightRequest="80" />
         <StackLayout Grid.Column="1">
-          <Label Text="{Binding Data.CompanyName}" />
-          <Label Text="{Binding Data.CompanyDesc}" />
+          <Label Text="{Binding Data.CompanyName}" Style="{StaticResource CompanyName}" />
+          <Label Text="{Binding Data.CompanyDesc}" Style="{StaticResource CompanyDesc}" />
         </StackLayout>
       </Grid>
     </ctrls:Border>
@@ -35,17 +38,23 @@
           <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Label Text="{Binding Data.JobTitle}" Grid.ColumnSpan="3" />
+        <Label Text="{Binding Data.JobTitle}" Style="{StaticResource PositionName}" Grid.ColumnSpan="3" />
 
-        <Label Text="{Binding Data.Salary}" Grid.Row="1" Grid.Column="0" />
-        <Label Text="{Binding Data.WorkAddress}" Grid.Row="1" Grid.Column="1" />
-        <Label Text="{Binding Data.JobNature}" Grid.Row="1" Grid.Column="2" />
+        <Label Text="{Binding Data.Salary}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="0" />
+        <Label Text="{Binding Data.WorkAddress}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="1" />
+        <Label Text="{Binding Data.JobNature}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="2" />
 
-        <Label Text="{Binding Data.WorkYear}" Grid.Row="2" Grid.Column="0" />
-        <Label Text="{Binding Data.Education}" Grid.Row="2" Grid.Column="1" />
+        <Label Text="{Binding Data.WorkYear}" Style="{StaticResource PositionDetail}" Grid.Row="2" Grid.Column="0" />
+        <Label Text="{Binding Data.Education}" Style="{StaticResource PositionDetail}" Grid.Row="2" Grid.Column="1" />
 
-        <Label Text="{Binding Data.Temptation}" Grid.Row="3" Grid.ColumnSpan="3" />
+        <Label Text="{Binding Data.Temptation}" Style="{StaticResource PositionDetail}" Grid.Row="3" Grid.ColumnSpan="3" />
       </Grid>
+    </ctrls:Border>
+
+    <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
+      <ScrollView>
+        <Label Text="{Binding Data.JobDesc}" Style="{StaticResource CompanyDesc}" />
+      </ScrollView>
     </ctrls:Border>
 
   </StackLayout>
