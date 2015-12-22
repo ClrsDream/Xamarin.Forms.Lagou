@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.JobDetail.Windows"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              Title="{Binding DisplayName}"
              BackgroundColor="#444444"
              Padding="2"
@@ -83,6 +84,22 @@
             <BoxView HeightRequest="1" Color="#cccccc" />
 
             <Label Text="{Binding Data.JobDesc}" Style="{StaticResource CompanyDesc}" />
+
+            <StackLayout IsVisible="{Binding HasEvaluations}">
+              <BoxView HeightRequest="1" Color="#cccccc" />
+              <ListView ItemsSource="{Binding Evaluations}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                      <ViewCell.View>
+                        <ContentView cal:View.Model="{Binding}" />
+                      </ViewCell.View>
+                    </ViewCell>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            </StackLayout>
+
           </StackLayout>
         </ScrollView>
       </StackLayout>

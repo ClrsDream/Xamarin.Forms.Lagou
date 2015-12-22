@@ -12,7 +12,7 @@ namespace Lagou.API.Attributes {
         Attribute
     }
 
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class HtmlQueryAttribute : Attribute {
 
         public string Selector { get; private set; }

@@ -18,5 +18,13 @@ namespace Lagou.Api.Test {
 
             var a = ApiClient.Execute(method).Result;
         }
+
+        [TestMethod]
+        public void TestEvaluationList() {
+            var method = new EvaluationList() {
+                PositionID = 1178538
+            };
+            var a = ApiClient.Execute(method).Result;
+        }
     }
 }

@@ -10,6 +10,18 @@ using Lagou.API.Attributes;
 namespace Lagou.API {
     public static class AngleSharpHelper {
 
+        public static IEnumerable<T> ParseCollection<T>(this HtmlParser parser, string source) where T : class, new() {
+            var attr = typeof(T).GetTypeInfo().GetCustomAttributes<HtmlQueryAttribute>(true).FirstOrDefault();
+            if (attr == null) {
+                throw new InvalidOperationException("ParseCollection 要求类型上必须有 HtmlQueryAttribute 特性");
+            }
+
+            using (var doc = parser.Parse(source)) {
+                var nodes = doc.QuerySelectorAll(attr.Selector);
+                return Enumerable.Empty<T>();
+            }
+        }
+
         public static T Parse<T>(this HtmlParser parser, string source) where T : class, new() {
             var doc = parser.Parse(source);
 

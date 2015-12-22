@@ -34,7 +34,8 @@ namespace Lagou.ViewModels {
         private void ShowDetail() {
             this.NS
                 .For<JobDetailViewModel>()
-                .WithParam(p => p.ID, this.Data.PositionId)
+                //.WithParam(p => p.ID, this.Data.PositionId)
+                .WithParam(p => p.ID, 1178538)
                 .Navigate();
 
         }

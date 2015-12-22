@@ -1,4 +1,5 @@
-﻿using Lagou.API.Entities;
+﻿using Caliburn.Micro;
+using Lagou.API.Entities;
 using Lagou.API.Methods;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,12 @@ namespace Lagou.ViewModels {
 
         public Position Data { get; set; }
 
+        public BindableCollection<Evaluation> Evaluations {
+            get; set;
+        } = new BindableCollection<Evaluation>();
+
+        public bool HasEvaluations { get; set;}
+
         public int ID { get; set; }
 
 
@@ -31,6 +38,16 @@ namespace Lagou.ViewModels {
             };
             this.Data = await API.ApiClient.Execute(mth);
             this.NotifyOfPropertyChange(() => this.Data);
+
+            var mth2 = new EvaluationList() {
+                PositionID = this.ID
+            };
+            var evs = await API.ApiClient.Execute(mth2);
+            this.Evaluations.AddRange(evs);
+            this.NotifyOfPropertyChange(() => this.Evaluations);
+
+            this.HasEvaluations = this.Evaluations.Count > 0;
+            this.NotifyOfPropertyChange(() => this.HasEvaluations);
         }
     }
 }
