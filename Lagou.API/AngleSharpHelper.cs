@@ -26,13 +26,13 @@ namespace Lagou.API {
                             case HtmlQueryValueTargets.Attribute:
                                 var a = ele.Attributes.GetNamedItem(attr.AttributeName);
                                 if (a != null)
-                                    value = a.Value;
+                                    value = a.Value.Trim();
                                 break;
                             case HtmlQueryValueTargets.InnerHtml:
-                                value = ele.InnerHtml;
+                                value = ele.InnerHtml.Trim();
                                 break;
                             case HtmlQueryValueTargets.Text:
-                                value = ele.TextContent;
+                                value = ele.TextContent.Trim();
                                 break;
                         }
 

@@ -97,6 +97,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Fonts\FontAwesome.otf" />
     <None Include="project.json" />
     <None Include="project.lock.json" />
   </ItemGroup>
@@ -112,6 +113,7 @@
     <Compile Include="Renders\BorderRender.cs" />
     <Compile Include="Renders\ClipBorder.cs" />
     <Compile Include="Renders\CycleBoxRender.cs" />
+    <Compile Include="Renders\FontIconRender.cs" />
     <Compile Include="Renders\MasterDetailPageRender.cs" />
     <Compile Include="Renders\NavigationPageRender.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
@@ -166,6 +168,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -9,54 +9,85 @@
              >
 
 
-  <StackLayout>
-    <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="auto" />
-          <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Image Source="{Binding Data.CompanyLogo}" WidthRequest="80" HeightRequest="80" />
-        <StackLayout Grid.Column="1">
-          <Label Text="{Binding Data.CompanyName}" Style="{StaticResource CompanyName}" />
-          <Label Text="{Binding Data.CompanyDesc}" Style="{StaticResource CompanyDesc}" />
-        </StackLayout>
-      </Grid>
-    </ctrls:Border>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition Height="auto" />
+    </Grid.RowDefinitions>
 
     <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
-      <Grid>
-        <Grid.RowDefinitions>
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition />
-          <ColumnDefinition />
-          <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+      <StackLayout>
+        <Grid MinimumHeightRequest="80">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+          </Grid.ColumnDefinitions>
+          <Image Source="{Binding Data.CompanyLogo}" WidthRequest="80" HeightRequest="80" />
+          <StackLayout Grid.Column="1">
+            <Label Text="{Binding Data.CompanyName}" Style="{StaticResource CompanyName}" />
+            <Label Text="{Binding Data.CompanyDesc}" Style="{StaticResource CompanyDesc}" />
+          </StackLayout>
+        </Grid>
 
-        <Label Text="{Binding Data.JobTitle}" Style="{StaticResource PositionName}" Grid.ColumnSpan="3" />
+        <BoxView HeightRequest="1" Color="#cccccc" />
 
-        <Label Text="{Binding Data.Salary}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="0" />
-        <Label Text="{Binding Data.WorkAddress}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="1" />
-        <Label Text="{Binding Data.JobNature}" Style="{StaticResource PositionDetail}" Grid.Row="1" Grid.Column="2" />
+        <ctrls:Border BackgroundColor="#aacccccc" CornerRadius="5" Padding="5">
+          <Label Text="{Binding Data.JobTitle}" Style="{StaticResource PositionName}" />
+        </ctrls:Border>
 
-        <Label Text="{Binding Data.WorkYear}" Style="{StaticResource PositionDetail}" Grid.Row="2" Grid.Column="0" />
-        <Label Text="{Binding Data.Education}" Style="{StaticResource PositionDetail}" Grid.Row="2" Grid.Column="1" />
+        <ScrollView>
+          <StackLayout>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+              </Grid.ColumnDefinitions>
 
-        <Label Text="{Binding Data.Temptation}" Style="{StaticResource PositionDetail}" Grid.Row="3" Grid.ColumnSpan="3" />
-      </Grid>
+              <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <ctrls:FontIcon Glyph="&#xf157;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.Salary}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+
+              <StackLayout Orientation="Horizontal" Grid.Column="1">
+                <ctrls:FontIcon Glyph="&#xf279;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.WorkAddress}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+
+              <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                <ctrls:FontIcon Glyph="&#xf0c0;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.JobNature}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+
+              <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                <ctrls:FontIcon Glyph="&#xf017;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.WorkYear}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+
+              <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <ctrls:FontIcon Glyph="&#xf19d;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.Education}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+
+              <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3">
+                <ctrls:FontIcon Glyph="&#xf19c;" Style="{StaticResource f1}" />
+                <Label Text="{Binding Data.Temptation}" Style="{StaticResource PositionDetail}" />
+              </StackLayout>
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="#cccccc" />
+
+            <Label Text="{Binding Data.JobDesc}" Style="{StaticResource CompanyDesc}" />
+          </StackLayout>
+        </ScrollView>
+      </StackLayout>
     </ctrls:Border>
 
-    <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
-      <ScrollView>
-        <Label Text="{Binding Data.JobDesc}" Style="{StaticResource CompanyDesc}" />
-      </ScrollView>
-    </ctrls:Border>
-
-  </StackLayout>
-
+    <Button Text="投个简历" Grid.Row="1" />
+  </Grid>
 </ContentPage>
