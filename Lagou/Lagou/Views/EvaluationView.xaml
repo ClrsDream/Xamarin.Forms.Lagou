@@ -5,18 +5,20 @@
 
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition />
-      <RowDefinition />
-      <RowDefinition />
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="auto" />
       <ColumnDefinition />
     </Grid.ColumnDefinitions>
 
-    <Label Text="{Binding Data.UserName}" />
-    <Label Text="{Binding Data.CreateTime, StringFormat='发表于:{0}'}" Grid.Column="1" />
-    
+    <Label Text="{Binding Data.UserName}" TextColor="#999999" />
+    <Label Text="{Binding Data.CreateTime, StringFormat='发表于:{0}'}" TextColor="#999999" Grid.Column="1" />
+
+    <Label Text="{Binding Data.Content}"  TextColor="#999999" Grid.Row="1" Grid.ColumnSpan="2" />
+    <Label Text="{Binding Data.OtherEvaluation}"  TextColor="#999999" Grid.Row="2" Grid.ColumnSpan="2" />
     
   </Grid>
   

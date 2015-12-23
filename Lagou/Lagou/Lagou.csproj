@@ -39,7 +39,9 @@
     <Compile Include="BaseVM.cs" />
     <Compile Include="Controls\Border.cs" />
     <Compile Include="Controls\CycleBox.cs" />
+    <Compile Include="Controls\Flip.cs" />
     <Compile Include="Controls\FontIcon.cs" />
+    <Compile Include="Controls\Repeater.cs" />
     <Compile Include="MasterDetailLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewLocatorPage.cs" />

@@ -11,7 +11,7 @@ namespace Lagou.API.Entities {
     public class Evaluation {
         public int ID { get; set; }
 
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         public int PositionId { get; set; }
         public string PositionName { get; set; }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
     public class JobDetailViewModel : BaseVM {
@@ -17,11 +18,11 @@ namespace Lagou.ViewModels {
 
         public Position Data { get; set; }
 
-        public BindableCollection<Evaluation> Evaluations {
+        public BindableCollection<EvaluationViewModel> Evaluations {
             get; set;
-        } = new BindableCollection<Evaluation>();
+        } = new BindableCollection<EvaluationViewModel>();
 
-        public bool HasEvaluations { get; set;}
+        public bool HasEvaluations { get; set; }
 
         public int ID { get; set; }
 
@@ -43,7 +44,7 @@ namespace Lagou.ViewModels {
                 PositionID = this.ID
             };
             var evs = await API.ApiClient.Execute(mth2);
-            this.Evaluations.AddRange(evs);
+            this.Evaluations.AddRange(evs.Select(e => new EvaluationViewModel(e)));
             this.NotifyOfPropertyChange(() => this.Evaluations);
 
             this.HasEvaluations = this.Evaluations.Count > 0;
