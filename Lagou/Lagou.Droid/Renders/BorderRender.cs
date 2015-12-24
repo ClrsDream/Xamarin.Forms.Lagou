@@ -59,7 +59,7 @@ namespace Lagou.Droid.Renders {
 
                 // choose thickest margin
                 // the content is padded so it will look like the margin is with the given thickness
-                strokeDrawable.SetStroke((int)context.ToPixels(strokeThickness.ThickestSide()), border.Stroke.ToAndroid());
+                strokeDrawable.SetStroke((int)context.ToPixels(strokeThickness.Max()), border.Stroke.ToAndroid());
                 strokeDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
             }
 
@@ -89,19 +89,33 @@ namespace Lagou.Droid.Renders {
                 (int)context.ToPixels(strokeThickness.Bottom + border.Padding.Bottom));
         }
 
-        static double ThickestSide(this Thickness t) {
-            return new double[] { 
-				t.Left, 
-				t.Top, 
-				t.Right, 
-				t.Bottom 
-			}.Max();
+        static double Max(this Thickness t) {
+            return new double[] {
+                t.Left,
+                t.Top,
+                t.Right,
+                t.Bottom
+            }.Max();
+        }
+
+        static double Max(this CornerRadius t) {
+            return new double[] { t.TopLeft, t.TopRight, t.BottomRight, t.BottomLeft }.Max();
         }
 
         public static void SetClipPath(this BorderRender br, Canvas canvas) {
             var clipPath = new Path();
             //float padding = br;// radius / 2;
-            float radius = (float)br.Element.CornerRadius.TopLeft - br.Context.ToPixels((float)br.Element.Padding.ThickestSide());// - padding / 2; // + MaxStrokeThickness());
+            //float radius = (float)br.Element.CornerRadius.TopLeft - br.Context.ToPixels((float)br.Element.Padding.Max());// - padding / 2; // + MaxStrokeThickness());
+            var corner = br.Element.CornerRadius;
+            var tl = (float)corner.TopLeft;
+            var tr = (float)corner.TopRight;
+            var bbr = (float)corner.BottomRight;
+            var bl = (float)corner.BottomLeft;
+
+            //Array of 8 values, 4 pairs of [X,Y] radii
+            float[] radius = new float[] {
+                tl, tl, tr, tr, bbr, bbr, bl, bl
+            };
 
             int w = (int)br.Width;
             int h = (int)br.Height;
@@ -111,7 +125,6 @@ namespace Lagou.Droid.Renders {
                 br.ViewGroup.PaddingTop,
                 w - br.ViewGroup.PaddingRight,
                 h - br.ViewGroup.PaddingBottom),
-                radius,
                 radius,
                 Path.Direction.Cw);
 

@@ -5,10 +5,31 @@
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              >
 
-  <ctrls:CycleBox Radius="30" BackgroundColor="Green">
+  <!--<ctrls:CycleBox Radius="30" BackgroundColor="Green">
     <Image Source="http://pic.cnblogs.com/face/344381/20151203203539.png"
            WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
              />
-  </ctrls:CycleBox>
+  </ctrls:CycleBox>-->
+
+  <ctrls:Border StrokeThickness="1" Stroke="#ededed" Padding="5" CornerRadius="5" IsClippedToBorder="True">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+
+      <Label Text="xling" Style="{StaticResource l_accent}" />
+      <Label Text="2015/12/01" Grid.Column="1" Style="{StaticResource l_accent}" />
+
+      <Label Text="为嘛不显示?" Style="{StaticResource l_text}" Grid.Row="1" Grid.ColumnSpan="2" />
+      <Label Text="为嘛不显示?" Style="{StaticResource l_text}" Grid.Row="2" Grid.ColumnSpan="2" />
+
+    </Grid>
+  </ctrls:Border>
   
 </ContentPage>

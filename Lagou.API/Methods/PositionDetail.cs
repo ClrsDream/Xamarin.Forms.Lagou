@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Lagou.API.Methods {
@@ -20,6 +21,7 @@ namespace Lagou.API.Methods {
             var parser = new HtmlParser();
             var job = parser.Parse<Position>(result);
             job.CompanyLogo = job.CompanyLogo.FixUrl("http://www.lagou.com");
+            job.Temptation = Regex.Replace(job.Temptation, "^职位诱惑：", "");
             return job;
         }
     }
