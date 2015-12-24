@@ -14,7 +14,7 @@
       <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
 
-    <Frame Style="{StaticResource SearchedItemContainer}">
+    <Frame Style="{StaticResource f_block}" Padding="10">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition Height="auto" />
@@ -97,17 +97,22 @@
             </ScrollView>
 
             <ScrollView>
-              <ctrls:Repeater IsVisible="{Binding HasEvaluations}"
-                              ItemsSource="{Binding Evaluations}">
-                <ctrls:Repeater.ItemTemplate>
-                  <DataTemplate>
-                    <ContentView cal:View.Model="{Binding}" />
-                  </DataTemplate>
-                </ctrls:Repeater.ItemTemplate>
-              </ctrls:Repeater>
-            </ScrollView>
+              <Grid>
+                <Label Text="当前无评论" IsVisible="{Binding NotHaveEvaluations}" Style="{StaticResource l_h1}"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                       />
 
-            <Label />
+                <ctrls:Repeater IsVisible="{Binding HasEvaluations}"
+                                ItemsSource="{Binding Evaluations}">
+                  <ctrls:Repeater.ItemTemplate>
+                    <DataTemplate>
+                      <ContentView cal:View.Model="{Binding}" />
+                    </DataTemplate>
+                  </ctrls:Repeater.ItemTemplate>
+                </ctrls:Repeater>
+              </Grid>
+            </ScrollView>
           </ctrls:Flip.Children>
         </ctrls:Flip>
 

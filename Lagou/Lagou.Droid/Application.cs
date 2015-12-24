@@ -45,7 +45,7 @@ namespace Lagou.Droid {
             base.OnCreate();
 
             Initialize();
-            this.ConnectXamlSpy();
+            //this.ConnectXamlSpy();
         }
 
         private void ConnectXamlSpy() {

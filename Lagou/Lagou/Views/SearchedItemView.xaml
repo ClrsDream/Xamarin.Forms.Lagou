@@ -10,8 +10,8 @@
     <TapGestureRecognizer Command="{Binding TapCmd}" />
   </ContentView.GestureRecognizers>
   
-  <Frame Style="{StaticResource SearchedItemContainer}">
-    <Grid WidthRequest="250">
+  <Frame Style="{StaticResource f_block}" Padding="10">
+    <Grid>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
         <ColumnDefinition Width="*" />

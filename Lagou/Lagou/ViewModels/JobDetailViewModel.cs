@@ -24,6 +24,8 @@ namespace Lagou.ViewModels {
 
         public bool HasEvaluations { get; set; }
 
+        public bool NotHaveEvaluations { get; set; }
+
         public int ID { get; set; }
 
 
@@ -48,7 +50,9 @@ namespace Lagou.ViewModels {
             this.NotifyOfPropertyChange(() => this.Evaluations);
 
             this.HasEvaluations = this.Evaluations.Count > 0;
+            this.NotHaveEvaluations = !this.HasEvaluations;
             this.NotifyOfPropertyChange(() => this.HasEvaluations);
+            this.NotifyOfPropertyChange(() => this.NotHaveEvaluations);
         }
     }
 }
