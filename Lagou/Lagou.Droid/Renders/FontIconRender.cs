@@ -26,7 +26,8 @@ namespace Lagou.Droid.Renders {
 
             if (e.NewElement != null) {
                 var control = new TextView(this.Context);
-                var vi = (LayoutInflater)this.Context.GetSystemService(Context.LayoutInflaterService);
+                //var vi = (LayoutInflater)this.Context.GetSystemService(Context.LayoutInflaterService);
+                control.Gravity = GravityFlags.CenterHorizontal | GravityFlags.CenterVertical;
                 this.SetNativeControl(control);
                 this.UpdateNativeControl();
             }
