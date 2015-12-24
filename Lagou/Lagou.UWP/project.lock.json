@@ -36,7 +36,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -44,9 +44,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -55,10 +55,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -1644,12 +1644,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -1692,7 +1692,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -1700,9 +1700,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -1711,10 +1711,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -3393,12 +3393,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -3441,7 +3441,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -3449,9 +3449,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -3460,10 +3460,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -5114,12 +5114,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -5162,7 +5162,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -5170,9 +5170,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -5181,10 +5181,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -6868,12 +6868,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -6916,7 +6916,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -6924,9 +6924,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -6935,10 +6935,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -8589,12 +8589,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -8637,7 +8637,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -8645,9 +8645,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -8656,10 +8656,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -10343,12 +10343,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -10391,7 +10391,7 @@
           "lib/portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/Caliburn.Micro.Platform.Xamarin.Forms.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/1.2.3": {
+      "Microsoft.ApplicationInsights/2.0.0-beta3": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         },
@@ -10399,9 +10399,9 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
+      "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.2.3, )"
+          "Microsoft.ApplicationInsights": "[2.0.0-beta3, )"
         },
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
@@ -10410,10 +10410,10 @@
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
+      "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.1.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.1.0, )"
+          "Microsoft.ApplicationInsights": "[1.2.3, 1.2.3]",
+          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.2.3, 1.2.3]"
         },
         "compile": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
@@ -12064,12 +12064,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha1": {
+      "XamlSpy/3.0.0-alpha2": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha1, )"
+          "XamlSpyLibs": "[3.0.0-alpha2, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha1": {
+      "XamlSpyLibs/3.0.0-alpha2": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -12169,26 +12169,30 @@
         "package/services/metadata/core-properties/fd3eb8cd489c4dcc995795b2089d84ad.psmdcp"
       ]
     },
-    "Microsoft.ApplicationInsights/1.2.3": {
-      "sha512": "a34atobxpucCTTX9VCD7aIu6Ydzry+Va7TxK2tTQcfaMvefGW4kUKtg9GHKIn19IaXe+A4oZt/GBqsOt5vQrBA==",
+    "Microsoft.ApplicationInsights/2.0.0-beta3": {
+      "sha512": "MTEOYjgmn6gFVp4d63R8dBkQI4n9bj7lLoW4OaWeRnJ+2yqwMEOS0Mz6z+qKP8ve3LeoUTw4Ygtr9oCaHJN+SQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
+        "lib/dnxcore50/Microsoft.ApplicationInsights.dll",
+        "lib/dnxcore50/Microsoft.ApplicationInsights.XML",
         "lib/net40/Microsoft.ApplicationInsights.dll",
         "lib/net40/Microsoft.ApplicationInsights.XML",
         "lib/net45/Microsoft.ApplicationInsights.dll",
         "lib/net45/Microsoft.ApplicationInsights.XML",
+        "lib/net46/Microsoft.ApplicationInsights.dll",
+        "lib/net46/Microsoft.ApplicationInsights.XML",
         "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll",
         "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.XML",
         "lib/wp8/Microsoft.ApplicationInsights.dll",
         "lib/wp8/Microsoft.ApplicationInsights.XML",
         "Microsoft.ApplicationInsights.nuspec",
-        "package/services/metadata/core-properties/3b36eef276524f5d883c618d5fd8c500.psmdcp"
+        "package/services/metadata/core-properties/9dd1daaa0725478eb5ea0dffbe325a57.psmdcp"
       ]
     },
-    "Microsoft.ApplicationInsights.PersistenceChannel/1.2.3": {
-      "sha512": "5MGcvPQVaGlGyAVh9adg4sSkIVSYDKn+H3+YnZa9hi1gH/g6UsRt4HLc8vp/IxjlbmXbJyAB7dYJV/NHmAGAgA==",
+    "Microsoft.ApplicationInsights.PersistenceChannel/2.0.0-beta3": {
+      "sha512": "1km42tFTsuNSDe3wEN88r9tzlw5uTbFAl/KjkZtC2w13Tc2lA92tJHM7mSWv0zFt9w6Bx7m3km5yMECcYhzOLw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12202,11 +12206,11 @@
         "lib/wp8/Microsoft.ApplicationInsights.PersistenceChannel.dll",
         "lib/wp8/Microsoft.ApplicationInsights.PersistenceChannel.XML",
         "Microsoft.ApplicationInsights.PersistenceChannel.nuspec",
-        "package/services/metadata/core-properties/f973733421c14c3594986b3f2c22213a.psmdcp"
+        "package/services/metadata/core-properties/460690bead5947ebb831d7d2a4912dad.psmdcp"
       ]
     },
-    "Microsoft.ApplicationInsights.WindowsApps/1.1.0": {
-      "sha512": "H6nhyM+ZVOhLmF8cqQj70fc5HZOS6dxh18nNwEM7+HD8NzArdSLK0gwGJkEOUYPtjner/0/3aOxgGZbFi9OVdA==",
+    "Microsoft.ApplicationInsights.WindowsApps/1.1.1": {
+      "sha512": "Orj0UQrjQ2z0aWZZoexl734Ge7Q4oVev3VFSsk6t8l2kImrfJ1eygkJWtQ1d7u0kF6MLLrvUvsMSxo+0rgPiMQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12218,7 +12222,7 @@
         "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.dll",
         "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.XML",
         "Microsoft.ApplicationInsights.WindowsApps.nuspec",
-        "package/services/metadata/core-properties/441e5d0bc7164e089277ae041b2043cc.psmdcp"
+        "package/services/metadata/core-properties/8265b8c93c244c80b4e8bce27f31849d.psmdcp"
       ]
     },
     "Microsoft.Bcl/1.1.10": {
@@ -15815,8 +15819,8 @@
         "Xamarin.Forms.nuspec"
       ]
     },
-    "XamlSpy/3.0.0-alpha1": {
-      "sha512": "1btkjwoiCK4Jn1Du2tVdLfje2M2JwoWmMA9S8DmqjRZahPyLDXK7eGNljN6/dTuLAdfSYamnf1r+qxmkJgWmsQ==",
+    "XamlSpy/3.0.0-alpha2": {
+      "sha512": "nJg4+FWkLEAlI/OUkHnO4jCYYRyIIAKLfD6o4kUnlEB40EDZTPCD+Y/Kw5d6pxWupyGOo6D3xhyEHTJ0c0yWhA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15825,12 +15829,12 @@
         "build/uap10.0/XamlSpy.targets",
         "build/xamarin.ios10/XamlSpy.targets",
         "build/XamlSpy.targets",
-        "package/services/metadata/core-properties/e69e12f9fa02441e86b9d98f00ead0b2.psmdcp",
+        "package/services/metadata/core-properties/d1258b3d60fc42a8aeaf795920f430c9.psmdcp",
         "XamlSpy.nuspec"
       ]
     },
-    "XamlSpyLibs/3.0.0-alpha1": {
-      "sha512": "No+BjxH86r4e/l7OhwOJYPrkaWQbSQz80g0aPca9ZgpfBQuMfIf9yrP+2Em/kNbuMyK2NyMz8TWKeUCbG2p2Aw==",
+    "XamlSpyLibs/3.0.0-alpha2": {
+      "sha512": "diIBDP17npnnSGo0gdV8HCDaHEnB3DTAUpWydplwrP6Hr2XWsJoUVpOb4Jk7vwpsJKegzk5EIT3cRDyk0pRpRA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15844,7 +15848,7 @@
         "lib/wp81/XamlSpy.dll",
         "lib/wpa81/XamlSpy.dll",
         "lib/xamarin.ios10/XamlSpy.dll",
-        "package/services/metadata/core-properties/20fcf7eb98d7473e96c0f2d6171f223c.psmdcp",
+        "package/services/metadata/core-properties/3c5cd1cb462b45d29d312ff6b268d84d.psmdcp",
         "XamlSpyLibs.nuspec"
       ]
     }
@@ -15853,16 +15857,16 @@
     "": [
       "Caliburn.Micro >= 3.0.0-beta2",
       "Caliburn.Micro.Xamarin.Forms >= 3.0.0-beta2",
-      "Microsoft.ApplicationInsights >= 1.2.3",
-      "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
-      "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
+      "Microsoft.ApplicationInsights >= 2.0.0-beta3",
+      "Microsoft.ApplicationInsights.PersistenceChannel >= 2.0.0-beta3",
+      "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
       "Microsoft.Bcl >= 1.1.10",
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Win2D.uwp >= 1.10.0",
       "Xamarin.Forms >= 2.0.1.6492-pre1",
-      "XamlSpy >= 3.0.0-alpha1",
-      "XamlSpyLibs >= 3.0.0-alpha1"
+      "XamlSpy >= 3.0.0-alpha2",
+      "XamlSpyLibs >= 3.0.0-alpha2"
     ],
     "UAP,Version=v10.0": []
   }

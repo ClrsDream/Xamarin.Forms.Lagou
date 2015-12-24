@@ -5,7 +5,7 @@
              x:Class="Lagou.Views.EvaluationView"
              >
 
-  <ctrls:Border StrokeThickness="1" Stroke="#efefef" Padding="2" CornerRadius="2">
+  <ctrls:Border StrokeThickness="1" Stroke="#ededed" Padding="5" CornerRadius="5">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="auto" />
@@ -17,11 +17,11 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
 
-      <Label Text="{Binding Data.UserName}" TextColor="#999999" />
-      <Label Text="{Binding Data.CreateTime, StringFormat='发表于:{0}'}" TextColor="#999999" Grid.Column="1" />
+      <Label Text="{Binding Data.UserName}" Style="{StaticResource l_accent}" />
+      <Label Text="{Binding Data.CreateTime, StringFormat='发表于:{0}'}" Grid.Column="1" Style="{StaticResource l_accent}" />
 
-      <Label Text="{Binding Data.Content}" Style="{StaticResource CompanyDesc}" Grid.Row="1" Grid.ColumnSpan="2" />
-      <Label Text="{Binding Data.OtherEvaluation}" Style="{StaticResource CompanyDesc}" Grid.Row="2" Grid.ColumnSpan="2" />
+      <Label Text="{Binding Data.Content}" Style="{StaticResource l_text}" Grid.Row="1" Grid.ColumnSpan="2" />
+      <Label Text="{Binding Data.OtherEvaluation}" Style="{StaticResource l_text}" Grid.Row="2" Grid.ColumnSpan="2" />
 
     </Grid>
   </ctrls:Border>

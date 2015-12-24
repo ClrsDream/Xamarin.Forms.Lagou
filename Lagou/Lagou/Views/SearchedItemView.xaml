@@ -29,9 +29,9 @@
              />
       </ctrls:CycleBox>
 
-      <Label Text="{Binding Data.CompanyName}" Style="{StaticResource CompanyName}" Grid.Row="0" Grid.Column="1" />
-      <Label Text="{Binding Data.PositionName}" Style="{StaticResource PositionName}" Grid.Row="1" Grid.Column="1" />
-      <Label Text="{Binding Data.CreateTime}" Style="{StaticResource CreateTime}" Grid.Row="2" Grid.Column="1" />
+      <Label Text="{Binding Data.CompanyName}" Style="{StaticResource l_h1}" Grid.Row="0" Grid.Column="1" />
+      <Label Text="{Binding Data.PositionName}" Style="{StaticResource l_h2}" Grid.Row="1" Grid.Column="1" />
+      <Label Text="{Binding Data.CreateTime}" Style="{StaticResource l_text}" Grid.Row="2" Grid.Column="1" />
 
       <ctrls:Border Grid.RowSpan="3" Grid.Row="0" Grid.Column="2"
                     Style="{StaticResource SalaryCityBox}">

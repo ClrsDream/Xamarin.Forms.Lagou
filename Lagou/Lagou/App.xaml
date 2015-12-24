@@ -8,6 +8,46 @@
   <Application.Resources>
     <ResourceDictionary>
 
+      <!--大标题-->
+      <Style x:Key="l_h1" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#333333" />
+      </Style>
+
+      <!--次标题-->
+      <Style x:Key="l_h2" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="#444444" />
+      </Style>
+
+      <!--小标题-->
+      <Style x:Key="l_h3" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="#555555" />
+      </Style>
+
+
+      <!--强调-->
+      <Style x:Key="l_accent" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="#fea400" />
+      </Style>
+      
+      <!--文本-->
+      <Style x:Key="l_text" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="#666666" />
+      </Style>
+
+      <!--小号图标-->
+      <Style x:Key="fi_small" TargetType="ctrls:FontIcon">
+        <Setter Property="FontFamily" Value="FontAwesome.otf" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Color" Value="#fea400" />
+        <Setter Property="HeightRequest" Value="15" />
+        <Setter Property="WidthRequest" Value="15" />
+      </Style>      
+
       <Style x:Key="CompanyName" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="#333333" />

@@ -20,6 +20,9 @@ namespace Lagou.ViewModels {
         public MDIViewModel(SimpleContainer container) {
             this.Master = container.GetInstance<SettingViewModel>();
             this.Detail = container.GetInstance<TabViewModel>();
+            //var vm = container.GetInstance<JobDetailViewModel>();
+            //vm.ID = 1178538;
+            //this.Detail = vm;
         }
     }
 }
