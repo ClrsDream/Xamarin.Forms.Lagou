@@ -45,11 +45,13 @@
     <Compile Include="Converters\UnixTimestampDateTimeConverter.cs" />
     <Compile Include="Entities\Evaluation1.cs" />
     <Compile Include="Entities\Position.cs" />
-    <Compile Include="Entities\SearchedItem.cs" />
+    <Compile Include="Entities\PositionTypes.cs" />
+    <Compile Include="Entities\PositionBrief.cs" />
     <Compile Include="ErrorTypes.cs" />
     <Compile Include="MethodBase.cs" />
     <Compile Include="Methods\EvaluationList.cs" />
     <Compile Include="Methods\PositionDetail.cs" />
+    <Compile Include="Methods\PositionList.cs" />
     <Compile Include="Methods\Search.cs" />
     <Compile Include="ParamHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,5 +26,15 @@ namespace Lagou.Api.Test {
             };
             var a = ApiClient.Execute(method).Result;
         }
+
+        [TestMethod]
+        public void PositionListTest() {
+            var method = new PositionList() {
+                CompanyID = 3786,
+                PositionType = API.Entities.PositionTypes.技术
+            };
+
+            var a = ApiClient.Execute(method).Result;
+        }
     }
 }

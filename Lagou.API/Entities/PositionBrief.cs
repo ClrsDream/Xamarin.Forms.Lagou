@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lagou.API.Entities {
-    public class SearchedItem {
+    /// <summary>
+    /// 职位简要信息
+    /// </summary>
+    public class PositionBrief {
 
         [JsonProperty("positionId")]
         public int PositionId { get; set; }

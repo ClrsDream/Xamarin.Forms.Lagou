@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lagou.API.Methods {
-    public class Search : MethodBase<IEnumerable<SearchedItem>> {
+    public class Search : MethodBase<IEnumerable<PositionBrief>> {
         public override string Module
         {
             get
@@ -34,12 +34,12 @@ namespace Lagou.API.Methods {
         [Param("positionName")]
         public string Key { get; set; }
 
-        protected override IEnumerable<SearchedItem> Execute(string result) {
+        protected override IEnumerable<PositionBrief> Execute(string result) {
             var o = new {
                 content = new {
                     data = new {
                         page = new {
-                            result = Enumerable.Empty<SearchedItem>(),
+                            result = Enumerable.Empty<PositionBrief>(),
                             pageNo = 1,
                             pageSize = 1,
                             totalCount = 0

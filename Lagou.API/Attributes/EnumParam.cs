@@ -32,15 +32,20 @@ namespace Lagou.API.Attributes {
         public override Dictionary<string, string> GetParams(object obj, System.Reflection.PropertyInfo p) {
             var value = p.GetValue(obj, null);
             if (value != null) {
-                var skv = value.GetType()
+                var attr = value.GetType()
                         .GetRuntimeField(value.ToString())
                         .GetCustomAttributes(false)
                         .OfType<SpecifyNameValueAttribute>().FirstOrDefault();
 
-                if (skv != null) {
-                    value = this.Use == EnumUseNameOrValue.Name ? (object)skv.Name : skv.Value;
+                if (attr != null) {
+                    value = this.Use == EnumUseNameOrValue.Name ? (object)attr.Name : attr.Value;
                 } else {
-                    value = this.Use == EnumUseNameOrValue.Name ? Enum.GetName(obj.GetType(), obj) : value;
+                    var t = p.PropertyType;
+                    var tf = t.GetTypeInfo();
+                    if (tf.IsGenericType && tf.GetGenericTypeDefinition().Equals(typeof(Nullable<>))) {
+                        t = Nullable.GetUnderlyingType(t);
+                    }
+                    value = this.Use == EnumUseNameOrValue.Name ? Enum.GetName(t, value) : value;
                 }
             }
 
