@@ -10,6 +10,12 @@ namespace Lagou.API.Entities {
     /// 
     /// </summary>
     public class Position {
+        
+        public int CompanyID { get; set; }
+
+        public int PositionID { get; set; }
+
+        public string CompanyAddress { get; set; }
 
         /// <summary>
         /// 职位名称
@@ -61,6 +67,7 @@ namespace Lagou.API.Entities {
 
         [HtmlQuery(".company .desc .info")]
         public string CompanyDesc { get; set; }
+
 
         /// <summary>
         /// 职位描述

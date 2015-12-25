@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lagou.Views.CompanyPositionsView"
+             xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             BackgroundColor="White"
+             Padding="5"
+             Title="{Binding CompanyName}"
+             >
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="100" />
+      <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+
+    <Image Source="{Binding CompanyLogo}" WidthRequest="80" HeightRequest="80" />
+
+    <ctrls:Repeater Spacing="2"
+      ItemsSource="{Binding PositionTypes}" Orientation="Horizontal"
+      Grid.Row="0" Grid.Column="1">
+      <ctrls:Repeater.ItemTemplate>
+        <DataTemplate>
+          <ctrls:Border Stroke="#cccccc" StrokeThickness="1" Padding="5" CornerRadius="2">
+            <Label Text="{Binding}" Style="{StaticResource l_accent}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+          </ctrls:Border>
+        </DataTemplate>
+      </ctrls:Repeater.ItemTemplate>
+    </ctrls:Repeater>
+
+    <BoxView Style="{StaticResource b_h}" Grid.Row="1" Grid.ColumnSpan="2" />
+
+    <ListView Grid.Row="2" Grid.ColumnSpan="2" 
+              ItemsSource="{Binding Datas}"
+              HasUnevenRows="True"
+              >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Padding="5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition />
+                  <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition />
+                  <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackLayout>
+                  <Label Text="{Binding PositionName}" Style="{StaticResource l_h2}" />
+                  <Label Text="{Binding CreateTime}" Style="{StaticResource l_text}" />
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                  <Label Text="{Binding Salary}" Style="{StaticResource l_accent}" />
+                  <Label Text="{Binding City}" Style="{StaticResource l_accent}" />
+                </StackLayout>
+
+                <BoxView Style="{StaticResource b_h}" Grid.Row="1" Grid.ColumnSpan="2" />
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
+
+</ContentPage>

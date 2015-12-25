@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
 using Lagou.API.Entities;
 using Lagou.API.Methods;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
@@ -28,9 +30,16 @@ namespace Lagou.ViewModels {
 
         public int ID { get; set; }
 
+        public ICommand SeeAllCmd {
+            get;
+            set;
+        }
 
-        public JobDetailViewModel() {
+        private INavigationService NS = null;
 
+        public JobDetailViewModel(INavigationService ns) {
+            this.SeeAllCmd = new Command(() => this.SeeAll());
+            this.NS = ns;
         }
 
         protected async override void OnActivate() {
@@ -53,6 +62,14 @@ namespace Lagou.ViewModels {
             this.NotHaveEvaluations = !this.HasEvaluations;
             this.NotifyOfPropertyChange(() => this.HasEvaluations);
             this.NotifyOfPropertyChange(() => this.NotHaveEvaluations);
+        }
+
+        private void SeeAll() {
+            this.NS.For<CompanyPositionsViewModel>()
+                .WithParam(p => p.CompanyID, this.Data?.CompanyID)
+                .WithParam(p => p.CompanyName, this.Data?.CompanyName)
+                .WithParam(p => p.CompanyLogo, this.Data?.CompanyLogo)
+                .Navigate();
         }
     }
 }

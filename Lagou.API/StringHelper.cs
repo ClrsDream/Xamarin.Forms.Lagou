@@ -113,6 +113,74 @@ namespace Lagou.API {
             return tmp;
         }
 
+
+        #region To int
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static int ToInt(this string str, int defaultValue) {
+            int v;
+            if (int.TryParse(str, out v)) {
+                return v;
+            } else
+                return defaultValue;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static int ToInt(this string str) {
+            return str.ToInt(0);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static int? ToIntOrNull(this string str, int? defaultValue) {
+            int v;
+            if (int.TryParse(str, out v))
+                return v;
+            else
+                return defaultValue;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static int? ToIntOrNull(this string str) {
+            return str.ToIntOrNull(null);
+        }
+
+        /// <summary>
+        /// 智慧轉換為 Int ，取字串中的第一個數位串
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static int SmartToInt(this string str, int defaultValue) {
+            if (string.IsNullOrEmpty(str))
+                return defaultValue;
+
+            //Match ma = Regex.Match(str, @"(\d+)");
+            Match ma = Regex.Match(str, @"((-\s*)?\d+)");
+            if (ma.Success) {
+                return ma.Groups[1].Value.Replace(" ", "").ToInt(defaultValue);
+            } else {
+                return defaultValue;
+            }
+        }
+        #endregion
+
         public static ErrorTypes ParseErrorType(this string str) {
             var fs = typeof(ErrorTypes).GetRuntimeFields();
             foreach (var f in fs) {

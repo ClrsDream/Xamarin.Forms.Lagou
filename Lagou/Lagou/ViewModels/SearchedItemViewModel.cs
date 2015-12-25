@@ -17,7 +17,7 @@ namespace Lagou.ViewModels {
             }
         }
 
-        public SearchedItem Data {
+        public PositionBrief Data {
             get; set;
         }
 
@@ -25,7 +25,7 @@ namespace Lagou.ViewModels {
 
         private INavigationService NS;
 
-        public SearchedItemViewModel(SearchedItem data, INavigationService ns) {
+        public SearchedItemViewModel(PositionBrief data, INavigationService ns) {
             this.Data = data;
             this.TapCmd = new Command(() => ShowDetail());
             this.NS = ns;

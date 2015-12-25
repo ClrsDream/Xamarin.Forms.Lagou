@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Lagou.Controls {
-    public class Repeater : StackLayout {
+    public class Repeater : WrapLayout {
 
         public static readonly BindableProperty ItemTemplateProperty =
             BindableProperty.Create<Repeater, DataTemplate>(
