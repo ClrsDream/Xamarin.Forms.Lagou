@@ -4,11 +4,16 @@
              x:Class="Lagou.Views.IndexView"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              BackgroundColor="#333333"
+             x:Name="root"
+             IsBusy="{Binding InRefresh}"
   >
 
   <ListView
     ItemsSource="{Binding Datas}"
     HasUnevenRows="True"
+    IsPullToRefreshEnabled="True"
+    IsRefreshing="{Binding InRefresh}"
+    RefreshCommand="{Binding ReloadCmd}"
     >
 
     <ListView.ItemTemplate>
@@ -20,6 +25,13 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Padding="10,5,10,20">
+        <Button Text="加载更多" Command="{Binding LoadMoreCmd}"
+                BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
+                />
+      </StackLayout>
+    </ListView.Footer>
 
   </ListView>
 

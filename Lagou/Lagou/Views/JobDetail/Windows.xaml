@@ -106,7 +106,7 @@
                                 ItemsSource="{Binding Evaluations}">
                   <ctrls:Repeater.ItemTemplate>
                     <DataTemplate>
-                      <ContentView cal:View.Model="{Binding}" />
+                      <ContentView cal:View.Model="{Binding}" HorizontalOptions="Fill" />
                     </DataTemplate>
                   </ctrls:Repeater.ItemTemplate>
                 </ctrls:Repeater>
