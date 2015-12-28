@@ -24,11 +24,15 @@
         <RowDefinition Height="20" />
       </Grid.RowDefinitions>
 
-      <ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
+      <!--<ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
         <Image Source="{Binding Data.CompanyLogoUri}"
                      WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
              />
-      </ctrls:CycleBox>
+      </ctrls:CycleBox>-->
+
+      <Image Source="{Binding Data.CompanyLogoUri}" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0"
+                   WidthRequest="60" HeightRequest="60" Aspect="AspectFit"
+             />
 
       <Label Text="{Binding Data.CompanyName}" Style="{StaticResource l_h1}" Grid.Row="0" Grid.Column="1" />
       <Label Text="{Binding Data.PositionName}" Style="{StaticResource l_h2}" Grid.Row="1" Grid.Column="1" />

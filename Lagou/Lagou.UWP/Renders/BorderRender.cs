@@ -23,7 +23,7 @@ namespace Lagou.UWP.Renders {
             base.OnElementChanged(e);
             if (e.NewElement != null) {
                 SetNativeControl(new WC.Border());
-                UpdateControl();
+                //UpdateControl();
             }
         }
 
@@ -31,12 +31,25 @@ namespace Lagou.UWP.Renders {
             base.OnElementPropertyChanged(sender, e);
             if (e.PropertyName == "Content") {
                 PackChild();
-            } else if (e.PropertyName == Border.StrokeProperty.PropertyName ||
-                       e.PropertyName == Border.StrokeThicknessProperty.PropertyName ||
-                       e.PropertyName == Border.CornerRadiusProperty.PropertyName ||
-                       e.PropertyName == Border.PaddingProperty.PropertyName) {
-                UpdateControl();
             }
+            switch (e.PropertyName) {
+                case "Content":
+                    this.PackChild();
+                    break;
+                case "Stroke":
+                    this.SetBorderBrush();
+                    break;
+                case "StrokeThickness":
+                    this.SetThickness();
+                    break;
+                case "CornerRadius":
+                    this.SetCornerRadius();
+                    break;
+                case "Padding":
+                    this.SetPadding();
+                    break;
+            }
+
         }
 
         // the base class is setting the background to the renderer when Control is null
@@ -57,13 +70,37 @@ namespace Lagou.UWP.Renders {
             Control.Child = render;
         }
 
-        private void UpdateControl() {
-            var border = this.Control;
+        private void SetCornerRadius() {
             var c = this.Element.CornerRadius;
-            border.CornerRadius = new WX.CornerRadius(c.TopLeft, c.TopRight, c.BottomRight, c.BottomLeft);
-            border.BorderBrush = Element.Stroke.ToBrush();
-            border.BorderThickness = Element.StrokeThickness.ToWinPhone();
-            border.Padding = Element.Padding.ToWinPhone();
+            this.Control.CornerRadius = new WX.CornerRadius(c.TopLeft, c.TopRight, c.BottomRight, c.BottomLeft);
+        }
+
+        private void SetBorderBrush() {
+            this.Control.BorderBrush = this.Element.Stroke.ToBrush();
+        }
+
+        private void SetThickness() {
+            this.Control.BorderThickness = this.Element.StrokeThickness.ToWinPhone();
+        }
+
+        private void SetPadding() {
+            this.Control.Padding = this.Element.Padding.ToWinPhone();
+        }
+
+
+        protected override void UpdateNativeControl() {
+            base.UpdateNativeControl();
+
+            if (this.Control != null) {
+                this.SetPadding();
+                this.SetBorderBrush();
+                this.SetThickness();
+                this.SetCornerRadius();
+            }
+        }
+
+        protected override void Dispose(bool disposing) {
+            base.Dispose(disposing);
         }
     }
 }

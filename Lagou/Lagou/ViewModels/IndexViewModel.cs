@@ -35,6 +35,7 @@ namespace Lagou.ViewModels {
 
         public IndexViewModel(SimpleContainer container, INavigationService ns) {
             this.Datas = new BindableCollection<SearchedItemViewModel>();
+            this.Datas.CollectionChanged += Datas_CollectionChanged;
             this.Container = container;
             this.NS = ns;
 
@@ -45,6 +46,10 @@ namespace Lagou.ViewModels {
             this.LoadMoreCmd = new Command(async () => {
                 await this.LoadData(false);
             });
+        }
+
+        private void Datas_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
+            var act = e.Action;
         }
 
         protected async override void OnActivate() {
@@ -73,10 +78,15 @@ namespace Lagou.ViewModels {
                     this.Datas.Clear();
                 }
 
-                this.Datas.AddRange(datas.Select(d =>
-                    new SearchedItemViewModel(d, this.NS)
-                ));
-                this.NotifyOfPropertyChange(() => this.Datas);
+                //this.Datas.AddRange(datas.Select(d =>
+                //    new SearchedItemViewModel(d, this.NS)
+                //));
+                
+                foreach(var d in datas) {
+                    this.Datas.Add(new SearchedItemViewModel(d, this.NS));
+                }
+
+                //this.NotifyOfPropertyChange(() => this.Datas);
                 this.Page++;
             }
 

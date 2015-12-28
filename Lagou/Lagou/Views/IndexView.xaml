@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.IndexView"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
-             BackgroundColor="#333333"
+             BackgroundColor="#ffffff"
              x:Name="root"
              IsBusy="{Binding InRefresh}"
   >

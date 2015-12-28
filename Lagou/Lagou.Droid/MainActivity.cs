@@ -32,6 +32,12 @@ namespace Lagou.Droid {
                 typeof(MyMasterDetailPageRender),
                 typeof(MyMasterDetailPageRender)
             });
+
+            m.Invoke(this, new object[] {
+                typeof(TabbedPage),
+                typeof(TabbedPageRender),
+                typeof(TabbedPageRender)
+            });
         }
     }
 }

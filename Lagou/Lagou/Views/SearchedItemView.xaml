@@ -25,7 +25,7 @@
 
       <ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
         <Image Source="{Binding Data.CompanyLogoUri}"
-               WidthRequest="60" HeightRequest="60" Aspect="AspectFill"
+               WidthRequest="60" HeightRequest="60" Aspect="AspectFit"
              />
       </ctrls:CycleBox>
 

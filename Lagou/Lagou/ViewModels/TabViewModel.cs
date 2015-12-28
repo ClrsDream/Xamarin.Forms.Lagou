@@ -21,7 +21,8 @@ namespace Lagou.ViewModels {
         public TabViewModel(SimpleContainer container) {
             this.Datas = new BindableCollection<Screen>() {
                     container.GetInstance<IndexViewModel>(),
-                    container.GetInstance<SearchViewModel>()
+                    container.GetInstance<SearchViewModel>(),
+                    container.GetInstance<MyViewModel>()
                 };
         }
     }

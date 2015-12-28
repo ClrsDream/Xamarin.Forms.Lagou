@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\JobDetailViewModel.cs" />
     <Compile Include="ViewModels\MDIViewModel.cs" />
+    <Compile Include="ViewModels\MyViewModel.cs" />
     <Compile Include="ViewModels\SearchedItemViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
@@ -73,6 +74,9 @@
     </Compile>
     <Compile Include="Views\MDIView.xaml.cs">
       <DependentUpon>MDIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyView.xaml.cs">
+      <DependentUpon>MyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchedItemView.xaml.cs">
       <DependentUpon>SearchedItemView.xaml</DependentUpon>
@@ -200,6 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CompanyPositionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
