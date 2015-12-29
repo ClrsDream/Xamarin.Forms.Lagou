@@ -43,6 +43,7 @@
     <Compile Include="Controls\FontIcon.cs" />
     <Compile Include="Controls\Repeater.cs" />
     <Compile Include="Controls\WrapLayout.cs" />
+    <Compile Include="IGeolocatorService.cs" />
     <Compile Include="MasterDetailLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewLocatorPage.cs" />

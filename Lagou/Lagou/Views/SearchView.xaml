@@ -2,5 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.SearchView">
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <Label Text="{Binding City, StringFormat='当前城市：{0}'}" />
+  </Grid>
   
 </ContentPage>

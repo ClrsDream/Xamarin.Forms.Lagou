@@ -119,6 +119,7 @@
     <Compile Include="Renders\NavigationPageRender.cs" />
     <Compile Include="Renders\RepeaterRender.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
+    <Compile Include="Services\GeolocatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

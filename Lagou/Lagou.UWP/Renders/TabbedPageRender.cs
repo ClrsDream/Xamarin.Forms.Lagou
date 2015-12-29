@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
-//[assembly:ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
+//[assembly: ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Lagou.UWP.Renders {
     public class TabbedPageRender : TabbedPageRenderer {
 
@@ -20,9 +20,7 @@ namespace Lagou.UWP.Renders {
 
         private void TabbedPageRender_ElementChanged(object sender, VisualElementChangedEventArgs e) {
             if(this.Control != null) {
-                //var o = this.Control.FindChildControl<PivotHeaderPanel>("StaticHeader");
-                //this.Control.Background = new SolidColorBrush(Colors.Green);
-                var s = this.Control.Style;
+                this.Control.Style = (Windows.UI.Xaml.Style)Windows.UI.Xaml.Application.Current.Resources["TabbedPageStyle2"];
             }
         }
     }
