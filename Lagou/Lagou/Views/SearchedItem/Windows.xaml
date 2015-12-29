@@ -11,7 +11,7 @@
   </ContentView.GestureRecognizers>
 
 
-  <ctrls:Border CornerRadius="3" Stroke="#333333" StrokeThickness="1" BackgroundColor="White" Padding="5">
+  <ctrls:Border Style="{StaticResource b_block}">
     <Grid WidthRequest="250">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
