@@ -474,7 +474,7 @@
         </Style.Setters>
     </Style>-->
 
-    <!--<Style x:Key="TabbedPageStyle1" TargetType="Pivot">
+    <Style x:Key="TabbedPageStyle1" TargetType="Pivot">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -786,6 +786,6 @@
                 </Setter.Value>
             </Setter>
         </Style.Setters>
-    </Style>-->
+    </Style>
 
 </ResourceDictionary>
