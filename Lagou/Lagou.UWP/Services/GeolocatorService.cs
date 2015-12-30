@@ -27,6 +27,10 @@ namespace Lagou.UWP.Services {
             return "";
         }
 
+        public Task LocateOnMap(string address) {
+            throw new NotImplementedException();
+        }
+
         private async Task<string> GetPosition() {
             var g = new Geolocator();
             var pos = await g.GetGeopositionAsync();

@@ -93,12 +93,16 @@
                 <StackLayout Orientation="Horizontal">
                   <ctrls:FontIcon Glyph="&#xf19c;" Style="{StaticResource fi_small}" />
                   <Label Text="{Binding Data.Temptation}" Style="{StaticResource l_h3}" />
-                </StackLayout>                
+                </StackLayout>
+
+                <BoxView Style="{StaticResource b_h}" />
+                <!--公司地址-->
+                <Label Text="{Binding Data.CompanyAddress}" Style="{StaticResource l_text}" />                
                 
                 <BoxView Style="{StaticResource b_h}" />
 
                 <Label Text="{Binding Data.JobDesc}" Style="{StaticResource l_text}" />
-
+                                
               </StackLayout>
             </ScrollView>
 

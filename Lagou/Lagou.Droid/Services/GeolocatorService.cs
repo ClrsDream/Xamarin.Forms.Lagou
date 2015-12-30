@@ -12,6 +12,7 @@ using Android.Widget;
 using Lagou.Droid.Services;
 using Xamarin.Forms;
 using Android.Locations;
+using AN = Android.Net;
 
 [assembly: Dependency(typeof(GeolocatorService))]
 namespace Lagou.Droid.Services {
@@ -43,6 +44,14 @@ namespace Lagou.Droid.Services {
                 }
             }
             return "…Ó€⁄";
+        }
+
+        public async Task LocateOnMap(string address) {
+            // http://blog.csdn.net/t12x3456/article/details/9006035
+
+            AN.Uri uri = AN.Uri.Parse("geo:38.899533,-77.036476");
+            Intent it = new Intent(Intent.ActionView, uri);
+            Forms.Context.StartActivity(it);
         }
     }
 }

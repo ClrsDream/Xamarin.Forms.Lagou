@@ -37,17 +37,19 @@
           </StackLayout>
         </Grid>
 
+        <!--职位名称-->
         <ctrls:Border BackgroundColor="#aaefefef" Stroke="#999999" StrokeThickness="0.5" CornerRadius="3" Padding="5" Grid.Row="2">
           <Label Text="{Binding Data.JobTitle}" Style="{StaticResource l_h2}" />
         </ctrls:Border>
 
         <ctrls:Flip Grid.Row="3">
           <ctrls:Flip.Children>
+
+            <!--职位详情-->
             <ScrollView>
               <StackLayout>
                 <Grid>
                   <Grid.RowDefinitions>
-                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                   </Grid.RowDefinitions>
@@ -57,44 +59,65 @@
                     <ColumnDefinition />
                   </Grid.ColumnDefinitions>
 
+                  <!--薪水-->
                   <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                     <ctrls:FontIcon Glyph="&#xf157;" Style="{StaticResource fi_small}" />
                     <Label Text="{Binding Data.Salary}" Style="{StaticResource l_text}" />
                   </StackLayout>
 
+                  <!--工作地点-->
                   <StackLayout Orientation="Horizontal" Grid.Column="1">
                     <ctrls:FontIcon Glyph="&#xf279;" Style="{StaticResource fi_small}" />
                     <Label Text="{Binding Data.WorkAddress}" Style="{StaticResource l_text}" />
                   </StackLayout>
 
+                  <!--全/兼职-->
                   <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
                     <ctrls:FontIcon Glyph="&#xf0c0;" Style="{StaticResource fi_small}" />
                     <Label Text="{Binding Data.JobNature}" Style="{StaticResource l_text}" />
                   </StackLayout>
 
+                  <!--工作年限-->
                   <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                     <ctrls:FontIcon Glyph="&#xf017;" Style="{StaticResource fi_small}" />
                     <Label Text="{Binding Data.WorkYear}" Style="{StaticResource l_text}" />
                   </StackLayout>
 
+                  <!--学历-->
                   <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                     <ctrls:FontIcon Glyph="&#xf19d;" Style="{StaticResource fi_small}" />
                     <Label Text="{Binding Data.Education}" Style="{StaticResource l_text}" />
                   </StackLayout>
 
-                  <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3">
-                    <ctrls:FontIcon Glyph="&#xf19c;" Style="{StaticResource fi_small}" />
-                    <Label Text="{Binding Data.Temptation}" Style="{StaticResource l_h3}" />
-                  </StackLayout>
                 </Grid>
 
                 <BoxView Style="{StaticResource b_h}" />
 
-                <Label Text="{Binding Data.JobDesc}" Style="{StaticResource l_text}" />
+                <!--职位诱惑-->
+                <StackLayout Orientation="Horizontal">
+                  <ctrls:FontIcon Glyph="&#xf19c;" Style="{StaticResource fi_small}" />
+                  <Label Text="{Binding Data.Temptation}" Style="{StaticResource l_h3}" />
+                </StackLayout>
 
+                <BoxView Style="{StaticResource b_h}" />
+                <!--公司地址-->
+                <StackLayout Orientation="Horizontal">
+                  <ctrls:FontIcon Glyph="&#xf041;" Style="{StaticResource fi_small}" />
+                  <!--Bug Horizontal 下, Label 不会换行-->
+                  <Label Text="{Binding Data.CompanyAddress}" Style="{StaticResource l_text}" LineBreakMode="CharacterWrap" />
+                </StackLayout>
+                
+
+                <BoxView Style="{StaticResource b_h}" />
+
+                <!--职位描述-->
+                <Label Text="{Binding Data.JobDesc}" Style="{StaticResource l_text}" />
+               
               </StackLayout>
             </ScrollView>
-
+            <!--//职位详情-->
+            
+            <!--评论-->
             <ScrollView>
               <Grid>
                 <Label Text="当前无评论" IsVisible="{Binding NotHaveEvaluations}" Style="{StaticResource l_h1}"
@@ -112,6 +135,7 @@
                 </ctrls:Repeater>
               </Grid>
             </ScrollView>
+            <!--//评论-->
           </ctrls:Flip.Children>
         </ctrls:Flip>
 

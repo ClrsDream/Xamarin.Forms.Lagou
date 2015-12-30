@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace Lagou {
     public interface IGeolocatorService {
         Task<string> GetCityNameAsync();
+
+        Task LocateOnMap(string address);
     }
 }
