@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
+using Lagou.API;
 using Lagou.ViewModels;
 using Lagou.Views;
 using System;
@@ -19,8 +20,43 @@ namespace Lagou {
             this.InitializeComponent();
 
             this.Container = container;
+            this.RegistModel(container);
+            this.FixCM(container);
 
-            this.Container
+            this.DisplayRootView<MDIView>();
+            API.ApiClient.OnMessage += ApiClient_OnMessage;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+        }
+
+        private void ApiClient_OnMessage(object sender, API.MessageArgs e) {
+            Device.BeginInvokeOnMainThread(() => {
+                this.DealMessage(e);
+            });
+        }
+
+        private async void DealMessage(MessageArgs e) {
+            switch (e.ErrorType) {
+                case ErrorTypes.NeedLogin:
+                    var nav = await this.MainPage.DisplayAlert("提示", e.Message, "需要登陆", "返回上一页");
+                    if (nav) {
+                        this.Container.GetInstance<INavigationService>()
+                            .For<LoginViewModel>()
+                            .Navigate();
+                    } else {
+                        await this.Container.GetInstance<INavigationService>().GoBackAsync();
+                    }
+                    break;
+                case ErrorTypes.Network:
+                    await this.MainPage.DisplayAlert("网络异常", "当前网络不可用,请检查", "OK");
+                    break;
+                default:
+                    await this.MainPage.DisplayAlert("提示", e.Message, "OK");
+                    break;
+            }
+        }
+
+        private void RegistModel(SimpleContainer container) {
+            container
                 .Singleton<TabViewModel>()
                 .Singleton<SettingViewModel>()
                 .Singleton<MDIViewModel>()
@@ -28,11 +64,14 @@ namespace Lagou {
                 .Singleton<SearchViewModel>()
                 .Singleton<CompanyPositionsViewModel>()
                 .Singleton<MyViewModel>()
+                .Singleton<LoginViewModel>()
 
                 .PerRequest<JobDetailViewModel>()
                 .PerRequest<SearchedItemViewModel>()
                 ;
+        }
 
+        private void FixCM(SimpleContainer container) {
             var f = ViewLocator.LocateTypeForModelType;
             ViewLocator.LocateTypeForModelType = (type, bindable, context) => {
                 return f(type, bindable, context ?? Device.OS) ?? f(type, bindable, context);
@@ -55,12 +94,7 @@ namespace Lagou {
                 }
                 return vm;
             };
-
-            this.DisplayRootView<MDIView>();
-
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
-
 
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e) {
             //防止因线程取消等错误把程挂掉

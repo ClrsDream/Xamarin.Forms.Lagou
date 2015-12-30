@@ -19,6 +19,12 @@ namespace Lagou.API.Methods {
             }
         }
 
+        protected override IEnumerable<Evaluation> DefaultValue {
+            get {
+                return Enumerable.Empty<Evaluation>();
+            }
+        }
+
         public int PositionID { get; set; }
 
         private Regex Rx = new Regex(@"global.page[\s\S]*?(?<json>{[\s\S]*?});[\s\S]*global.");

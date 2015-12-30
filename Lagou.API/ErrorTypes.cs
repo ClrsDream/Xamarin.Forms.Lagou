@@ -9,6 +9,8 @@ namespace Lagou.API {
     public enum ErrorTypes {
         Unknow,
 
+        NeedLogin,
+
         /// <summary>
         /// 404
         /// </summary>
@@ -22,6 +24,9 @@ namespace Lagou.API {
         ServerException,
 
         [ErrorTag("-2146233079")]
-        DNSError
+        DNSError,
+
+        [ErrorTag("-2147012889")]
+        Network
     }
 }

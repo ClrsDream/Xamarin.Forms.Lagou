@@ -19,6 +19,12 @@ namespace Lagou.API.Methods {
             }
         }
 
+        protected override IEnumerable<PositionBrief> DefaultValue {
+            get {
+                return Enumerable.Empty<PositionBrief>();
+            }
+        }
+
         [Param("pageNo")]
         public int Page { get; set; } = 1;
 

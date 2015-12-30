@@ -9,17 +9,20 @@ using System.Threading.Tasks;
 
 namespace Lagou.API.Methods {
     public class Search : MethodBase<IEnumerable<PositionBrief>> {
-        public override string Module
-        {
-            get
-            {
+        public override string Module {
+            get {
                 return "custom/search.json";
             }
         }
 
+        protected override IEnumerable<PositionBrief> DefaultValue {
+            get {
+                return Enumerable.Empty<PositionBrief>();
+            }
+        }
+
         [Param("pageNo")]
-        public int Page
-        {
+        public int Page {
             get; set;
         } = 1;
 

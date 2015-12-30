@@ -35,7 +35,7 @@ namespace Lagou.ViewModels {
 
         public IndexViewModel(SimpleContainer container, INavigationService ns) {
             this.Datas = new BindableCollection<SearchedItemViewModel>();
-            this.Datas.CollectionChanged += Datas_CollectionChanged;
+            //this.Datas.CollectionChanged += Datas_CollectionChanged;
             this.Container = container;
             this.NS = ns;
 
@@ -48,9 +48,9 @@ namespace Lagou.ViewModels {
             });
         }
 
-        private void Datas_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
-            var act = e.Action;
-        }
+        //private void Datas_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
+        //    var act = e.Action;
+        //}
 
         protected async override void OnActivate() {
             base.OnActivate();

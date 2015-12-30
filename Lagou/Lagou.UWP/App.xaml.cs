@@ -30,7 +30,7 @@ namespace Lagou.UWP {
         }
 
         private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
-
+            e.Handled = true;
         }
 
         protected override void Configure() {

@@ -38,51 +38,31 @@ namespace Lagou.API {
         public async virtual Task<string> GetResult(ApiClient client) {
             try {
                 var url = this.BuildUrl(client.GetUrl(this));
-                HttpClient hc = new HttpClient();
-                return await hc.GetStringAsync(url);
-            } catch (HttpRequestException ex) {
-                var bex = ex.GetBaseException();
-                var o = new {
-                    Message = new {
-                        messageval = bex.HResult.ToString(),
-                        messagestr = bex.Message
-                    }
-                };
-                return JsonConvert.SerializeObject(o);
-            } catch (WebException ex1) {
-                var bex = ex1.GetBaseException();
-                var o = new {
-                    Message = new {
-                        messageval = bex.HResult.ToString(),
-                        messagestr = bex.Message
-                    }
-                };
-                return JsonConvert.SerializeObject(o);
-            }
-        }
-
-        protected void ParseMessage(string result) {
-            var o = new {
-                Message = new {
-                    messagestr = "",
-                    messageval = ""
+                using (HttpClient hc = new HttpClient()) {
+                    return await hc.GetStringAsync(url);
                 }
-            };
-            o = JsonConvert.DeserializeAnonymousType(result, o);
-            if (o.Message != null && !string.IsNullOrWhiteSpace(o.Message.messageval)) {
+            } catch (Exception ex) {
+                var bex = ex.GetBaseException();
+
+                this.ErrorType = bex.HResult.ToString().ParseErrorType();
+                this.Message = bex.Message;
                 this.HasError = true;
-                this.Message = o.Message.messagestr;
-                this.ErrorType = o.Message.messageval.ParseErrorType();
+
+                return "";
             }
         }
     }
 
     public abstract class MethodBase<TResult> : MethodBase {
 
+        protected virtual TResult DefaultValue { get; } = default(TResult);
+
         internal async Task<TResult> Execute(ApiClient client) {
             var result = await this.GetResult(client);
-            //this.ParseMessage(result);
-            return this.Execute(result);
+            if (!this.HasError)
+                return this.Execute(result);
+            else
+                return this.DefaultValue;
         }
 
         protected virtual TResult Execute(string result) {
