@@ -7,7 +7,7 @@
 
 
     <xm:ViewToRendererConverter x:Key="renderConverter" />
-    
+
     <ControlTemplate x:Key="SplitViewTogglePaneButtonTemplate"
                          TargetType="ToggleButton">
         <Grid x:Name="RootGrid"
@@ -146,5 +146,13 @@
             </Setter>
         </Style.Setters>
     </Style>
+
+    <DataTemplate x:Key="TabbedPageItemDataTemplate">
+        <ContentControl Content="{Binding Path=Content, Converter={StaticResource renderConverter}}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TabbedPageHeaderDataTemplate">
+        <TextBlock Text="{Binding Title}" />
+    </DataTemplate>
 
 </ResourceDictionary>
