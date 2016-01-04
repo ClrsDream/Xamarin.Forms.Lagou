@@ -14,7 +14,7 @@ using WC = Windows.UI.Xaml.Controls;
 using System.Reflection;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using Windows.Foundation;
+using WF = Windows.Foundation;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Lagou.UWP.Renders {
@@ -58,27 +58,6 @@ namespace Lagou.UWP.Renders {
         protected override Windows.Foundation.Size ArrangeOverride(Windows.Foundation.Size finalSize) {
             return base.ArrangeOverride(finalSize);
         }
-
-        protected override Windows.Foundation.Size MeasureOverride(Windows.Foundation.Size availableSize) {
-            return base.MeasureOverride(availableSize);
-        }
-
-        public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint) {
-            return base.GetDesiredSize(widthConstraint, heightConstraint);
-        }
-
-        //public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint) {
-        //    var size = new Windows.Foundation.Size(widthConstraint, heightConstraint);
-        //    double width = this.Control.Width;
-        //    double height = this.Control.Height;
-        //    //this.Control.Height = double.NaN;
-        //    //this.Control.Width = double.NaN;
-        //    this.Control.Measure(size);
-        //    var finallSize = new Xamarin.Forms.Size(Math.Ceiling(this.Control.DesiredSize.Width), Math.Ceiling(this.Control.DesiredSize.Height));
-        //    this.Control.Width = width;
-        //    this.Control.Height = height;
-        //    return new SizeRequest(finallSize);
-        //}
 
         private void UpdateCurrentPage() {
             var currentPage = this.Element.CurrentPage;

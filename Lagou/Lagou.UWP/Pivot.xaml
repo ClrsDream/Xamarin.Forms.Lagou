@@ -5,6 +5,10 @@
     xmlns:xm="using:Xamarin.Forms.Platform.UWP"
     >
 
+    <SolidColorBrush x:Key="PivotHeaderSupLineBrush" Color="Blue" />
+    <SolidColorBrush x:Key="PivotHeaderBackgroundBrush" Color="#333333" />
+
+
     <xm:ViewToRendererConverter x:Key="vc" />
 
     <Style TargetType="PivotHeaderItem">
@@ -39,8 +43,8 @@
                             </Style>
                         </Grid.Resources>
                         <Grid.RowDefinitions>
-                            <RowDefinition />
                             <RowDefinition Height="auto" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
@@ -67,6 +71,7 @@
                                    Duration="0" To="0" />
                                     </Storyboard>
                                 </VisualState>
+
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
@@ -78,11 +83,13 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Line"
-                                                                       Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDDDDD" />
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <!--Show sup line if selected-->
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
+
                                 <VisualState x:Name="UnselectedPointerOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
@@ -95,6 +102,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
+
                                 <VisualState x:Name="SelectedPointerOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
@@ -107,6 +115,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
+
                                 <VisualState x:Name="UnselectedPressed">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
@@ -119,6 +128,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
+
                                 <VisualState x:Name="SelectedPressed">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
@@ -134,7 +144,9 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
 
-                        <StackPanel Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
+                        <Rectangle x:Name="Line" Height="2" Fill="{StaticResource PivotHeaderSupLineBrush}" Visibility="Collapsed" Grid.Row="0" />
+
+                        <StackPanel Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Grid.Row="1">
                             <ContentPresenter
                               x:Name="ContentPresenter"
                               Content="{TemplateBinding Content}"
@@ -149,8 +161,6 @@
                                 </ContentPresenter.RenderTransform>
                             </ContentPresenter>
                         </StackPanel>
-
-                        <Rectangle x:Name="Line" Height="1" Fill="#999999" Visibility="Visible" Grid.Row="1" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -382,23 +392,25 @@
                                             <CompositeTransform x:Name="PivotLayoutElementTranslateTransform" />
                                         </Grid.RenderTransform>
 
+
                                         <ContentPresenter x:Name="LeftHeaderPresenter"
                                                           Grid.Row="1"
                                                             Content="{TemplateBinding LeftHeader}"
                                                             ContentTemplate="{TemplateBinding LeftHeaderTemplate}"
                                                             HorizontalAlignment="Stretch"
                                                             VerticalAlignment="Stretch" />
-                                        <ContentControl 
-                                                x:Name="HeaderClipper"
+
+                                        <ContentControl x:Name="HeaderClipper"
                                                 Grid.Column="1"
                                                 Grid.Row="1"
                                                 UseSystemFocusVisuals="True"
-                                                HorizontalContentAlignment="Stretch">
+                                                HorizontalContentAlignment="Stretch"
+                                            >
                                             <ContentControl.Clip>
                                                 <RectangleGeometry x:Name="HeaderClipperGeometry" />
                                             </ContentControl.Clip>
                                             <!-- Pivot Header Background -->
-                                            <Grid Background="#999999">
+                                            <Grid Background="{StaticResource PivotHeaderBackgroundBrush}">
                                                 <PivotHeaderPanel x:Name="StaticHeader" Visibility="Collapsed" />
                                                 <PivotHeaderPanel x:Name="Header">
                                                     <PivotHeaderPanel.RenderTransform>
@@ -410,12 +422,12 @@
                                                 </PivotHeaderPanel>
                                             </Grid>
                                         </ContentControl>
+
                                         <Button x:Name="PreviousButton"
                                                 Grid.Column="1"
                                                 Grid.Row="1"
                                                 Template="{StaticResource PreviousTemplate}"
                                                 Width="20"
-                                                Height="36"
                                                 UseSystemFocusVisuals="False"
                                                 Margin="{ThemeResource PivotNavButtonMargin}"
                                                 IsTabStop="False"
@@ -424,12 +436,12 @@
                                                 VerticalAlignment="Top"
                                                 Opacity="0"
                                                 Background="Transparent" />
+
                                         <Button x:Name="NextButton"
                                                 Grid.Column="1"
                                                 Grid.Row="1"                                                
                                                 Template="{StaticResource NextTemplate}"
                                                 Width="20"
-                                                Height="36"
                                                 UseSystemFocusVisuals="False"
                                                 Margin="{ThemeResource PivotNavButtonMargin}"
                                                 IsTabStop="False"
@@ -438,6 +450,7 @@
                                                 VerticalAlignment="Top"
                                                 Opacity="0"
                                                 Background="Transparent" />
+
                                         <ContentPresenter x:Name="RightHeaderPresenter"
                                                 Grid.Column="2"
                                                 Grid.Row="1"                                                          
@@ -445,6 +458,7 @@
                                                 ContentTemplate="{TemplateBinding RightHeaderTemplate}"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch" />
+
                                         <ItemsPresenter x:Name="PivotItemPresenter" Grid.Row="0" Grid.ColumnSpan="3">
                                             <ItemsPresenter.RenderTransform>
                                                 <TransformGroup>

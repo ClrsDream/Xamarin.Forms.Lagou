@@ -8,29 +8,47 @@
 
 
     <cm:CaliburnApplication.Resources>
+        
         <ResourceDictionary Source="Xamarin.xaml">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Pivot.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            
             <ResourceDictionary.ThemeDictionaries>
+                
                 <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="PivotHeaderBackgroundSelectedBrush" Color="Transparent" />
+                    <SolidColorBrush x:Key="PivotHeaderBackgroundUnselectedBrush" Color="Transparent" />
+
+                    <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="#333333" />
+                    <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#66333333" />
+
                     <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
                     <Thickness x:Key="PivotHeaderItemMargin">12,0</Thickness>
                     <x:Double x:Key="PivotTitleFontSize">12</x:Double>
-                    <SolidColorBrush x:Key="PivotHeaderPanelColor">Green</SolidColorBrush>
                 </ResourceDictionary>
-                <ResourceDictionary x:Key="Dark">
+                
+                
+                
+                <!--<ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="#333333" />
+                    <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#66333333" />
+                    
                     <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
                     <Thickness x:Key="PivotHeaderItemMargin">12,0</Thickness>
                     <x:Double x:Key="PivotTitleFontSize">12</x:Double>
-                    <SolidColorBrush x:Key="PivotHeaderPanelColor">Green</SolidColorBrush>
                 </ResourceDictionary>
+                
+                
                 <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="#333333" />
+                    <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#66333333" />
+                    
                     <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
                     <Thickness x:Key="PivotHeaderItemMargin">12,0</Thickness>
                     <x:Double x:Key="PivotTitleFontSize">12</x:Double>
-                    <SolidColorBrush x:Key="PivotHeaderPanelColor">Green</SolidColorBrush>
-                </ResourceDictionary>
+                </ResourceDictionary>-->
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </cm:CaliburnApplication.Resources>

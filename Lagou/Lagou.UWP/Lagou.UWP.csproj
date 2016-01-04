@@ -105,7 +105,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="NotifyCollectionChangedEventArgsExtensions.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -119,6 +119,7 @@
     <Compile Include="Renders\MasterDetailPageRender.cs" />
     <Compile Include="Renders\NavigationPageRender.cs" />
     <Compile Include="Renders\RepeaterRender.cs" />
+    <Compile Include="Renders\TabbedPagePresenter.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
     <Compile Include="Services\GeolocatorService.cs" />
   </ItemGroup>

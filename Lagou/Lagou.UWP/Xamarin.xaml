@@ -2,11 +2,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Lagou.UWP"
+    xmlns:render="using:Lagou.UWP.Renders"
     xmlns:xm="using:Xamarin.Forms.Platform.UWP"
     >
 
 
     <xm:ViewToRendererConverter x:Key="renderConverter" />
+    <xm:PageToRenderedElementConverter x:Key="pageRenderConverter" />
+    
 
     <ControlTemplate x:Key="SplitViewTogglePaneButtonTemplate"
                          TargetType="ToggleButton">
@@ -148,11 +151,11 @@
     </Style>
 
     <DataTemplate x:Key="TabbedPageItemDataTemplate">
-        <ContentControl Content="{Binding Path=Content, Converter={StaticResource renderConverter}}" />
+        <render:TabbedPagePresenter Content="{Binding Converter={StaticResource pageRenderConverter}}" />
     </DataTemplate>
 
     <DataTemplate x:Key="TabbedPageHeaderDataTemplate">
-        <TextBlock Text="{Binding Title}" />
+        <TextBlock Text="{Binding Title}" FontSize="12" />
     </DataTemplate>
 
 </ResourceDictionary>
