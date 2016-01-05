@@ -9,7 +9,8 @@
 
     <xm:ViewToRendererConverter x:Key="renderConverter" />
     <xm:PageToRenderedElementConverter x:Key="pageRenderConverter" />
-    
+    <local:TabbedPageHeaderIconConverter x:Key="tabbedPageIconConverter" />
+
 
     <ControlTemplate x:Key="SplitViewTogglePaneButtonTemplate"
                          TargetType="ToggleButton">
@@ -155,7 +156,10 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TabbedPageHeaderDataTemplate">
-        <TextBlock Text="{Binding Title}" FontSize="12" />
+        <StackPanel>
+            <ContentControl Content="{Binding Converter={StaticResource tabbedPageIconConverter}}" HorizontalContentAlignment="Center" />
+            <TextBlock Text="{Binding Title}" FontSize="12" />
+        </StackPanel>
     </DataTemplate>
 
 </ResourceDictionary>

@@ -64,6 +64,7 @@ namespace Lagou.UWP.Renders {
             if (currentPage == null) {
                 return;
             }
+
             this.Control.SelectedItem = currentPage;
         }
 

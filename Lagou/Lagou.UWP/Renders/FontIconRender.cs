@@ -43,23 +43,11 @@ namespace Lagou.UWP.Renders {
             if (this.Control == null)
                 return;
 
-            this.Control.FontFamily = this.Convert(this.Element.FontFamily);
+            this.Control.FontFamily = this.Element.FontFamily.ToFontFamily();
             this.Control.Foreground = new SolidColorBrush(this.Element.Color.ToMediaColor());
             this.Control.Glyph = this.Element.Glyph;
             this.Control.FontSize = this.Element.FontSize;
         }
 
-        private FontFamily Convert(string ff) {
-            // ff like : FontAwesome.otf
-            // Full Path must like : Assets/Fonts/FontAwesome.otf#FontAwesome
-            // font name must same as font file name
-            var fontName = Path.GetFileNameWithoutExtension(ff);
-            // not have prefix "/", if have preifx "/", Path.Combin will return fail path.
-            string path = string.Format("Assets/Fonts/{0}", ff);
-            if (File.Exists(Path.Combine(AppContext.BaseDirectory, path))) {
-                return new FontFamily(string.Format("/{0}#{1}", path, fontName));
-            } else
-                return FontFamily.XamlAutoFontFamily;
-        }
     }
 }

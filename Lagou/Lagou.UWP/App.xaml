@@ -25,7 +25,7 @@
                     <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#66333333" />
 
                     <Thickness x:Key="PivotItemMargin">2,0,2,0</Thickness>
-                    <Thickness x:Key="PivotHeaderItemMargin">12,0</Thickness>
+                    <Thickness x:Key="PivotHeaderItemMargin">12,5</Thickness>
                     <x:Double x:Key="PivotTitleFontSize">12</x:Double>
                 </ResourceDictionary>
                 

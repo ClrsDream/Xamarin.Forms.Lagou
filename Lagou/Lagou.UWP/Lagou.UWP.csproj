@@ -105,7 +105,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NotifyCollectionChangedEventArgsExtensions.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -122,6 +121,7 @@
     <Compile Include="Renders\TabbedPagePresenter.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
     <Compile Include="Services\GeolocatorService.cs" />
+    <Compile Include="TabbedPageHeaderIconConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

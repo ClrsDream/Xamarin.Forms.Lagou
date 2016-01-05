@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lagou.UWP {
+namespace Lagou {
 
     public class NotifyCollectionChangedEventArgsEx : NotifyCollectionChangedEventArgs {
         public int Count { get; private set; }
@@ -74,12 +74,14 @@ namespace Lagou.UWP {
 
     public static class NotifyCollectionChangedEventArgsExtensions {
         public static void Apply<TFrom>(this NotifyCollectionChangedEventArgs self, IList<TFrom> from, IList<object> to) {
-            int num = (int)NotifyCollectionChangedEventArgsExtensions.Apply(self, (Action<object, int, bool>)((o, i, b) => to.Insert(i, o)), (Action<object, int>)((o, i) => to.RemoveAt(i)), (Action)(() =>
-            {
-                to.Clear();
-                for (int index = 0; index < ((ICollection<TFrom>)from).Count; ++index)
-                    to.Add((object)from[index]);
-            }));
+            Apply(self, 
+                (o, i, b) => to.Insert(i, o), 
+                (o, i) => to.RemoveAt(i), 
+                () =>{
+                    to.Clear();
+                    for (int index = 0; index < from.Count; ++index)
+                        to.Add(from[index]);
+                });
         }
 
         public static NotifyCollectionChangedAction Apply(this NotifyCollectionChangedEventArgs self, Action<object, int, bool> insert, Action<object, int> removeAt, Action reset) {
@@ -91,6 +93,8 @@ namespace Lagou.UWP {
                 throw new ArgumentNullException("insert");
             if (removeAt == null)
                 throw new ArgumentNullException("removeAt");
+
+
             switch (self.Action) {
                 case NotifyCollectionChangedAction.Add:
                     if (self.NewStartingIndex >= 0) {

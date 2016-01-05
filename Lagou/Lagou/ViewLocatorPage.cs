@@ -12,14 +12,11 @@ namespace Lagou {
 
         public static readonly BindableProperty VMProperty = BindableProperty.Create<ViewLocatorPage, Screen>(p => p.VM, null, propertyChanged: VMChanged);
 
-        public Screen VM
-        {
-            get
-            {
+        public Screen VM {
+            get {
                 return (Screen)this.GetValue(VMProperty);
             }
-            set
-            {
+            set {
                 this.SetValue(VMProperty, value);
             }
         }
@@ -43,13 +40,15 @@ namespace Lagou {
             var page = (ContentPage)bindable;
 
             if (null != vmView as TabbedPage) {
-                bindable = vmView;
+                //bindable = vmView;
+                // not support
             } else if (null != vmView as ContentPage) {
                 var vp = (ContentPage)vmView;
                 page.Content = vp.Content;
                 if (vp.ToolbarItems != null)
                     foreach (var t in vp.ToolbarItems)
                         page.ToolbarItems.Add(t);
+
             } else if (null != (Xamarin.Forms.View)vmView) {
                 page.Content = (Xamarin.Forms.View)vmView;
             }
