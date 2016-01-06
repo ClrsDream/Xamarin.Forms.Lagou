@@ -30,7 +30,7 @@ namespace Lagou.Droid {
         private int width;
         private int height;
         private float size;
-        private Color color;
+        private Color? color;
         private bool antiAliased;
         private bool fakeBold;
         private float shadowRadius;
@@ -38,9 +38,20 @@ namespace Lagou.Droid {
         private float shadowDy;
         private Color shadowColor;
 
-        public TextDrawable(string text, Typeface font, int sizeDpi, Color color,
-            bool antiAliased, bool fakeBold, float shadowRadius,
-            float shadowDx, float shadowDy, Color shadowColor, Context context) : base() {
+        public TextDrawable(
+                string text,
+                Typeface font,
+                int sizeDpi,
+                Color? color,
+                bool antiAliased,
+                bool fakeBold,
+                float shadowRadius,
+                float shadowDx,
+                float shadowDy,
+                Color shadowColor,
+                Context context
+            ) : base() {
+
             this.context = context;
             this.text = text;
             this.size = DpToPx(sizeDpi) * PADDING_RATIO;
@@ -57,7 +68,8 @@ namespace Lagou.Droid {
 
             this.paint.SetStyle(Paint.Style.Fill);
             this.paint.TextAlign = Paint.Align.Center;
-            this.paint.Color = this.color;
+            if (this.color.HasValue)
+                this.paint.Color = this.color.Value;
             this.paint.TextSize = this.size;
             //var font = Typeface.CreateFromAsset(context.Assets, "fontawesome-webfont.ttf");
             this.paint.SetTypeface(font);
@@ -110,7 +122,7 @@ namespace Lagou.Droid {
         private Context context;
         private string text;
         private int sizeDpi = 32;
-        private Color color = Color.Gray;
+        private Color? color = null;
         private bool antiAliased = true;
         private bool fakeBold = true;
         private float shadowRadius = 0;
