@@ -51,10 +51,12 @@ namespace Lagou.UWP {
 
         private void MainPage_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
             var btn = this.FindChildControl<ToggleButton>("splitViewToggle");
-            btn.Click += Btn_Click;
+            if (btn != null)
+                btn.Click += Btn_Click;
 
             var backBtn = this.FindChildControl<ToggleButton>("backToggle");
-            backBtn.Click += BackBtn_Click;
+            if (backBtn != null)
+                backBtn.Click += BackBtn_Click;
         }
 
         private async void BackBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e) {

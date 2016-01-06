@@ -11,7 +11,7 @@
              />
   </ctrls:CycleBox>-->
 
-  <ctrls:Border StrokeThickness="1" Stroke="#ededed" Padding="5" CornerRadius="5" IsClippedToBorder="True">
+  <!--<ctrls:Border StrokeThickness="1" Stroke="#ededed" Padding="5" CornerRadius="5" IsClippedToBorder="True">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="auto" />
@@ -30,6 +30,6 @@
       <Label Text="为嘛不显示?" Style="{StaticResource l_text}" Grid.Row="2" Grid.ColumnSpan="2" />
 
     </Grid>
-  </ctrls:Border>
+  </ctrls:Border>-->
   
 </ContentPage>

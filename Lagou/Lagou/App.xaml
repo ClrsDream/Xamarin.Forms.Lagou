@@ -65,8 +65,8 @@
       <!--border block-->
       <Style x:Key="b_block" TargetType="ctrls:Border">
         <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="Stroke" Value="#bbbbbb" />
-        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stroke" Value="#333333" />
+        <Setter Property="StrokeThickness" Value="0.5" />
         <Setter Property="BackgroundColor" Value="White" />
         <Setter Property="Padding" Value="10" />
       </Style>

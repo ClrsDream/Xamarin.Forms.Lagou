@@ -5,8 +5,9 @@
     xmlns:xm="using:Xamarin.Forms.Platform.UWP"
     >
 
-    <SolidColorBrush x:Key="PivotHeaderSupLineBrush" Color="Blue" />
-    <SolidColorBrush x:Key="PivotHeaderBackgroundBrush" Color="#333333" />
+    
+    <!--<SolidColorBrush x:Key="PivotHeaderSupLineBrush" Color="Blue" />
+    <SolidColorBrush x:Key="PivotHeaderBackgroundBrush" Color="#333333" />-->
 
 
     <xm:ViewToRendererConverter x:Key="vc" />
@@ -17,7 +18,12 @@
         <Setter Property="FontWeight" Value="{ThemeResource PivotHeaderItemThemeFontWeight}" />
         <Setter Property="CharacterSpacing" Value="{ThemeResource PivotHeaderItemCharacterSpacing}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+        
+        
+        <!--<Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />-->
+        <Setter Property="Foreground" Value="{ThemeResource PivotHeaderForegroundUnselectedBrush}" />
+        
+        
         <Setter Property="Padding" Value="{ThemeResource PivotHeaderItemMargin}" />
         <!--<Setter Property="Height" Value="40" />-->
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -76,7 +82,14 @@
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                  Storyboard.TargetProperty="Foreground" >
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            
+                                            
+                                            <!--Changed-->
+                                            <!--<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />-->
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotHeaderForegroundSelectedBrush}" />
+                                            
+                                            
+                                            
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Grid"
                                                  Storyboard.TargetProperty="Background" >

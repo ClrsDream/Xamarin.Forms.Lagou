@@ -16,13 +16,14 @@ namespace Lagou.UWP {
                         var glyph = (string)page.GetValue(AttachedFontIcon.GlyphProperty);
                         if (!string.IsNullOrWhiteSpace(glyph)) {
                             var familary = (string)page.GetValue(AttachedFontIcon.FontFamilyProperty);
-                            var color = (Color)page.GetValue(AttachedFontIcon.ColorProperty);
+                            //control it's color by theme resource.
+                            //var color = (Color)page.GetValue(AttachedFontIcon.ColorProperty);
                             var size = (double)page.GetValue(AttachedFontIcon.FontSizeProperty);
                             var icon = new Windows.UI.Xaml.Controls.FontIcon() {
                                 Glyph = glyph,
                                 FontFamily = familary.ToFontFamily(),
                                 FontSize = size,
-                                Foreground = color.ToBrush()
+                                //Foreground = color.ToBrush()
                             };
                             return icon;
                         }
