@@ -10,8 +10,8 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Win2D.uwp": "1.11.0",
     "Xamarin.Forms": "2.0.1.6492-pre1",
-    "XamlSpy": "3.0.0-alpha2",
-    "XamlSpyLibs": "3.0.0-alpha2"
+    "XamlSpy": "3.0.1-preview",
+    "XamlSpyLibs": "3.0.1-preview"
   },
   "frameworks": {
     "uap10.0": {}

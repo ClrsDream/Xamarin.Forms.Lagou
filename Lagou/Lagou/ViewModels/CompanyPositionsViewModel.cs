@@ -38,14 +38,14 @@ namespace Lagou.ViewModels {
         private int Page = 1;
 
         public CompanyPositionsViewModel() {
-            
+
         }
 
-        protected override void OnActivate() {
-            this.SetPosType(this.PositionTypes.First());
+        protected async override void OnActivate() {
+            await Task.Delay(500).ContinueWith(t => this.SetPosType(this.PositionTypes.First()));
         }
 
-        private async void LoadPosByType() {
+        private async Task LoadPosByType() {
             var method = new PositionList() {
                 CompanyID = this.CompanyID,
                 PositionType = (PositionTypes)Enum.Parse(typeof(PositionTypes), this.SelectedPositionType),
@@ -58,11 +58,11 @@ namespace Lagou.ViewModels {
             }
         }
 
-        private void SetPosType(string type) {
+        private async Task SetPosType(string type) {
             this.SelectedPositionType = type;
             this.Page = 1;
             this.Datas.Clear();
-            this.LoadPosByType();
+            await this.LoadPosByType();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Lagou.ViewModels {
 
         protected async override void OnActivate() {
             base.OnActivate();
-            await this.LoadData();
+            await Task.Delay(500).ContinueWith(t => this.LoadData());
         }
 
         /// <summary>
@@ -81,8 +81,8 @@ namespace Lagou.ViewModels {
                 //this.Datas.AddRange(datas.Select(d =>
                 //    new SearchedItemViewModel(d, this.NS)
                 //));
-                
-                foreach(var d in datas) {
+
+                foreach (var d in datas) {
                     this.Datas.Add(new SearchedItemViewModel(d, this.NS));
                 }
 

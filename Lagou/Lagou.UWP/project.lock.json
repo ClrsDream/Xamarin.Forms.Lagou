@@ -1644,12 +1644,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -3393,12 +3393,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -5114,12 +5114,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -6868,12 +6868,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -8589,12 +8589,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -10343,12 +10343,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -12064,12 +12064,12 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "XamlSpy/3.0.0-alpha2": {
+      "XamlSpy/3.0.1-preview": {
         "dependencies": {
-          "XamlSpyLibs": "[3.0.0-alpha2, )"
+          "XamlSpyLibs": "[3.0.1-preview, )"
         }
       },
-      "XamlSpyLibs/3.0.0-alpha2": {
+      "XamlSpyLibs/3.0.1-preview": {
         "compile": {
           "lib/uap10.0/XamlSpy.dll": {}
         },
@@ -15819,8 +15819,8 @@
         "Xamarin.Forms.nuspec"
       ]
     },
-    "XamlSpy/3.0.0-alpha2": {
-      "sha512": "nJg4+FWkLEAlI/OUkHnO4jCYYRyIIAKLfD6o4kUnlEB40EDZTPCD+Y/Kw5d6pxWupyGOo6D3xhyEHTJ0c0yWhA==",
+    "XamlSpy/3.0.1-preview": {
+      "sha512": "RbQyI/LYZsEEPz3LiR5wEYLramrDXatqcQVbMkWOT+YNsZsMpRK6brurEo1r5Uqzgt/jEvycfBA4IF/Nm6BehQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15829,12 +15829,12 @@
         "build/uap10.0/XamlSpy.targets",
         "build/xamarin.ios10/XamlSpy.targets",
         "build/XamlSpy.targets",
-        "package/services/metadata/core-properties/d1258b3d60fc42a8aeaf795920f430c9.psmdcp",
+        "package/services/metadata/core-properties/a8940e82f2b94a44a893e0fa30a2c196.psmdcp",
         "XamlSpy.nuspec"
       ]
     },
-    "XamlSpyLibs/3.0.0-alpha2": {
-      "sha512": "diIBDP17npnnSGo0gdV8HCDaHEnB3DTAUpWydplwrP6Hr2XWsJoUVpOb4Jk7vwpsJKegzk5EIT3cRDyk0pRpRA==",
+    "XamlSpyLibs/3.0.1-preview": {
+      "sha512": "nDrAufb/xBRnqwxS+ZXjyGzwV303EO+7k0e1cKrjHH/T3VWKeXB55T67GXOpM9GqaSPYplHRU5SRiGnJIaNtnw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15848,7 +15848,7 @@
         "lib/wp81/XamlSpy.dll",
         "lib/wpa81/XamlSpy.dll",
         "lib/xamarin.ios10/XamlSpy.dll",
-        "package/services/metadata/core-properties/3c5cd1cb462b45d29d312ff6b268d84d.psmdcp",
+        "package/services/metadata/core-properties/004ac2038a044c1db2207f56c853b16b.psmdcp",
         "XamlSpyLibs.nuspec"
       ]
     }
@@ -15865,8 +15865,8 @@
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Win2D.uwp >= 1.11.0",
       "Xamarin.Forms >= 2.0.1.6492-pre1",
-      "XamlSpy >= 3.0.0-alpha2",
-      "XamlSpyLibs >= 3.0.0-alpha2"
+      "XamlSpy >= 3.0.1-preview",
+      "XamlSpyLibs >= 3.0.1-preview"
     ],
     "UAP,Version=v10.0": []
   }

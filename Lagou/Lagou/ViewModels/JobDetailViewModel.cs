@@ -44,7 +44,10 @@ namespace Lagou.ViewModels {
 
         protected async override void OnActivate() {
             base.OnActivate();
+            await Task.Delay(500).ContinueWith((t) => this.LoadData());
+        }
 
+        private async Task LoadData() {
             var mth = new PositionDetail() {
                 PositionID = this.ID
             };
