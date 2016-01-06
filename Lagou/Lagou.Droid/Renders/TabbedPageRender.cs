@@ -15,6 +15,8 @@ using Xamarin.Forms.Platform.Android.AppCompat;
 using Lagou.Droid.Renders;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Content;
+using Android.Text.Style;
+using Android.Text;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Lagou.Droid.Renders {
@@ -51,7 +53,7 @@ namespace Lagou.Droid.Renders {
             var tabLayout = this.tabLayout;
             if (tabLayout.TabCount != this.Element.Children.Count)
                 return;
-            
+
             var builder = new TextDrawableBuilder(this.Context);
             //builder.SetColor(Color.Accent.ToAndroid());
 
@@ -75,6 +77,15 @@ namespace Lagou.Droid.Renders {
 
                         tabLayout.GetTabAt(i)
                             .SetIcon(builder.Build());
+
+                        //var txtDrawable = builder.Build();
+                        //txtDrawable.SetBounds(0, 0, txtDrawable.IntrinsicWidth, txtDrawable.MinimumHeight);
+                        //var ims = new DrawableMarginSpan(txtDrawable);
+                        //SpannableString ss = new SpannableString(page.Title);
+                        //ss.SetSpan(ims, 0, page.Title.Length, SpanTypes.ExclusiveExclusive);
+
+                        //tabLayout.GetTabAt(i)
+                        //    .SetText(ss);
                     }
                 }
             }
