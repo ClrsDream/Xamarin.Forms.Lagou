@@ -20,7 +20,7 @@ using Lagou.Droid.Renders;
 [assembly: ExportRenderer(typeof(FontIcon), typeof(FontIconRender))]
 namespace Lagou.Droid.Renders {
     public class FontIconRender : ViewRenderer<FontIcon, TextView> {
-        
+
         protected override void OnElementChanged(ElementChangedEventArgs<FontIcon> e) {
             base.OnElementChanged(e);
 
@@ -46,7 +46,7 @@ namespace Lagou.Droid.Renders {
 
         private void UpdateNativeControl() {
             var txt = this.Control;
-            txt.Typeface = Typeface.CreateFromAsset(Forms.Context.Assets, this.Element.FontFamily);
+            txt.Typeface = this.Element.FontFamily.ToTypeface();// Typeface.CreateFromAsset(Forms.Context.Assets, this.Element.FontFamily);
             txt.Text = this.Element.Glyph;
             txt.SetTextColor(this.Element.Color.ToAndroid());
             txt.TextSize = (float)this.Element.FontSize;
