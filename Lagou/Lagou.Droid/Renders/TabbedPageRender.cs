@@ -32,6 +32,7 @@ namespace Lagou.Droid.Renders {
             this.tabLayout = (TabLayout)this.GetChildAt(1);
 
             this.UpdateTabIcons();
+            //this.UpdateTabHeader();
         }
 
         protected override void OnLayout(bool changed, int l, int t, int r, int b) {
@@ -45,6 +46,30 @@ namespace Lagou.Droid.Renders {
                 int ypos = Math.Min(h, Math.Max(this.tabLayout.MeasuredHeight, this.tabLayout.MinimumHeight));
                 this.formViewPager.Layout(0, -ypos, r, b - ypos);
                 this.tabLayout.Layout(l, h - ypos, r, b);
+            }
+        }
+
+
+        private void UpdateTabHeader() {
+            if (this.tabLayout.TabCount != this.Element.Children.Count)
+                return;
+
+            for(var i = 0; i < this.Element.Children.Count; i++) {
+                var page = this.Element.Children[i];
+                if (string.IsNullOrEmpty(page.Icon)) {
+                    var glyph = (string)page.GetValue(AttachedFontIcon.GlyphProperty);
+                    if (!string.IsNullOrWhiteSpace(glyph)) {
+                        var font = (string)page.GetValue(AttachedFontIcon.FontFamilyProperty);
+                        var size = (int)(double)page.GetValue(AttachedFontIcon.FontSizeProperty);
+
+                        var tab = this.tabLayout.GetTabAt(i);
+
+                        var ss = new SpannableString(glyph);
+                        var fontSpan = new CustomTypefaceSpan(font);
+                        ss.SetSpan(fontSpan, 0, 2, SpanTypes.ExclusiveExclusive);
+                        tab.SetText(ss);
+                    }
+                }
             }
         }
 

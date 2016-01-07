@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
@@ -15,6 +16,22 @@ namespace Lagou.ViewModels {
         }
 
         public string City { get; set; }
+
+        public CitySelectorViewModel CityVM { get; private set; }
+
+        public bool IsCitySelectorShowing { get; set; }
+
+        public ICommand ShowCitySelectorCmd {
+            get; set;
+        }
+
+        public SearchViewModel(SimpleContainer container) {
+            this.CityVM = container.GetInstance<CitySelectorViewModel>();
+            this.ShowCitySelectorCmd = new Command(() => {
+                this.IsCitySelectorShowing = !this.IsCitySelectorShowing;
+                this.NotifyOfPropertyChange(() => this.IsCitySelectorShowing);
+            });
+        }
 
         protected async override void OnActivate() {
             base.OnActivate();

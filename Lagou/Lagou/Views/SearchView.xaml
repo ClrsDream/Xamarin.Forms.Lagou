@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.SearchView"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             
              local:AttachedFontIcon.Glyph="&#xf002;"
              local:AttachedFontIcon.FontFamily="FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
@@ -14,7 +16,28 @@
       <RowDefinition Height="auto" />
       <RowDefinition />
     </Grid.RowDefinitions>
-    <Label Text="{Binding City, StringFormat='当前城市：{0}'}" />
+    <!--<Label Text="{Binding City, StringFormat='当前城市：{0}'}" />-->
+
+    <TableView>
+      <TableView.Root>
+        <TableSection Title="城市">
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding City}" />
+                <Button Text="aa" Command="{Binding ShowCitySelectorCmd}" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+      </TableView.Root>
+    </TableView>
+
+    <ContentView Grid.RowSpan="2"
+      cal:View.Model="{Binding CityVM}" 
+      BackgroundColor="#dd000000" 
+      IsVisible="{Binding IsCitySelectorShowing}"
+      />
   </Grid>
   
 </ContentPage>
