@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.CompanyPositionsView"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             xmlns:local="clr-namespace:Lagou;assembly=Lagou"
              BackgroundColor="White"
              Padding="5"
              Title="{Binding CompanyName}"
@@ -21,7 +22,7 @@
 
     <Image Source="{Binding CompanyLogo}" WidthRequest="80" HeightRequest="80" />
 
-    <ctrls:Repeater Spacing="2"
+    <!--<ctrls:Repeater Spacing="2"
       ItemsSource="{Binding PositionTypes}" Orientation="Horizontal"
       Grid.Row="0" Grid.Column="1">
       <ctrls:Repeater.ItemTemplate>
@@ -31,11 +32,17 @@
           </ctrls:Border>
         </DataTemplate>
       </ctrls:Repeater.ItemTemplate>
-    </ctrls:Repeater>
+    </ctrls:Repeater>-->
+
+    <Picker Title="职位类型" Grid.Row="0" Grid.Column="1"
+            SelectedIndex="0"
+            local:PickerBinder.ItemsSource="{Binding PositionTypes}"
+            local:PickerBinder.Command="{Binding PositionTypesChangedCmd}"
+            />
 
     <BoxView Style="{StaticResource b_h}" Grid.Row="1" Grid.ColumnSpan="2" />
 
-    <ListView Grid.Row="2" Grid.ColumnSpan="2" 
+    <ListView Grid.Row="2" Grid.ColumnSpan="2"
               ItemsSource="{Binding Datas}"
               HasUnevenRows="True"
               >

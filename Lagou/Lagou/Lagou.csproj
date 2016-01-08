@@ -50,6 +50,7 @@
     <Compile Include="IGeolocatorService.cs" />
     <Compile Include="MasterDetailLocator.cs" />
     <Compile Include="NotifyCollectionChangedEventArgsExtensions.cs" />
+    <Compile Include="PickerBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabbedPageVMLocatorBinder.cs" />
     <Compile Include="ViewLocatorPage.cs" />

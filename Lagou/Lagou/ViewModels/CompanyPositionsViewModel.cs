@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
     /// <summary>
@@ -35,10 +37,15 @@ namespace Lagou.ViewModels {
         public BindableCollection<PositionBrief> Datas { get; set; } = new BindableCollection<PositionBrief>();
 
 
+        public ICommand PositionTypesChangedCmd { get; set; } 
+
         private int Page = 1;
 
         public CompanyPositionsViewModel() {
-
+            //this.NotifyOfPropertyChange(() => this.PositionTypes);
+            this.PositionTypesChangedCmd = new Command(async(o) => {
+                await this.SetPosType((string)o);
+            });
         }
 
         protected async override void OnActivate() {
