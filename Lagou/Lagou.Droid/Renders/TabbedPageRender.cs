@@ -82,7 +82,7 @@ namespace Lagou.Droid.Renders {
             var builder = new TextDrawableBuilder(this.Context);
             //builder.SetColor(Color.Accent.ToAndroid());
 
-            var arr = this.Context.ObtainStyledAttributes(new int[] { Resource.Attribute.colorAccent });
+            var arr = this.Context.ObtainStyledAttributes(new int[] { Resource.Attribute.colorPrimary });
             var color = arr.GetColor(0, 0);
             builder.SetColor(color);
 

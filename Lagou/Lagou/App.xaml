@@ -54,6 +54,14 @@
         <Setter Property="WidthRequest" Value="15" />
       </Style>
 
+      <!--ListView/TableView 上的指示图标-->
+      <Style x:Key="fi_row" TargetType="ctrls:FontIcon">
+        <Setter Property="FontFamily" Value="FontAwesome.otf" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Color" Value="#ccffffff" />
+        <Setter Property="HeightRequest" Value="20" />
+        <Setter Property="WidthRequest" Value="20" />
+      </Style>      
 
       <!--frame block-->
       <Style x:Key="f_block" TargetType="Frame">

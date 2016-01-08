@@ -4,11 +4,15 @@
              x:Class="Lagou.Views.SearchView"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              
              local:AttachedFontIcon.Glyph="&#xf002;"
              local:AttachedFontIcon.FontFamily="FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
-             local:AttachedFontIcon.FontSize="20"             
+             local:AttachedFontIcon.FontSize="20"
+             
+             x:Name="root"
+             Padding="2,0,2,5"
              >
 
   <Grid>
@@ -16,28 +20,64 @@
       <RowDefinition Height="auto" />
       <RowDefinition />
     </Grid.RowDefinitions>
-    <!--<Label Text="{Binding City, StringFormat='当前城市：{0}'}" />-->
 
-    <TableView>
-      <TableView.Root>
-        <TableSection Title="城市">
+    <ctrls:Border Style="{StaticResource b_block_top}" BackgroundColor="#aacccccc">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="auto" />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal">
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding ShowCitySelectorCmd}" />
+          </StackLayout.GestureRecognizers>
+
+          <Label Text="{Binding City}" VerticalOptions="Center" />
+          <ctrls:FontIcon Glyph="&#xf107;" Style="{StaticResource fi_row}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
+        <SearchBar Text="{Binding Key}" Grid.Column="1"
+                   Placeholder="输入公司名或关键字"
+                   local:CmdBinder.Event="SearchButtonPressed" local:CmdBinder.Command="{Binding SearchCmd}"
+               />
+      </Grid>
+    </ctrls:Border>
+
+
+    <!-- 搜索结果 -->
+    <ListView Grid.Row="1"
+        ItemsSource="{Binding Datas}"
+        HasUnevenRows="True"
+        IsRefreshing="{Binding InRefresh}"
+    >
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
           <ViewCell>
             <ViewCell.View>
-              <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding City}" />
-                <Button Text="aa" Command="{Binding ShowCitySelectorCmd}" />
-              </StackLayout>
+              <ContentView cal:View.Model="{Binding}" />
             </ViewCell.View>
           </ViewCell>
-        </TableSection>
-      </TableView.Root>
-    </TableView>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+      <ListView.Footer>
+        <StackLayout Padding="10,5,10,20">
+          <Button Text="加载更多" Command="{Binding LoadMoreCmd}"
+                  BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
+                />
+        </StackLayout>
+      </ListView.Footer>
 
+    </ListView>    
+    
+    <!--城市选择-->
     <ContentView Grid.RowSpan="2"
-      cal:View.Model="{Binding CityVM}" 
-      BackgroundColor="#dd000000" 
+      cal:View.Model="{Binding CityVM}"
+      BackgroundColor="#dd333333"
       IsVisible="{Binding IsCitySelectorShowing}"
+      Padding="10"
       />
   </Grid>
-  
+
 </ContentPage>

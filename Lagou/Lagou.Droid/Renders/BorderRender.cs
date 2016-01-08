@@ -49,6 +49,20 @@ namespace Lagou.Droid.Renders {
             var strokeThickness = border.StrokeThickness;
             var context = view.Context;
 
+            var corners = new float[] {
+                    (float)border.CornerRadius.TopLeft,
+                    (float)border.CornerRadius.TopLeft,
+
+                    (float)border.CornerRadius.TopRight,
+                    (float)border.CornerRadius.TopRight,
+
+                    (float)border.CornerRadius.BottomRight,
+                    (float)border.CornerRadius.BottomRight,
+
+                    (float)border.CornerRadius.BottomLeft,
+                    (float)border.CornerRadius.BottomLeft
+                };
+
             // create stroke drawable
             GradientDrawable strokeDrawable = null;
 
@@ -60,7 +74,8 @@ namespace Lagou.Droid.Renders {
                 // choose thickest margin
                 // the content is padded so it will look like the margin is with the given thickness
                 strokeDrawable.SetStroke((int)context.ToPixels(strokeThickness.Max()), border.Stroke.ToAndroid());
-                strokeDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
+                //strokeDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
+                strokeDrawable.SetCornerRadii(corners);
             }
 
             // create background drawable
@@ -68,7 +83,8 @@ namespace Lagou.Droid.Renders {
 
             // set background drawable color based on Border's background color
             backgroundDrawable.SetColor(border.BackgroundColor.ToAndroid());
-            backgroundDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
+            //backgroundDrawable.SetCornerRadius((float)border.CornerRadius.TopLeft);
+            backgroundDrawable.SetCornerRadii(corners);
 
             if (strokeDrawable != null) {
                 // if stroke drawable exists, create a layer drawable containing both stroke and background drawables

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Net.Http;
 using Lagou.API.Attributes;
+using System.Net;
 
 namespace Lagou.API {
     internal static class ParameterHelper {
@@ -52,7 +53,7 @@ namespace Lagou.API {
         public static string BuildUrl(this MethodBase method, string url) {
             var dic = method.GetParams();
             foreach (var kv in dic)
-                url = url.SetUrlKeyValue(kv.Key, kv.Value);
+                url = url.SetUrlKeyValue(kv.Key, WebUtility.UrlEncode(kv.Value));
 
             return url;
         }

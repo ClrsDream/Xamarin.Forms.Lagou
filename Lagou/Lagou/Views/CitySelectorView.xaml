@@ -3,32 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lagou.Views.CitySelectorView"
              xmlns:vm="clr-namespace:Lagou.ViewModels;assembly=Lagou"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              >
 
 
-  <ListView
-    ItemsSource="{x:Static vm:CitySelectorViewModel.Datas}"
-    IsGroupingEnabled="True">
-    
-    <ListView.GroupHeaderTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <ViewCell.View>
-            <StackLayout Orientation="Horizontal" Padding="10">
-              <BoxView WidthRequest="10" HeightRequest="10" Color="Green" VerticalOptions="Center" />
-              <Label Text="{Binding Title}" Style="{StaticResource l_text}" />
-            </StackLayout>
-          </ViewCell.View>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.GroupHeaderTemplate>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
 
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding Name}" />
-      </DataTemplate>
-    </ListView.ItemTemplate>
+    <Button Text="取消" Command="{Binding CancelCmd}" HorizontalOptions="End" />
 
-  </ListView>
+    <ListView
+      Grid.Row="1"
+      ItemsSource="{x:Static vm:CitySelectorViewModel.Datas}"
+      IsGroupingEnabled="True"
+      SelectedItem="{Binding ChoicedCity}"
+      cal:Message.Attach="[Event ItemTapped] = [Action Choice()]"
+      HasUnevenRows="True"
+      RowHeight="30"
+      >
+
+      <ListView.GroupHeaderTemplate>
+        <DataTemplate>
+          <ViewCell Height="40">
+            <ViewCell.View>
+              <StackLayout Orientation="Horizontal" Padding="10" HeightRequest="40" VerticalOptions="Center">
+                <BoxView WidthRequest="10" HeightRequest="10" Color="Green" VerticalOptions="Center" />
+                <Label Text="{Binding Title}" Style="{StaticResource l_text}" VerticalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.GroupHeaderTemplate>
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Name}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+  </Grid>
 
 </ContentView>
