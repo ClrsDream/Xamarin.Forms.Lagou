@@ -40,7 +40,9 @@ namespace Lagou.ViewModels {
         private INavigationService NS = null;
 
         public JobDetailViewModel(INavigationService ns) {
-            this.SeeAllCmd = new Command(() => this.SeeAll());
+            this.SeeAllCmd = new Command(() =>
+                this.SeeAll()
+            );
             this.NS = ns;
         }
 

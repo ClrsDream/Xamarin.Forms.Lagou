@@ -5,10 +5,9 @@
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              Title="{Binding DisplayName}"
-             BackgroundColor="#666666"
-             Padding="0"
-             
+             BackgroundColor="#666666"            
              IsBusy="{Binding IsLoading}"
+             Padding="0"
              >
 
   <Grid>
@@ -144,14 +143,16 @@
       </Grid>
     </ctrls:Border>
 
-    <Grid Grid.Row="1">
+    <Grid Grid.Row="1" Padding="5">
       <Grid.ColumnDefinitions>
         <ColumnDefinition />
         <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="auto" />
       </Grid.ColumnDefinitions>
 
-      <Button Text="投个简历" />
-      <Button Text="所有职位" Command="{Binding SeeAllCmd}" Grid.Column="1" />
+      <Button Text="投个简历" BorderColor="Gray" BorderWidth="0.5" BorderRadius="10" />
+      <Button Text="&#xf005;" Style="{StaticResource btn_font_icon}" Grid.Column="1" />
+      <Button Text="&#xf022;" Style="{StaticResource btn_font_icon}" Command="{Binding SeeAllCmd}" Grid.Column="2" />
     </Grid>
   </Grid>
 </ContentPage>

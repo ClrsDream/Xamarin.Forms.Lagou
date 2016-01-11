@@ -24,6 +24,8 @@
       HasUnevenRows="True"
       RowHeight="30"
       >
+      <!--Bug In UWP With GroupShortNameBinding-->
+      <!--GroupShortNameBinding="{Binding ShortTitle}"-->
 
       <ListView.GroupHeaderTemplate>
         <DataTemplate>

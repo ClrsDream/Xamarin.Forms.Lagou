@@ -136,10 +136,12 @@
       <Grid.ColumnDefinitions>
         <ColumnDefinition />
         <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="auto" />
       </Grid.ColumnDefinitions>
 
-      <Button Text="投个简历" />
-      <Button Text="所有职位" Command="{Binding SeeAllCmd}" Grid.Column="1" />
+      <Button Text="投个简历" BorderColor="Gray" BorderWidth="0.5" BorderRadius="10" />
+      <Button Text="收藏到本地" Command="{Binding SeeAllCmd}" Grid.Column="1" />
+      <Button Text="所有职位" Command="{Binding SeeAllCmd}" Grid.Column="2" />
     </Grid>
   </Grid>
 </ContentPage>

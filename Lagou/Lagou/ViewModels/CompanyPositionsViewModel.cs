@@ -51,6 +51,9 @@ namespace Lagou.ViewModels {
         }
 
         protected async override void OnActivate() {
+            // Becase it's singletone, so need clear datas when it show.
+            this.Datas.Clear();
+
             await Task.Delay(500).ContinueWith(t => this.SetPosType(this.PositionTypes.First()));
         }
 
