@@ -96,6 +96,9 @@
         <Setter Property="BorderColor" Value="#cccccc" />
         <Setter Property="BorderWidth" Value="0.5" />
         <Setter Property="BorderRadius" Value="15" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="FontSize" Value="13" />
       </Style>
 
 

@@ -76,11 +76,18 @@ namespace Lagou.UWP.Renders {
             if (this.Element == null)
                 return;
 
-            //TODO Bug here
-            var mth = this.Element.GetType().GetMethod("SendClicked", BindingFlags.Instance | BindingFlags.NonPublic);
-            if (mth != null) {
-                mth.Invoke(this.Element, new object[] { });
+            var it = this.Element.GetType().GetInterfaces().FirstOrDefault(t => t.Name.Equals("IButtonController"));
+            if (it != null) {
+                var mth = it.GetMethod("SendClicked");
+                if(mth != null)
+                    mth.Invoke(this.Element, new object[] { });
             }
+
+            //TODO Bug here
+            //var mth = this.Element.GetType().GetMethod("SendClicked", BindingFlags.FlattenHierarchy | BindingFlags.NonPublic);
+            //if (mth != null) {
+            //    mth.Invoke(this.Element, new object[] { });
+            //}
         }
 
         private void UpdateContent() {
