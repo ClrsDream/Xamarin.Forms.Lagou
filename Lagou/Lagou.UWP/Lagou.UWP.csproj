@@ -119,6 +119,7 @@
     <Compile Include="Renders\MasterDetailPageRender.cs" />
     <Compile Include="Renders\NavigationPageRender.cs" />
     <Compile Include="Renders\RepeaterRender.cs" />
+    <Compile Include="Renders\SearchBarRender.cs" />
     <Compile Include="Renders\TabbedPagePresenter.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
     <Compile Include="Services\GeolocatorService.cs" />
