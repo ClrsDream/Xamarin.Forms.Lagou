@@ -26,6 +26,8 @@ namespace Lagou.UWP {
             InitializeComponent();
             this.UnhandledException += App_UnhandledException;
 
+            PageBusyIndicator.Init();
+
             //var spy = FirstFloor.XamlSpy.Services.ServiceProvider.GetService<ClientService>();
         }
 

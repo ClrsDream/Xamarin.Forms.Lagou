@@ -37,13 +37,15 @@ namespace Lagou.ViewModels {
         public BindableCollection<PositionBrief> Datas { get; set; } = new BindableCollection<PositionBrief>();
 
 
-        public ICommand PositionTypesChangedCmd { get; set; } 
+        public ICommand PositionTypesChangedCmd { get; set; }
+
+        public bool IsLoading { get; set; }
 
         private int Page = 1;
 
         public CompanyPositionsViewModel() {
             //this.NotifyOfPropertyChange(() => this.PositionTypes);
-            this.PositionTypesChangedCmd = new Command(async(o) => {
+            this.PositionTypesChangedCmd = new Command(async (o) => {
                 await this.SetPosType((string)o);
             });
         }
@@ -53,6 +55,9 @@ namespace Lagou.ViewModels {
         }
 
         private async Task LoadPosByType() {
+            this.IsLoading = true;
+            this.NotifyOfPropertyChange(() => this.IsLoading);
+
             var method = new PositionList() {
                 CompanyID = this.CompanyID,
                 PositionType = (PositionTypes)Enum.Parse(typeof(PositionTypes), this.SelectedPositionType),
@@ -63,6 +68,9 @@ namespace Lagou.ViewModels {
                 this.Page++;
                 this.Datas.AddRange(datas);
             }
+
+            this.IsLoading = false;
+            this.NotifyOfPropertyChange(() => this.IsLoading);
         }
 
         private async Task SetPosType(string type) {

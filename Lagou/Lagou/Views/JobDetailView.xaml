@@ -6,6 +6,9 @@
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              Title="{Binding DisplayName}"
              BackgroundColor="#dddddd"
+             
+             IsBusy="{Binding IsLoading}"
+             
              >
 
   <Grid>

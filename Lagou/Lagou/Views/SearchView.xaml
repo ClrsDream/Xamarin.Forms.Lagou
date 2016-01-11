@@ -11,6 +11,8 @@
              local:AttachedFontIcon.Color="Green"
              local:AttachedFontIcon.FontSize="20"
              
+             IsBusy="{Binding InRefresh}"
+             
              x:Name="root"
              Padding="2,0,2,5"
              >

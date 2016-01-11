@@ -35,6 +35,8 @@ namespace Lagou.ViewModels {
             set;
         }
 
+        public bool IsLoading { get; set; }
+
         private INavigationService NS = null;
 
         public JobDetailViewModel(INavigationService ns) {
@@ -48,6 +50,10 @@ namespace Lagou.ViewModels {
         }
 
         private async Task LoadData() {
+
+            this.IsLoading = true;
+            this.NotifyOfPropertyChange(() => this.IsLoading);
+
             var mth = new PositionDetail() {
                 PositionID = this.ID
             };
@@ -65,6 +71,9 @@ namespace Lagou.ViewModels {
             this.NotHaveEvaluations = !this.HasEvaluations;
             this.NotifyOfPropertyChange(() => this.HasEvaluations);
             this.NotifyOfPropertyChange(() => this.NotHaveEvaluations);
+
+            this.IsLoading = false;
+            this.NotifyOfPropertyChange(() => this.IsLoading);
         }
 
         private void SeeAll() {
