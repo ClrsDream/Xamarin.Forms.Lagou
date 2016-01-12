@@ -45,13 +45,13 @@ namespace Lagou.Droid {
             base.OnCreate();
 
             Initialize();
-            //this.ConnectXamlSpy();
+            this.ConnectXamlSpy();
         }
 
-        //private void ConnectXamlSpy() {
-        //    var service = FirstFloor.XamlSpy.Services.XamlSpyService.Current;
-        //    service.Connect("192.168.0.124", 4530, "41169");
-        //}
+        private void ConnectXamlSpy() {
+            var service = FirstFloor.XamlSpy.Services.XamlSpyService.Current;
+            service.Connect("192.168.0.124", 4530, "41169");
+        }
 
         protected override void Configure() {
             container = new SimpleContainer();

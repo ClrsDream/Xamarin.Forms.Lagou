@@ -65,6 +65,7 @@ namespace Lagou {
                 .Singleton<CompanyPositionsViewModel>()
                 .Singleton<MyViewModel>()
                 .Singleton<LoginViewModel>()
+                .Singleton<FavoritesViewModel>()
 
                 .PerRequest<CitySelectorViewModel>()
                 .PerRequest<JobDetailViewModel>()

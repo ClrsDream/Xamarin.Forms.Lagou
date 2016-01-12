@@ -11,13 +11,17 @@ using Android.Views;
 using Android.Widget;
 using Android.Graphics;
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace Lagou.Droid {
     public static class Helper {
 
         public static Typeface ToTypeface(this string fontfamilary) {
-            return Typeface.CreateFromAsset(Forms.Context.Assets, fontfamilary);
+            try {
+                return Typeface.CreateFromAsset(Forms.Context.Assets, fontfamilary);
+            } catch (Exception ex){
+                return Typeface.Default;
+            }
         }
-
     }
 }

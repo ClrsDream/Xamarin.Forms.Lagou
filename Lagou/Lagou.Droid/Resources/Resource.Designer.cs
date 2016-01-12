@@ -1484,6 +1484,8 @@ namespace Lagou.Droid
 			global::Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_id = global::Lagou.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Lagou.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_layout = global::Lagou.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::FirstFloor.XamlSpy.Resource.String.ApplicationName = global::Lagou.Droid.Resource.String.ApplicationName;
+			global::FirstFloor.XamlSpy.Resource.String.Hello = global::Lagou.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Animation

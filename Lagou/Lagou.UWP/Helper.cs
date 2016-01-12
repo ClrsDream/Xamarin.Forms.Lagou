@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using System.Reflection;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Lagou.UWP {
     internal static class Helper {
@@ -68,12 +69,15 @@ namespace Lagou.UWP {
         }
 
         public static FontFamily ToFontFamily(this string ff) {
+            //font file must in assets folder.
+            ff = Regex.Replace(ff, "(^/Assets/)|(^Assets/)", "");
+
             // ff like : FontAwesome.otf
             // Full Path must like : Assets/Fonts/FontAwesome.otf#FontAwesome
             // font name must same as font file name
             var fontName = Path.GetFileNameWithoutExtension(ff);
             // not have prefix "/", if have preifx "/", Path.Combin will return fail path.
-            string path = string.Format("Assets/Fonts/{0}", ff);
+            string path = string.Format("Assets/{0}", ff);
             if (File.Exists(Path.Combine(AppContext.BaseDirectory, path))) {
                 return new FontFamily(string.Format("/{0}#{1}", path, fontName));
             } else

@@ -11,6 +11,12 @@
              
              >
 
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="投个简历" Order="Secondary" Priority="0" />
+    <ToolbarItem Text="收藏" Order="Secondary" Priority="0" />
+    <ToolbarItem Text="全部" Command="{Binding SeeAllCmd}" Order="Secondary" Priority="0" />
+  </ContentPage.ToolbarItems>
+
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition />
@@ -92,7 +98,7 @@
                 </Grid>
 
                 <BoxView Style="{StaticResource b_h}" />
-                
+
                 <StackLayout Orientation="Horizontal">
                   <ctrls:FontIcon Glyph="&#xf19c;" Style="{StaticResource fi_small}" />
                   <Label Text="{Binding Data.Temptation}" Style="{StaticResource l_h3}" />
@@ -100,12 +106,12 @@
 
                 <BoxView Style="{StaticResource b_h}" />
                 <!--公司地址-->
-                <Label Text="{Binding Data.CompanyAddress}" Style="{StaticResource l_text}" />                
-                
+                <Label Text="{Binding Data.CompanyAddress}" Style="{StaticResource l_text}" />
+
                 <BoxView Style="{StaticResource b_h}" />
 
                 <Label Text="{Binding Data.JobDesc}" Style="{StaticResource l_text}" />
-                                
+
               </StackLayout>
             </ScrollView>
 
@@ -132,16 +138,16 @@
       </Grid>
     </Frame>
 
-    <Grid Grid.Row="1">
+    <Grid Grid.Row="1" ColumnSpacing="0">
       <Grid.ColumnDefinitions>
         <ColumnDefinition />
         <ColumnDefinition Width="auto" />
         <ColumnDefinition Width="auto" />
       </Grid.ColumnDefinitions>
 
-      <Button Text="投个简历" BorderColor="Gray" BorderWidth="0.5" BorderRadius="10" />
-      <Button Text="收藏到本地" Command="{Binding SeeAllCmd}" Grid.Column="1" />
-      <Button Text="所有职位" Command="{Binding SeeAllCmd}" Grid.Column="2" />
+      <Button Text="投个简历" BorderColor="Gray" BorderWidth="0.5" BorderRadius="30" />
+      <Button Text="收藏" Command="{Binding AddFavoriteCmd}" Grid.Column="1" />
+      <Button Text="全部" Command="{Binding SeeAllCmd}" Grid.Column="2" />
     </Grid>
   </Grid>
 </ContentPage>

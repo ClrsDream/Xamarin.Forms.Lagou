@@ -7,7 +7,7 @@
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              
              local:AttachedFontIcon.Glyph="&#xf002;"
-             local:AttachedFontIcon.FontFamily="FontAwesome.otf"
+             local:AttachedFontIcon.FontFamily="Fonts/FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
              local:AttachedFontIcon.FontSize="20"
              

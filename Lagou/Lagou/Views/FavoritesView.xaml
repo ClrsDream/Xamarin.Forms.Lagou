@@ -1,23 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lagou.Views.IndexView"
+             x:Class="Lagou.Views.FavoritesView"
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
              x:Name="root"
              IsBusy="{Binding InRefresh}"
-             local:AttachedFontIcon.Glyph="&#xf015;"
+             local:AttachedFontIcon.Glyph="&#xf005;"
              local:AttachedFontIcon.FontFamily="Fonts/FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
              local:AttachedFontIcon.FontSize="20"
-  >
+             >
 
   <ListView
-    ItemsSource="{Binding Datas}"
-    HasUnevenRows="True"
-    IsPullToRefreshEnabled="True"
-    IsRefreshing="{Binding InRefresh}"
-    RefreshCommand="{Binding ReloadCmd}"
+      ItemsSource="{Binding Datas}"
+      HasUnevenRows="True"
     >
 
     <ListView.ItemTemplate>
@@ -29,13 +26,6 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
-    <ListView.Footer>
-      <StackLayout Padding="10,5,10,20">
-        <Button Text="加载更多" Command="{Binding LoadMoreCmd}"
-                BindingContext="{Binding Source={x:Reference root}, Path=BindingContext}"
-                />
-      </StackLayout>
-    </ListView.Footer>
 
   </ListView>
 

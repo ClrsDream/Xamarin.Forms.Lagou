@@ -47,7 +47,7 @@
 
       <!--小号图标-->
       <Style x:Key="fi_small" TargetType="ctrls:FontIcon">
-        <Setter Property="FontFamily" Value="FontAwesome.otf" />
+        <Setter Property="FontFamily" Value="Fonts/FontAwesome.otf" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Color" Value="#fea400" />
         <Setter Property="HeightRequest" Value="15" />
@@ -56,7 +56,7 @@
 
       <!--ListView/TableView 上的指示图标-->
       <Style x:Key="fi_row" TargetType="ctrls:FontIcon">
-        <Setter Property="FontFamily" Value="FontAwesome.otf" />
+        <Setter Property="FontFamily" Value="Fonts/FontAwesome.otf" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Color" Value="#ccffffff" />
         <Setter Property="HeightRequest" Value="20" />
@@ -99,6 +99,8 @@
         <Setter Property="HeightRequest" Value="30" />
         <Setter Property="WidthRequest" Value="30" />
         <Setter Property="FontSize" Value="13" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
       </Style>
 
 

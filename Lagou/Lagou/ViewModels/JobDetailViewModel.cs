@@ -30,10 +30,9 @@ namespace Lagou.ViewModels {
 
         public int ID { get; set; }
 
-        public ICommand SeeAllCmd {
-            get;
-            set;
-        }
+        public ICommand SeeAllCmd {get;set;}
+
+        public ICommand AddFavoriteCmd {get; set;}
 
         public bool IsLoading { get; set; }
 
@@ -43,6 +42,11 @@ namespace Lagou.ViewModels {
             this.SeeAllCmd = new Command(() =>
                 this.SeeAll()
             );
+
+            this.AddFavoriteCmd = new Command(() => {
+                this.AddFavorite();
+            });
+
             this.NS = ns;
         }
 
@@ -84,6 +88,10 @@ namespace Lagou.ViewModels {
                 .WithParam(p => p.CompanyName, this.Data?.CompanyName)
                 .WithParam(p => p.CompanyLogo, this.Data?.CompanyLogo)
                 .Navigate();
+        }
+
+        private void AddFavorite() {
+            MessagingCenter.Send(this, FavoritesViewModel.AddFavorite , this.Data);
         }
     }
 }

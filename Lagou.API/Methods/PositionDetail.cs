@@ -20,7 +20,7 @@ namespace Lagou.API.Methods {
 
         private static readonly Regex AddressRx = new Regex(@"global.companyAddress\s*=\s*(['""])(?<v>[\s\S]*?)\1;", RegexOptions.IgnoreCase);
         private static readonly Regex CompanyIDRx = new Regex(@"global.companyId\s*=\s*(['""])(?<v>[\s\S]*?)\1;", RegexOptions.IgnoreCase);
-        private static readonly Regex PositionIDRx = new Regex(@"global.companyId\s*=\s*(['""])(?<v>[\s\S]*?)\1;", RegexOptions.IgnoreCase);
+        private static readonly Regex PositionIDRx = new Regex(@"global.positionId\s*=\s*(['""])(?<v>[\s\S]*?)\1;", RegexOptions.IgnoreCase);
 
 
         protected override Position Execute(string result) {

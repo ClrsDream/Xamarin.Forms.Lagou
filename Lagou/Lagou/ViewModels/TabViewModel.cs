@@ -22,7 +22,8 @@ namespace Lagou.ViewModels {
             this.Datas = new BindableCollection<Screen>() {
                     container.GetInstance<IndexViewModel>(),
                     container.GetInstance<SearchViewModel>(),
-                    container.GetInstance<MyViewModel>()
+                    container.GetInstance<MyViewModel>(),
+                    container.GetInstance<FavoritesViewModel>()
                 };
         }
     }

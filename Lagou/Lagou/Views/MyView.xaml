@@ -4,7 +4,7 @@
              x:Class="Lagou.Views.MyView"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
              local:AttachedFontIcon.Glyph="&#xf0f0;"
-             local:AttachedFontIcon.FontFamily="FontAwesome.otf"
+             local:AttachedFontIcon.FontFamily="Fonts/FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
              local:AttachedFontIcon.FontSize="20"                
              >

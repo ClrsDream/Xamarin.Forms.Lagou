@@ -151,7 +151,7 @@
       </Grid.ColumnDefinitions>
 
       <Button Text="投个简历" BorderColor="Gray" BorderWidth="0.5" BorderRadius="10" />
-      <Button Text="&#xf005;" Style="{StaticResource btn_font_icon}" Grid.Column="1" />
+      <Button Text="&#xf005;" Style="{StaticResource btn_font_icon}" Command="{Binding AddFavoriteCmd}" Grid.Column="1" />
       <Button Text="&#xf022;" Style="{StaticResource btn_font_icon}" Command="{Binding SeeAllCmd}" Grid.Column="2" />
     </Grid>
   </Grid>

@@ -141,6 +141,10 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6492-pre1\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="XamlSpy, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XamlSpyLibs.3.0.1-preview\lib\monoandroid50\XamlSpy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -161,7 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <AndroidAsset Include="Assets\FontAwesome.otf" />
+    <AndroidAsset Include="Assets\Fonts\FontAwesome.otf" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
