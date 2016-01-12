@@ -4,6 +4,7 @@
              x:Class="Lagou.Views.CompanyPositionsView"
              xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
+             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              BackgroundColor="White"
              Padding="5"
              Title="{Binding CompanyName}"
@@ -47,6 +48,8 @@
     <ListView Grid.Row="2" Grid.ColumnSpan="2"
               ItemsSource="{Binding Datas}"
               HasUnevenRows="True"
+              SelectedItem="{Binding SelectedPosition}"
+              cal:Message.Attach="[Event ItemTapped]=[Action ShowPosition]"
               >
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -70,7 +73,7 @@
                   <Label Text="{Binding City}" Style="{StaticResource l_accent}" />
                 </StackLayout>
 
-                <BoxView Style="{StaticResource b_h}" Grid.Row="1" Grid.ColumnSpan="2" />
+                <!--<BoxView Style="{StaticResource b_h}" Grid.Row="1" Grid.ColumnSpan="2" />-->
               </Grid>
             </ViewCell.View>
           </ViewCell>

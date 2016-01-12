@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Caliburn.Micro.Xamarin.Forms;
 using Lagou.API.Entities;
 using Lagou.API.Methods;
 using System;
@@ -36,6 +37,7 @@ namespace Lagou.ViewModels {
 
         public BindableCollection<PositionBrief> Datas { get; set; } = new BindableCollection<PositionBrief>();
 
+        public PositionBrief SelectedPosition { get; set; }
 
         public ICommand PositionTypesChangedCmd { get; set; }
 
@@ -43,8 +45,11 @@ namespace Lagou.ViewModels {
 
         private int Page = 1;
 
-        public CompanyPositionsViewModel() {
-            //this.NotifyOfPropertyChange(() => this.PositionTypes);
+        private INavigationService NS = null;
+
+        public CompanyPositionsViewModel(INavigationService ns) {
+            this.NS = ns;
+
             this.PositionTypesChangedCmd = new Command(async (o) => {
                 await this.SetPosType((string)o);
             });
@@ -81,6 +86,14 @@ namespace Lagou.ViewModels {
             this.Page = 1;
             this.Datas.Clear();
             await this.LoadPosByType();
+        }
+
+        public void ShowPosition() {
+            this.NS
+                .For<JobDetailViewModel>()
+                .WithParam(p => p.ID, this.SelectedPosition.PositionId)
+                .Navigate();
+
         }
     }
 }

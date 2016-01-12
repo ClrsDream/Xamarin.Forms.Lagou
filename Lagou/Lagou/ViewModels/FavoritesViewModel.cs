@@ -62,7 +62,6 @@ namespace Lagou.ViewModels {
                 AddFavorite,
                 async (sender, arg) => {
                     if (!this.Favorites.Any(f => f.PositionID == arg.PositionID)) {
-                        this.Favorites.Add(arg);
                         var d = this.Convert(arg);
                         this.Datas.Add(new SearchedItemViewModel(d, this.NS));
                         await this.AddToFavorite(arg);
@@ -74,10 +73,8 @@ namespace Lagou.ViewModels {
         }
 
         private async Task AddToFavorite(Position data) {
-            if (!this.Favorites.Any(f => f.PositionID == data.PositionID)) {
-                this.Favorites.Add(data);
-                await this.SaveFavorite();
-            }
+            this.Favorites.Add(data);
+            await this.SaveFavorite();
         }
 
         private async Task SaveFavorite() {

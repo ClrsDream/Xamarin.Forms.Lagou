@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Reflection;
 
 namespace Lagou {
     public class PropertiesHelper {
@@ -17,7 +18,11 @@ namespace Lagou {
         /// <returns></returns>
         public static T Get<T>(string key) {
             if (Application.Current.Properties.ContainsKey(key)) {
-                return (T)Application.Current.Properties[key];
+                if (typeof(T).GetTypeInfo().IsPrimitive || typeof(T).Equals(typeof(String))){
+                    return (T)Application.Current.Properties[key];
+                } else {
+                    return GetObject<T>(key);
+                }
             }
 
             return default(T);
