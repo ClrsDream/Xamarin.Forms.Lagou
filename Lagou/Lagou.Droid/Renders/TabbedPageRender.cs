@@ -17,6 +17,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.Content;
 using Android.Text.Style;
 using Android.Text;
+using Android.Graphics;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Lagou.Droid.Renders {
@@ -50,31 +51,31 @@ namespace Lagou.Droid.Renders {
         }
 
 
-        private void UpdateTabHeader() {
-            if (this.tabLayout.TabCount != this.Element.Children.Count)
-                return;
+        //private void UpdateTabHeader() {
+        //    if (this.tabLayout.TabCount != this.Element.Children.Count)
+        //        return;
 
-            for(var i = 0; i < this.Element.Children.Count; i++) {
-                var page = this.Element.Children[i];
-                if (string.IsNullOrEmpty(page.Icon)) {
-                    var glyph = (string)page.GetValue(AttachedFontIcon.GlyphProperty);
-                    if (!string.IsNullOrWhiteSpace(glyph)) {
-                        var font = (string)page.GetValue(AttachedFontIcon.FontFamilyProperty);
-                        var size = (int)(double)page.GetValue(AttachedFontIcon.FontSizeProperty);
+        //    for (var i = 0; i < this.Element.Children.Count; i++) {
+        //        var page = this.Element.Children[i];
+        //        if (string.IsNullOrEmpty(page.Icon)) {
+        //            var glyph = (string)page.GetValue(AttachedFontIcon.GlyphProperty);
+        //            if (!string.IsNullOrWhiteSpace(glyph)) {
+        //                var font = (string)page.GetValue(AttachedFontIcon.FontFamilyProperty);
+        //                var size = (int)(double)page.GetValue(AttachedFontIcon.FontSizeProperty);
 
-                        var tab = this.tabLayout.GetTabAt(i);
+        //                var tab = this.tabLayout.GetTabAt(i);
 
-                        var ss = new SpannableString(glyph);
-                        var fontSpan = new CustomTypefaceSpan(font);
-                        ss.SetSpan(fontSpan, 0, 2, SpanTypes.ExclusiveExclusive);
-                        tab.SetText(ss);
-                    }
-                }
-            }
-        }
+        //                var ss = new SpannableString(glyph);
+        //                var fontSpan = new CustomTypefaceSpan(font);
+        //                ss.SetSpan(fontSpan, 0, 2, SpanTypes.ExclusiveExclusive);
+        //                tab.SetText(ss);
+        //            }
+        //        }
+        //    }
+        //}
 
 
-        private void UpdateTabIcons() {
+        private void UpdateTabIcons1() {
             var tabLayout = this.tabLayout;
             if (tabLayout.TabCount != this.Element.Children.Count)
                 return;
@@ -102,15 +103,51 @@ namespace Lagou.Droid.Renders {
 
                         tabLayout.GetTabAt(i)
                             .SetIcon(builder.Build());
+                    }
+                }
+            }
+        }
 
-                        //var txtDrawable = builder.Build();
-                        //txtDrawable.SetBounds(0, 0, txtDrawable.IntrinsicWidth, txtDrawable.MinimumHeight);
-                        //var ims = new DrawableMarginSpan(txtDrawable);
-                        //SpannableString ss = new SpannableString(page.Title);
-                        //ss.SetSpan(ims, 0, page.Title.Length, SpanTypes.ExclusiveExclusive);
+        private void UpdateTabIcons() {
+            var tabLayout = this.tabLayout;
+            if (tabLayout.TabCount != this.Element.Children.Count)
+                return;
 
-                        //tabLayout.GetTabAt(i)
-                        //    .SetText(ss);
+            for (int i = 0; i < this.Element.Children.Count; ++i) {
+                var page = this.Element.Children[i];
+                if (string.IsNullOrEmpty(page.Icon)) {
+                    var glyph = (string)page.GetValue(AttachedFontIcon.GlyphProperty);
+                    if (!string.IsNullOrWhiteSpace(glyph)) {
+
+                        SpannableStringBuilder sb = new SpannableStringBuilder();
+                        sb.Append(glyph);
+
+                        var font = (string)page.GetValue(AttachedFontIcon.FontFamilyProperty);
+                        if (!string.IsNullOrWhiteSpace(font)) {
+                            var span = new CustomTypefaceSpan(font);
+                            sb.SetSpan(span, 0, glyph.Length, SpanTypes.ExclusiveExclusive);
+                        }
+
+                        //var size = (int)(double)page.GetValue(AttachedFontIcon.FontSizeProperty);
+                        sb.SetSpan(new AbsoluteSizeSpan(40), 0, glyph.Length, SpanTypes.ExclusiveExclusive);
+
+                        sb.Append("\n");
+                        sb.Append(page.Title);
+
+                        //sb.SetSpan(new ForegroundColorSpan(Android.Graphics.Color.Red), 3, 4, SpanTypes.ExclusiveExclusive);
+
+                        //Must set app:tabTextAppearance textAllCaps to false.
+                        // See : tabs.xml,
+                        //if not do this, span will not work not work
+                        tabLayout.GetTabAt(i).SetText(sb);
+
+                        ////without specify color
+                        //var v = new TextView(this.Context) {
+                        //    TextAlignment = Android.Views.TextAlignment.Center
+                        //};
+                        //v.SetText(sb, TextView.BufferType.Spannable);
+
+                        //tabLayout.GetTabAt(i).SetCustomView(v);
                     }
                 }
             }

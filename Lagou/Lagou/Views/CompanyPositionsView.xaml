@@ -50,6 +50,7 @@
               HasUnevenRows="True"
               SelectedItem="{Binding SelectedPosition}"
               cal:Message.Attach="[Event ItemTapped]=[Action ShowPosition]"
+              SeparatorColor="Gray"
               >
       <ListView.ItemTemplate>
         <DataTemplate>

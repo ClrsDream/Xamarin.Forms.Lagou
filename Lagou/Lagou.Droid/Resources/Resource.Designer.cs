@@ -5044,6 +5044,9 @@ namespace Lagou.Droid
 			// aapt resource value: 0x7f070003
 			public const int Widget_MediaRouter_MediaRouteButton = 2131165187;
 			
+			// aapt resource value: 0x7f070146
+			public const int tablayoutIcon = 2131165510;
+			
 			static Style()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

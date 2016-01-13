@@ -38,7 +38,7 @@ namespace Lagou.Droid {
 
     //        paint.FakeBoldText = (fakeStyle & TypefaceStyle.Bold) == TypefaceStyle.Bold;
 
-    //        if((fakeStyle & TypefaceStyle.Italic) == TypefaceStyle.Italic) {
+    //        if ((fakeStyle & TypefaceStyle.Italic) == TypefaceStyle.Italic) {
     //            paint.TextSkewX = -0.25f;
     //        }
 
@@ -80,6 +80,7 @@ namespace Lagou.Droid {
             }
 
             paint.SetTypeface(tf);
+            paint.Flags = paint.Flags | PaintFlags.SubpixelText;
         }
     }
 }

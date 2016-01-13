@@ -10,4 +10,9 @@
     <!--<item name="android:windowBackground">@color/red</item>-->
     <item name="android:attr/actionBarSize">40dip</item>
   </style>
+
+  <style name="tablayoutIcon" parent="TextAppearance.Design.Tab">
+    <item name="textAllCaps">false</item>
+  </style>
+
 </resources>
