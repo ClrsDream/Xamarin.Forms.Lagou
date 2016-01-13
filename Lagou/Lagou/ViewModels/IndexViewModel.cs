@@ -75,13 +75,15 @@ namespace Lagou.ViewModels {
                     this.Datas.Clear();
                 }
 
-                //this.Datas.AddRange(datas.Select(d =>
-                //    new SearchedItemViewModel(d, this.NS)
-                //));
 
-                foreach (var d in datas) {
-                    this.Datas.Add(new SearchedItemViewModel(d, this.NS));
-                }
+                if (Device.OS == TargetPlatform.Windows) {
+                    foreach (var d in datas) {
+                        this.Datas.Add(new SearchedItemViewModel(d, this.NS));
+                    }
+                } else
+                    this.Datas.AddRange(datas.Select(d =>
+                        new SearchedItemViewModel(d, this.NS)
+                    ));
 
                 //this.NotifyOfPropertyChange(() => this.Datas);
                 this.Page++;

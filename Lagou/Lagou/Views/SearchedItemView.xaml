@@ -24,6 +24,10 @@
       </Grid.RowDefinitions>
 
       <ctrls:CycleBox Radius="30" Grid.RowSpan="3" Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
+        <!--
+        Android issue:
+        I/Choreographer( 2699): Skipped 63 frames!  The application may be doing too much work on its main thread.
+        -->
         <Image Source="{Binding Data.CompanyLogoUri}"
                WidthRequest="60" HeightRequest="60" Aspect="AspectFit"
              />
