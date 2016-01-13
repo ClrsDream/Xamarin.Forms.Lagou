@@ -24,7 +24,7 @@ namespace Lagou.API.Methods {
             var url = this.BuildUrl(client.GetUrl(this));
 
             using (var handler = new HttpClientHandler() {
-                CookieContainer = client.Cookies,
+                //CookieContainer = client.Cookies,
                 UseCookies = this.WithCookies
             })
             using (HttpClient hc = new HttpClient(handler)) {

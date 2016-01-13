@@ -41,8 +41,9 @@
 
         <SearchBar Text="{Binding Key}" Grid.Column="1"
                    Placeholder="输入公司名或关键字"
-                   local:CmdBinder.Event="SearchButtonPressed" local:CmdBinder.Command="{Binding SearchCmd}"
+                   cal:Message.Attach="[Event SearchButtonPressed] = [Action Search]"
                />
+        <!--local:CmdBinder.Event="SearchButtonPressed" local:CmdBinder.Command="{Binding SearchCmd}"-->
       </Grid>
     </ctrls:Border>
 
@@ -71,8 +72,8 @@
         </StackLayout>
       </ListView.Footer>
 
-    </ListView>    
-    
+    </ListView>
+
     <!--城市选择-->
     <ContentView Grid.RowSpan="2"
       cal:View.Model="{Binding CityVM}"

@@ -19,7 +19,7 @@ namespace Lagou.Droid {
         public static Typeface ToTypeface(this string fontfamilary) {
             try {
                 return Typeface.CreateFromAsset(Forms.Context.Assets, fontfamilary);
-            } catch (Exception ex){
+            } catch {
                 return Typeface.Default;
             }
         }

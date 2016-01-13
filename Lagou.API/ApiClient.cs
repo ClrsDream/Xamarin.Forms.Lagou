@@ -35,13 +35,13 @@ namespace Lagou.API {
         }
 
 
-        internal CookieContainer Cookies = new CookieContainer();
-        public bool IsLogined {
-            get {
-                var cks = this.Cookies.GetCookies(new Uri("https://passport.lagou.com"));
-                return cks.Cast<Cookie>().Any(c => c.Name.Equals("ticketGrantingTicketId"));
-            }
-        }
+        //internal CookieContainer Cookies = new CookieContainer();
+        //public bool IsLogined {
+        //    get {
+        //        var cks = this.Cookies.GetCookies(new Uri("https://passport.lagou.com"));
+        //        return cks.Cast<Cookie>().Any(c => c.Name.Equals("ticketGrantingTicketId"));
+        //    }
+        //}
 
 
         private ApiClient() {

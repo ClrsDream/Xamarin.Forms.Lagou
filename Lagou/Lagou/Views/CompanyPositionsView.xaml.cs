@@ -10,7 +10,6 @@ namespace Lagou.Views {
     public partial class CompanyPositionsView : ContentPage {
         public CompanyPositionsView() {
             InitializeComponent();
-            Picker p;
         }
     }
 }
