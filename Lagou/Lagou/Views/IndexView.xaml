@@ -5,7 +5,7 @@
              xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:local="clr-namespace:Lagou;assembly=Lagou"
              x:Name="root"
-             IsBusy="{Binding InRefresh}"
+             IsBusy="{Binding IsBusy}"
              local:AttachedFontIcon.Glyph="&#xf015;"
              local:AttachedFontIcon.FontFamily="Fonts/FontAwesome.otf"
              local:AttachedFontIcon.Color="Green"
@@ -16,7 +16,7 @@
     ItemsSource="{Binding Datas}"
     HasUnevenRows="True"
     IsPullToRefreshEnabled="True"
-    IsRefreshing="{Binding InRefresh}"
+    IsRefreshing="{Binding IsBusy}"
     RefreshCommand="{Binding ReloadCmd}"
     >
 

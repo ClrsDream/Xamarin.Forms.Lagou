@@ -55,6 +55,7 @@
     <Compile Include="Methods\Login.cs" />
     <Compile Include="Methods\PositionDetail.cs" />
     <Compile Include="Methods\PositionList.cs" />
+    <Compile Include="Methods\ResumePreview.cs" />
     <Compile Include="Methods\Search.cs" />
     <Compile Include="ParamHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

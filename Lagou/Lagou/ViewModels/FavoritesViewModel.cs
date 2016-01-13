@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class FavoritesViewModel : BaseVM {
 
         public static readonly string AddFavorite = "AddFavorite";

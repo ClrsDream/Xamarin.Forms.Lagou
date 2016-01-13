@@ -8,6 +8,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class MyViewModel : BaseVM {
         public override string Title {
             get {
@@ -17,9 +19,16 @@ namespace Lagou.ViewModels {
 
         public ICommand LoginCmd { get; set; }
 
+        public ICommand ViewResumeCmd { get; set; }
+
         public MyViewModel(INavigationService ns) {
             this.LoginCmd = new Command(() => {
                 ns.For<LoginViewModel>()
+                .Navigate();
+            });
+
+            this.ViewResumeCmd = new Command(() => {
+                ns.For<ResumeViewModel>()
                 .Navigate();
             });
         }

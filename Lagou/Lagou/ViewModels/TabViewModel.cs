@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class TabViewModel : BaseVM {
 
         public BindableCollection<Screen> Datas {

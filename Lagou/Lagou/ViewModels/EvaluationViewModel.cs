@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.None)]
     public class EvaluationViewModel : BaseVM {
         public override string Title {
             get {

@@ -10,8 +10,24 @@ namespace Lagou {
     public abstract class BaseVM : Screen {
 
         public abstract string Title {
-            get; 
+            get;
         }
+
+
+        private bool isBusy = false;
+        public bool IsBusy {
+            get {
+                return this.isBusy;
+            }
+            set {
+                this.isBusy = value;
+                this.NotifyOfPropertyChange(() => this.IsBusy);
+                //Device.BeginInvokeOnMainThread(() => {
+                //    this.NotifyOfPropertyChange(() => this.IsBusy);
+                //});
+            }
+        }
+
 
         public BaseVM() {
             this.DisplayName = this.Title;

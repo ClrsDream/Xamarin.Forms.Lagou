@@ -12,6 +12,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class IndexViewModel : BaseVM {
 
         public override string Title {
@@ -24,8 +26,6 @@ namespace Lagou.ViewModels {
         private INavigationService NS = null;
 
         public BindableCollection<SearchedItemViewModel> Datas { get; set; }
-
-        public bool InRefresh { get; set; }
 
         public ICommand ReloadCmd { get; set; }
 
@@ -63,10 +63,7 @@ namespace Lagou.ViewModels {
         /// <param name="reload">是否是重新加载</param>
         /// <returns></returns>
         private async Task LoadData(bool reload = false) {
-            this.InRefresh = true;
-            Device.BeginInvokeOnMainThread(() => {
-                this.NotifyOfPropertyChange(() => this.InRefresh);
-            });
+            this.IsBusy = true;
 
             var method = new Search() {
                 Page = reload ? 1 : this.Page
@@ -90,10 +87,7 @@ namespace Lagou.ViewModels {
                 this.Page++;
             }
 
-            this.InRefresh = false;
-            Device.BeginInvokeOnMainThread(() => {
-                this.NotifyOfPropertyChange(() => this.InRefresh);
-            });
+            this.IsBusy = false;
         }
     }
 }

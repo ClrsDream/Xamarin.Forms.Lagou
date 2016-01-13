@@ -7,7 +7,7 @@
              Title="{Binding DisplayName}"
              BackgroundColor="#dddddd"
              
-             IsBusy="{Binding IsLoading}"
+             IsBusy="{Binding IsBusy}"
              
              >
 

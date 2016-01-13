@@ -9,6 +9,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class CitySelectorViewModel : BaseVM {
 
         public event EventHandler OnCancel = null;
@@ -33,7 +35,7 @@ namespace Lagou.ViewModels {
 
         static CitySelectorViewModel() {
             var datas = Cities.Items.GroupBy(i => new string(i.PY[0], 1))
-                .Select(g => new ListViewGroup<City>(g.ToList().OrderBy(i=>i.Name)) {
+                .Select(g => new ListViewGroup<City>(g.ToList().OrderBy(i => i.Name)) {
                     Title = g.Key.ToUpper(),
                     ShortTitle = g.Key.ToUpper()
                 });

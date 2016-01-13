@@ -10,6 +10,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.PreRequest)]
     public class SearchedItemViewModel : BaseVM {
         public override string Title {
             get {

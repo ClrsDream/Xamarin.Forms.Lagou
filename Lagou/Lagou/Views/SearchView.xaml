@@ -11,7 +11,7 @@
              local:AttachedFontIcon.Color="Green"
              local:AttachedFontIcon.FontSize="20"
              
-             IsBusy="{Binding InRefresh}"
+             IsBusy="{Binding IsBusy}"
              
              x:Name="root"
              Padding="2,0,2,5"
@@ -51,7 +51,7 @@
     <ListView Grid.Row="1"
         ItemsSource="{Binding Datas}"
         HasUnevenRows="True"
-        IsRefreshing="{Binding InRefresh}"
+        IsRefreshing="{Binding IsBusy}"
     >
 
       <ListView.ItemTemplate>

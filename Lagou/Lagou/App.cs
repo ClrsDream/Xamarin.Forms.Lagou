@@ -6,6 +6,7 @@ using Lagou.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -56,21 +57,35 @@ namespace Lagou {
         }
 
         private void RegistModel(SimpleContainer container) {
-            container
-                .Singleton<TabViewModel>()
-                .Singleton<SettingViewModel>()
-                .Singleton<MDIViewModel>()
-                .Singleton<IndexViewModel>()
-                .Singleton<SearchViewModel>()
-                .Singleton<CompanyPositionsViewModel>()
-                .Singleton<MyViewModel>()
-                .Singleton<LoginViewModel>()
-                .Singleton<FavoritesViewModel>()
 
-                .PerRequest<CitySelectorViewModel>()
-                .PerRequest<JobDetailViewModel>()
-                .PerRequest<SearchedItemViewModel>()
-                ;
+            var types = this.GetType().GetTypeInfo().Assembly.DefinedTypes
+                .Select(t => new { T = t, Mode = t.GetCustomAttribute<RegistAttribute>()?.Mode })
+                .Where(o => o.Mode != null && o.Mode != InstanceMode.None);
+
+            foreach (var t in types) {
+                var type = t.T.AsType();
+                if (t.Mode == InstanceMode.Singleton) {
+                    container.RegisterSingleton(type, null, type);
+                } else if (t.Mode == InstanceMode.PreRequest) {
+                    container.RegisterPerRequest(type, null, type);
+                }
+            }
+
+            //container
+            //    .Singleton<TabViewModel>()
+            //    .Singleton<SettingViewModel>()
+            //    .Singleton<MDIViewModel>()
+            //    .Singleton<IndexViewModel>()
+            //    .Singleton<SearchViewModel>()
+            //    .Singleton<CompanyPositionsViewModel>()
+            //    .Singleton<MyViewModel>()
+            //    .Singleton<LoginViewModel>()
+            //    .Singleton<FavoritesViewModel>()
+
+            //    .PerRequest<CitySelectorViewModel>()
+            //    .PerRequest<JobDetailViewModel>()
+            //    .PerRequest<SearchedItemViewModel>()
+            //    ;
         }
 
         private void FixCM(SimpleContainer container) {

@@ -40,6 +40,7 @@
     <Compile Include="BaseVM.cs" />
     <Compile Include="Cities.cs" />
     <Compile Include="CmdBinder.cs" />
+    <Compile Include="RegistAttribute.cs" />
     <Compile Include="Controls\RoundButton.cs" />
     <Compile Include="ListViewGroup.cs" />
     <Compile Include="Controls\Border.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MDIViewModel.cs" />
     <Compile Include="ViewModels\MyViewModel.cs" />
+    <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SearchedItemViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
@@ -99,6 +101,9 @@
     </Compile>
     <Compile Include="Views\MyView.xaml.cs">
       <DependentUpon>MyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResumeView.xaml.cs">
+      <DependentUpon>ResumeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchedItemView.xaml.cs">
       <DependentUpon>SearchedItemView.xaml</DependentUpon>
@@ -277,6 +282,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ResumeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

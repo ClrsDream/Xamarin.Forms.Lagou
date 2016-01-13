@@ -11,6 +11,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class LoginViewModel : BaseVM, IDisposable {
         public override string Title {
             get {
@@ -29,9 +31,6 @@ namespace Lagou.ViewModels {
         public ICommand ReloadCaptcha { get; set; }
 
         public ICommand LoginCmd { get; set; }
-
-        public bool IsBusy { get; set; }
-
 
         private INavigationService NS = null;
 
@@ -69,7 +68,6 @@ namespace Lagou.ViewModels {
 
         private async Task Login() {
             this.IsBusy = true;
-            this.NotifyOfPropertyChange(() => this.IsBusy);
 
             var mth = new Login() {
                 UserName = this.UserName,
@@ -79,7 +77,6 @@ namespace Lagou.ViewModels {
             var flag = await ApiClient.Execute(mth);
 
             this.IsBusy = false;
-            this.NotifyOfPropertyChange(() => this.IsBusy);
 
             if (flag) {
                 await Application.Current.MainPage.DisplayAlert("提示", "登陆成功", "OK");

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.Singleton)]
     public class SearchViewModel : BaseVM {
         public override string Title {
             get {
@@ -33,8 +35,6 @@ namespace Lagou.ViewModels {
         public ICommand LoadMoreCmd { get; set; }
 
         public BindableCollection<SearchedItemViewModel> Datas { get; set; }
-
-        public bool InRefresh { get; set; }
 
         private int Page = 1;
 
@@ -94,10 +94,7 @@ namespace Lagou.ViewModels {
         }
 
         private async Task LoadData(bool reload = false) {
-            this.InRefresh = true;
-            Device.BeginInvokeOnMainThread(() => {
-                this.NotifyOfPropertyChange(() => this.InRefresh);
-            });
+            this.IsBusy = true;
 
             var method = new Search() {
                 Page = reload ? 1 : this.Page,
@@ -123,10 +120,7 @@ namespace Lagou.ViewModels {
                 this.Page++;
             }
 
-            this.InRefresh = false;
-            Device.BeginInvokeOnMainThread(() => {
-                this.NotifyOfPropertyChange(() => this.InRefresh);
-            });
+            this.IsBusy = false;
         }
     }
 }

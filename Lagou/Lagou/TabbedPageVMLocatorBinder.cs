@@ -76,6 +76,9 @@ namespace Lagou {
             }
 
             private static Page LocatePage(object o) {
+                if (o == null)
+                    throw new ArgumentNullException("o");
+
                 var vmView = ViewLocator.LocateForModel(o, null, null);
                 if (vmView == null)
                     throw new Exception("没有找到视图");

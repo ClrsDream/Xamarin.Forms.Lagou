@@ -14,6 +14,7 @@ namespace Lagou.ViewModels {
     /// <summary>
     /// 公司职位列表
     /// </summary>
+    [Regist(InstanceMode.Singleton)]
     public class CompanyPositionsViewModel : BaseVM {
         public override string Title {
             get {
@@ -41,8 +42,6 @@ namespace Lagou.ViewModels {
 
         public ICommand PositionTypesChangedCmd { get; set; }
 
-        public bool IsLoading { get; set; }
-
         private int Page = 1;
 
         private INavigationService NS = null;
@@ -63,8 +62,7 @@ namespace Lagou.ViewModels {
         }
 
         private async Task LoadPosByType() {
-            this.IsLoading = true;
-            this.NotifyOfPropertyChange(() => this.IsLoading);
+            this.IsBusy = true;
 
             var method = new PositionList() {
                 CompanyID = this.CompanyID,
@@ -77,8 +75,7 @@ namespace Lagou.ViewModels {
                 this.Datas.AddRange(datas);
             }
 
-            this.IsLoading = false;
-            this.NotifyOfPropertyChange(() => this.IsLoading);
+            this.IsBusy = false;
         }
 
         private async Task SetPosType(string type) {

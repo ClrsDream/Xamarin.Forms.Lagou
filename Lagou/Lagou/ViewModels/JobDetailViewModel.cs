@@ -11,6 +11,8 @@ using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
+
+    [Regist(InstanceMode.PreRequest)]
     public class JobDetailViewModel : BaseVM {
         public override string Title {
             get {
@@ -34,8 +36,6 @@ namespace Lagou.ViewModels {
 
         public ICommand AddFavoriteCmd {get; set;}
 
-        public bool IsLoading { get; set; }
-
         private INavigationService NS = null;
 
         public JobDetailViewModel(INavigationService ns) {
@@ -57,8 +57,7 @@ namespace Lagou.ViewModels {
 
         private async Task LoadData() {
 
-            this.IsLoading = true;
-            this.NotifyOfPropertyChange(() => this.IsLoading);
+            this.IsBusy = true;
 
             var mth = new PositionDetail() {
                 PositionID = this.ID
@@ -78,8 +77,7 @@ namespace Lagou.ViewModels {
             this.NotifyOfPropertyChange(() => this.HasEvaluations);
             this.NotifyOfPropertyChange(() => this.NotHaveEvaluations);
 
-            this.IsLoading = false;
-            this.NotifyOfPropertyChange(() => this.IsLoading);
+            this.IsBusy = false;
         }
 
         private void SeeAll() {
