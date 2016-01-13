@@ -29,6 +29,7 @@ namespace Lagou.ViewModels {
 
         public string SelectedPositionType { get; set; }
 
+        private int? OldCompanyID = null;
         public int CompanyID { get; set; }
 
         public string CompanyName { get; set; }
@@ -55,10 +56,13 @@ namespace Lagou.ViewModels {
         }
 
         protected async override void OnActivate() {
-            // Becase it's singletone, so need clear datas when it show.
-            this.Datas.Clear();
+            if (this.OldCompanyID != this.CompanyID || this.Datas.Count == 0) {
+                // Becase it's singletone, so need clear datas when it show.
+                this.Datas.Clear();
 
-            await Task.Delay(500).ContinueWith(t => this.SetPosType(this.PositionTypes.First()));
+                await Task.Delay(500).ContinueWith(t => this.SetPosType(this.PositionTypes.First()));
+                this.OldCompanyID = this.CompanyID;
+            }
         }
 
         private async Task LoadPosByType() {

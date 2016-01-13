@@ -84,7 +84,8 @@ namespace Lagou.Controls {
         }
 
         private void RemoveAll() {
-            foreach (var c in this.Children)
+            var children = this.Children.ToList();
+            foreach (var c in children)
                 this.Children.Remove(c);
         }
 

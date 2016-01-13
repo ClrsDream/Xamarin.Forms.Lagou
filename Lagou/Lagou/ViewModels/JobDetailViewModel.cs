@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Lagou.ViewModels {
 
-    [Regist(InstanceMode.PreRequest)]
+    [Regist(InstanceMode.Singleton)]
     public class JobDetailViewModel : BaseVM {
         public override string Title {
             get {
@@ -30,11 +30,26 @@ namespace Lagou.ViewModels {
 
         public bool NotHaveEvaluations { get; set; }
 
-        public int ID { get; set; }
+        private int? OldID = null;
 
-        public ICommand SeeAllCmd {get;set;}
+        private int id = 0;
+        public int ID {
+            get {
+                return this.id;
+            }
+            set {
+                if (value != this.id) {
+                    this.id = value;
+                    this.Data = null;
+                    //When ID changed, clear exists data.
+                    this.NotifyOfPropertyChange(() => this.Data);
+                }
+            }
+        }
 
-        public ICommand AddFavoriteCmd {get; set;}
+        public ICommand SeeAllCmd { get; set; }
+
+        public ICommand AddFavoriteCmd { get; set; }
 
         private INavigationService NS = null;
 
@@ -50,9 +65,15 @@ namespace Lagou.ViewModels {
             this.NS = ns;
         }
 
+
+        //Whether Singleton or PreRequest, when back to this,
+        // OnActivate will fire.
         protected async override void OnActivate() {
             base.OnActivate();
-            await Task.Delay(500).ContinueWith((t) => this.LoadData());
+            if (this.OldID != this.ID || this.Data == null) {
+                await Task.Delay(500).ContinueWith((t) => this.LoadData());
+                this.OldID = this.ID;
+            }
         }
 
         private async Task LoadData() {
@@ -89,7 +110,7 @@ namespace Lagou.ViewModels {
         }
 
         private void AddFavorite() {
-            MessagingCenter.Send(this, FavoritesViewModel.AddFavorite , this.Data);
+            MessagingCenter.Send(this, FavoritesViewModel.AddFavorite, this.Data);
         }
     }
 }
