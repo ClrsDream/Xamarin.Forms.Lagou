@@ -48,8 +48,11 @@
     <Compile Include="Entities\PositionTypes.cs" />
     <Compile Include="Entities\PositionBrief.cs" />
     <Compile Include="ErrorTypes.cs" />
+    <Compile Include="MD5.cs" />
     <Compile Include="MethodBase.cs" />
     <Compile Include="Methods\EvaluationList.cs" />
+    <Compile Include="Methods\GetCaptcha.cs" />
+    <Compile Include="Methods\Login.cs" />
     <Compile Include="Methods\PositionDetail.cs" />
     <Compile Include="Methods\PositionList.cs" />
     <Compile Include="Methods\Search.cs" />

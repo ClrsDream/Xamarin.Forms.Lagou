@@ -11,13 +11,11 @@
 
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition />
+      <RowDefinition Height="auto" />
       <RowDefinition />
       <RowDefinition />
     </Grid.RowDefinitions>
-    <Button Text="A" />
-    <Button Text="B" Grid.Row="1" />
-    <Button Text="C" Grid.Row="2" />
+    <Button Text="登陆" Command="{Binding LoginCmd}" />
   </Grid>
   
 </ContentPage>

@@ -27,6 +27,8 @@ namespace Lagou.API {
         DNSError,
 
         [ErrorTag("-2147012889")]
-        Network
+        Network,
+
+        LoginFailed
     }
 }

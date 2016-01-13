@@ -35,10 +35,20 @@ namespace Lagou.API {
             set;
         }
 
+        protected virtual bool WithCookies {
+            get {
+                return false;
+            }
+        }
+
         public async virtual Task<string> GetResult(ApiClient client) {
             try {
                 var url = this.BuildUrl(client.GetUrl(this));
-                using (HttpClient hc = new HttpClient()) {
+                using (var handler = new HttpClientHandler() {
+                    CookieContainer = client.Cookies,
+                    UseCookies = this.WithCookies
+                })
+                using (HttpClient hc = new HttpClient(handler)) {
                     return await hc.GetStringAsync(url);
                 }
             } catch (Exception ex) {
@@ -57,7 +67,7 @@ namespace Lagou.API {
 
         protected virtual TResult DefaultValue { get; } = default(TResult);
 
-        internal async Task<TResult> Execute(ApiClient client) {
+        internal virtual async Task<TResult> Execute(ApiClient client) {
             var result = await this.GetResult(client);
             if (!this.HasError)
                 return this.Execute(result);

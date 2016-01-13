@@ -36,5 +36,26 @@ namespace Lagou.Api.Test {
 
             var a = ApiClient.Execute(method).Result;
         }
+
+        [TestMethod]
+        public void MD5Test() {
+            var str = MD5.GetHashString("aaa");
+            Assert.AreEqual(str, "47BCE5C74F589F4867DBD57E9CA9F808");
+        }
+
+        [TestMethod]
+        public void LoginTest() {
+            var mth = new Login() {
+                UserName = "gruan@asnum.com",
+                Password = "aaabbbcc"
+            };
+            var a = ApiClient.Execute(mth).Result;
+        }
+
+        [TestMethod]
+        public void CaptchaTest() {
+            var mth = new GetCaptcha();
+            var stm = ApiClient.Execute(mth).Result;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,12 +34,23 @@ namespace Lagou.API {
             return Instance;
         }
 
+
+        internal CookieContainer Cookies = new CookieContainer();
+        public bool IsLogined {
+            get {
+                var cks = this.Cookies.GetCookies(new Uri("https://passport.lagou.com"));
+                return cks.Cast<Cookie>().Any(c => c.Name.Equals("ticketGrantingTicketId"));
+            }
+        }
+
+
         private ApiClient() {
 
         }
 
         public string GetUrl(MethodBase method) {
-            return string.Format("http://www.lagou.com/{0}", method.Module);
+            //return string.Format("http://www.lagou.com/{0}", method.Module);
+            return method.Module.FixUrl("http://www.lagou.com");
         }
 
         public static async Task<TResult> Execute<TResult>(MethodBase<TResult> method) {

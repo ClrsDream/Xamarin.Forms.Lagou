@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lagou.Views.LoginView"
+             xmlns:ctrls="clr-namespace:Lagou.Controls;assembly=Lagou"
+             BackgroundColor="#666666"
+             IsBusy="{Binding IsBusy}"
+             >
+
+  <ctrls:Border CornerRadius="5" Padding="20,10" Stroke="#cccccccc" StrokeThickness="0.5" HorizontalOptions="Center" VerticalOptions="Center">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+
+      <Label Text="用户登陆" />
+      
+      <Entry Text="{Binding UserName}" Placeholder="用户名" Grid.Row="1" />
+      <Entry IsPassword="True" Text="{Binding Pwd}" Placeholder="密码" Grid.Row="2" />
+      <Image Source="{Binding CaptchSource}" Grid.Row="3">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding ReloadCaptcha}" />
+        </Image.GestureRecognizers>
+      </Image>
+      <Entry Text="{Binding Captcha}" Placeholder="验证码, 点击图片可以刷新" Grid.Row="4" />
+      <Button Text="登陆" Grid.Row="5" Command="{Binding LoginCmd}" />
+    </Grid>
+  </ctrls:Border>
+
+</ContentPage>
