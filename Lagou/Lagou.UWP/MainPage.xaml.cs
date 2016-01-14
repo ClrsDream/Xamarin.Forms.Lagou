@@ -65,7 +65,8 @@ namespace Lagou.UWP {
 
         private void Btn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
             var spv = this.FindChildControl<SplitView>("masterDetailSplitView");
-            spv.IsPaneOpen = !spv.IsPaneOpen;
+            if (spv != null)
+                spv.IsPaneOpen = !spv.IsPaneOpen;
         }
     }
 }

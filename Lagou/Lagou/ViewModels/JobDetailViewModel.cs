@@ -41,8 +41,10 @@ namespace Lagou.ViewModels {
                 if (value != this.id) {
                     this.id = value;
                     this.Data = null;
+                    this.Evaluations.Clear();
                     //When ID changed, clear exists data.
                     this.NotifyOfPropertyChange(() => this.Data);
+                    this.NotifyOfPropertyChange(() => this.Evaluations);
                 }
             }
         }
