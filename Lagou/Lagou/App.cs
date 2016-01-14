@@ -100,7 +100,8 @@ namespace Lagou {
             ViewModelLocator.LocateForViewType = viewType => {
                 var vm = f2(viewType);
                 if (vm == null) {
-                    if (viewType.FullName.EndsWith(".Windows")) {
+                    if (rx.IsMatch(viewType.FullName)) {
+                        //if (viewType.FullName.EndsWith(".Windows")) {
                         var vmTypeName = rx.Replace(viewType.FullName, "ViewModel")
                                         .Replace(".Views.", ".ViewModels.");
                         var vmType = Type.GetType(vmTypeName);
