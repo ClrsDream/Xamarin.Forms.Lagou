@@ -93,11 +93,11 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="1.png" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Fonts\FontAwesome.otf" />
+    <Content Include="xling.jpg" />
     <None Include="project.json" />
     <None Include="project.lock.json" />
   </ItemGroup>
@@ -123,6 +123,9 @@
     <Compile Include="Renders\TabbedPagePresenter.cs" />
     <Compile Include="Renders\TabbedPageRender.cs" />
     <Compile Include="Services\GeolocatorService.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TabbedPageHeaderIconConverter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +154,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pivot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Splash.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

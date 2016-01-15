@@ -51,10 +51,23 @@ namespace Lagou.UWP {
             };
         }
 
-        protected override void OnLaunched(LaunchActivatedEventArgs args) {
-            Xamarin.Forms.Forms.Init(args);
+        //protected override void OnLaunched(LaunchActivatedEventArgs args) {
+        //    Xamarin.Forms.Forms.Init(args);
 
+        //    this.DisplayRootView<MainPage>();
+        //}
+
+        protected override void OnLaunched(LaunchActivatedEventArgs args) {
+            if (args.PreviousExecutionState != ApplicationExecutionState.Running) {
+                Window.Current.Content = new Splash(args.SplashScreen);
+                Xamarin.Forms.Forms.Init(args);
+            }
+            Window.Current.Activate();
+        }
+
+        internal void ShowMainPage() {
             this.DisplayRootView<MainPage>();
+            Window.Current.Content = this.RootFrame;
         }
 
         protected override void OnSuspending(object sender, SuspendingEventArgs e) {
