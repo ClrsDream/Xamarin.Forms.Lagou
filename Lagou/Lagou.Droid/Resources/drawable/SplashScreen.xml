@@ -8,8 +8,17 @@
   </item>
   <item>
     <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-      android:src="@drawable/icon"
+      android:src="@drawable/Splash"
       android:gravity="center"
       android:layout_gravity="center"/>
+  </item>
+  <item>
+    <shape android:shape="rectangle" android:padding="10dp">
+      <corners
+           android:bottomRightRadius="5dp"
+           android:bottomLeftRadius="5dp"
+           android:topLeftRadius="5dp"
+           android:topRightRadius="5dp"/>
+    </shape>
   </item>
 </layer-list>
