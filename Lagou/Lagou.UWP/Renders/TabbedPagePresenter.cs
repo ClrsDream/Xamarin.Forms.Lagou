@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using System.Reflection;
 
 namespace Lagou.UWP.Renders {
-    internal class TabbedPagePresenter : ContentPresenter {
+    internal class TabbedPagePresenter : Windows.UI.Xaml.Controls.ContentPresenter {
         public TabbedPagePresenter() {
             this.SizeChanged += TabbedPagePresenter_SizeChanged;
         }
