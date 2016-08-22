@@ -21,11 +21,11 @@ namespace Lagou.Droid.Renders {
         protected override void OnElementChanged(VisualElement oldElement, VisualElement newElement) {
             base.OnElementChanged(oldElement, newElement);
 
-            //if not do this, in Android 5.1.1, well have a whrite space between navigation bar and tab bar.
-            var fld = typeof(MasterDetailPageRenderer).GetField("detailLayout", BindingFlags.NonPublic | BindingFlags.Instance);
-            var fldValue = fld.GetValue(this);
-            var p = fld.FieldType.GetProperty("TopPadding", BindingFlags.Public | BindingFlags.Instance);
-            p.SetValue(fldValue, 0);
+            ////if not do this, in Android 5.1.1, well have a whrite space between navigation bar and tab bar.
+            //var fld = typeof(MasterDetailPageRenderer).GetField("detailLayout", BindingFlags.NonPublic | BindingFlags.Instance);
+            //var fldValue = fld.GetValue(this);
+            //var p = fld.FieldType.GetProperty("TopPadding", BindingFlags.Public | BindingFlags.Instance);
+            //p.SetValue(fldValue, 0);
         }
     }
 }

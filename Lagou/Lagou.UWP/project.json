@@ -9,7 +9,7 @@
     "Microsoft.Bcl.Build": "1.0.21",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Win2D.uwp": "1.17.0",
-    "Xamarin.Forms": "2.1.0.6529",
+    "Xamarin.Forms": "2.3.1.114",
     "xamlspy": "3.0.4",
     "XamlSpyLibs": "3.0.4"
   },
